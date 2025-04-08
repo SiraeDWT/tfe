@@ -1,0 +1,33 @@
+# Node modules
+node_modules/
+package-lock.json
+
+# Vite build output
+backend/static/assets/
+backend/static/index.html
+
+# Python virtualenv
+backend/venv/
+*.pyc
+__pycache__/
+
+# Flask settings
+instance/
+.env
+*.env
+*.env.*
+
+# macOS
+.DS_Store
+
+# VS Code settings
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS-specific
+Thumbs.db
+ehthumbs.db

@@ -1,0 +1,24 @@
+{
+  "name": "projet-lh44",
+  "version": "0.1.0",
+  "description": "Travail de fin d'études à la HEAJ",
+  "author": "Dylan Vercalsteren <dylanvercalsteren.dev@gmail.com>",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "vite build --watch && npm run sprite --watch",
+    "build": "vite build && npm run sprite",
+    "sprite": "node generate-sprite.js"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.1",
+    "postcss": "^8.4.21",
+    "autoprefixer": "^10.4.14",
+    "sass": "^1.86.1",
+    "svg-sprite": "^2.0.4",
+    "vite": "^6.2.4"
+  },
+  "dependencies": {
+    "gsap": "^3.12.7"
+  }
+}
