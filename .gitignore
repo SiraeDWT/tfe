@@ -3,8 +3,7 @@ node_modules/
 package-lock.json
 
 # Vite build output
-backend/static/assets/
-backend/static/index.html
+backend/static/
 
 # Python virtualenv
 backend/venv/
