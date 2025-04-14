@@ -6,15 +6,17 @@ echo "📦 Installation des dépendances frontend"
 npm install
 npm run build
 
-echo "📂 Copie du build dans le backend"
-rm -rf backend/static/*
-rm -rf backend/templates/*
-mkdir -p backend/static
-mkdir -p backend/templates
-cp -r dist/assets backend/static/
-cp dist/index.html backend/templates/
+echo "🧹 Nettoyage des anciens assets"
+rm -rf backend/static/assets/*
+rm -rf backend/static/icons/sprite.svg
+
+echo "📂 Copie des nouveaux fichiers générés"
+cp public/icons/sprite.svg backend/static/icons/
 
 echo "🐍 Installation des dépendances Python"
-pip install -r backend/requirements.txt
+cd backend
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
 
-echo "✅ Build terminé"
+echo "✅ Build terminé avec succès"
