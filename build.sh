@@ -14,4 +14,7 @@ mkdir -p backend/templates
 cp -r dist/assets backend/static/
 cp dist/index.html backend/templates/
 
+echo "🐍 Installation des dépendances Python"
+pip install -r backend/requirements.txt
+
 echo "✅ Build terminé"
