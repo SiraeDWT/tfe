@@ -2,11 +2,12 @@ services:
   - type: web
     name: tfe-flask-vite
     env: python
-    rootDir: backend
+    rootDir: .
+
     plan: free
 
-    buildCommand: ../build.sh
-    startCommand: gunicorn app:app -b 0.0.0.0:$PORT
+    buildCommand: ./build.sh
+    startCommand: cd backend && gunicorn app:app -b 0.0.0.0:$PORT
 
     envVars:
       - key: PYTHON_VERSION
