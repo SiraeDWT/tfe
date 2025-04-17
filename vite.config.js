@@ -16,5 +16,12 @@ export default defineConfig({
       }
     },
     cssCodeSplit: false
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        includePaths: [resolve(__dirname, 'src/scss')],
+      }
+    }
   }
 })
