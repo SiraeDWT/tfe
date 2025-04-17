@@ -10,6 +10,54 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 
-import { sayHello } from './utils/helpers.js';
+// import { navbar } from './components/menu.js';
 
-sayHello();
+// navbar();
+
+
+const tl = gsap.timeline();
+
+tl.fromTo("#transition p", 
+          { x: "-500%", display: "block" }, 
+          { x: "0", duration: 1, ease: "power4.out" }
+         )
+  .to("#transition p", { 
+  fontSize: "2560px", 
+  duration: 0.4, 
+  ease: "power4.in" 
+})
+  .to("#transition", { 
+    opacity: 0, 
+    duration: 0.1, 
+    onComplete: () => {
+        document.getElementById("transition").style.display = "none";
+    }
+});
+
+
+
+
+tl.to("#lh-img-01", {
+    x: 0,
+    opacity: 1,
+    duration: 0.4,
+    ease: "back.out(1.7)"
+})
+.to("#lh-img-02", {
+    x: 0,
+    opacity: 1,
+    duration: 0.4,
+    ease: "back.out(1.7)"
+}, "+=0.2");
+
+
+const lines = document.querySelectorAll('.svg-line');
+
+lines.forEach((line) => {
+    tl.to(line, {
+        x: 0,
+        opacity: 1,
+        duration: 0.4,
+        ease: "back.out(1.7)"
+    });
+});

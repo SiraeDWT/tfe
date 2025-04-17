@@ -3,5 +3,26 @@
 {% block title %}Projet Hamilton{% endblock %}
 
 {% block content %}
-    <div>Hello World</div>
+    <section id="home" class="home">
+        <img src="{{ url_for('static', filename='images/lh01.webp') }}" class="home__img" id="lh-img-01" alt="Photo de Lewis Hamilton avec la tenue Mercedes">
+        <img src="{{ url_for('static', filename='images/lh02.webp') }}" class="home__img home__img--mcl" id="lh-img-02" alt="Photo de Lewis Hamilton avec la tenue McLaren">
+        <div class="home__content">
+            <h1 class="home__title">Lewis Hamilton</h1>
+            <div class="home__subtitle">
+                <svg width="399" height="37" viewBox="0 0 399 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 37C0 32.0294 4.02944 28 9 28H367C367 32.9706 362.971 37 358 37H0Z" fill="#FAFAFA" class="svg-line"/>
+                    <path d="M0 23C0 18.0294 4.02944 14 9 14H384C384 18.9706 379.971 23 375 23H0Z" fill="#FAFAFA" class="svg-line"/>
+                    <path d="M0 9C0 4.02944 4.02944 0 9 0H399C399 4.97056 394.971 9 390 9H0Z" fill="#FAFAFA" class="svg-line"/>
+                </svg>
+                <h2 class="home__title-secondary">7x Champion</h2>
+            </div>
+            <p class="home__text">Imaginez un roi incontestable sans sa couronne. Comment en est-il arrivé là ?</p>
+            <p class="home__text">Découvrez le parcours légendaire du Septuple Champion du Monde qui a su faire évoluer la Formule 1 ainsi que les écuries dans lesquelles il est passé à un niveau jamais égalé.</p>    
+        </div>
+    </section>
+    <section id="presentation" class="presentation"></section>
+
+    <div id="transition">
+        <p>LH44</p>
+    </div>
 {% endblock %}

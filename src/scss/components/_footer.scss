@@ -1,0 +1,91 @@
+@use "../utils/index" as *;
+
+.footer{
+    background-color: $dark-color;
+    padding: 10px 0;
+    color: $light-color;
+
+    &__content{
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        align-items: center;
+        gap: $space-text;
+        padding: 10px 0;
+    }
+    
+    &__list{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        list-style: none;
+        padding: 0;
+
+        display: flex;
+        gap: calc($space-p/2);
+    }
+    
+    &__el a{
+        font-size: $p-font-size;
+        padding: 10px;
+        color: $link-color;
+
+        &:first-child{
+            padding-left: 0;
+        }
+
+        &:visited{
+            color: $link-color;
+        }
+
+        &:hover{
+            color: $link-hover;
+        }
+
+        &:active{
+            color: $link-active;
+        }
+    }
+
+    &__dwt{
+        display: flex;
+        flex-direction: row;
+        gap: calc($space-p/2);
+    }
+
+    &__credits{
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        gap: calc($space-p/2);
+    }
+    
+    &__copyright{
+        font-size: $p-font-size;
+    }
+    
+    .dwt{
+        -webkit-text-size-adjust: 100%;
+        font-family: source-code-pro, monospace;
+        font-weight: 400;
+        font-style: normal;
+        line-height: 1.5238095238;
+        -webkit-font-smoothing: antialiased;
+        font-size: 80%;
+        color: #707070;
+        width: 50px;
+        margin-left: 10px;
+        position: relative;
+        top: 5px;
+        transition: none;
+    
+        &__txt{
+            fill: $light-color;
+        }
+        
+        &__und{
+            fill: $primary-color;
+        }
+    }   
+}

@@ -1,0 +1,93 @@
+@use "../utils/index" as *;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: $line-height;
+}
+
+body, html{
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+
+    font-family: $formula;
+    font-style: normal;
+    font-weight: 400;
+
+    font-size: $p-font-size;
+    background-color: $dark-color;
+    color: $light-color;
+}
+
+a{
+    font-weight: 500;
+    text-decoration: none;
+    color: $link-color;
+
+    &:visited{
+        color: $link-visited;
+    }
+
+    &:hover{
+        color: $link-hover;
+    }
+
+    &:active{
+        color: $link-active;
+    }
+}
+
+.title{
+    font-family: $formulaCondensed;
+    font-weight: 400;
+}
+
+.btn{
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: calc($space-text/2);
+
+    color: $dark-color;
+    background: $light-color;
+    border-radius: 50px 0 50px 0;
+    padding: 18px 36px;
+
+    font-family: $formula;
+    font-weight: 400;
+    font-style: italic;
+    font-size: $p-font-size;
+    
+    transition: ease-in-out;
+
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.wrapper{
+    width: 50%;
+    margin: 0 auto;
+}
+
+#transition{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $dark-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+
+    p{
+        font-size: $h3-font-size;
+        color: $primary-color;
+        display: none;
+        font-family: $formulaNarrow;
+    }
+}
