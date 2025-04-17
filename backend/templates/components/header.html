@@ -1,8 +1,11 @@
-<header>
-    <nav>
-        <a href="/">Accueil</a>
-        <a href="/parcours">Parcours</a>
-        <a href="/records">Records</a>
-        <a href="/voitures">Voitures</a>
+<header id="header" class="header">
+    <nav class="menu">
+        <a href="#"><img src="{{ url_for('static', filename='images/logo.webp') }}" class="menu__logo" alt="Logo LH44"></a>
+        <ul class="menu__list">
+            <li class="menu__el"><a href="/" class="menu__link">Accueil</a></li>
+            <li class="menu__el"><a href="/parcours" class="menu__link">Parcours</a></li>
+            <li class="menu__el"><a href="/records" class="menu__link">Records</a></li>
+            <li class="menu__el"><a href="/voitures" class="menu__link">Voitures</a></li>
+        </ul>
     </nav>
 </header>
