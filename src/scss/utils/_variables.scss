@@ -1,0 +1,52 @@
+// Base rapport
+$base: 18px;
+$rapport: 1.414;
+
+
+// Font sizes
+$p-font-size: $base;
+$h6-font-size: 25px;
+$h5-font-size: 36px;
+$h4-font-size: 51px;
+$h3-font-size: 72px;
+$h2-font-size: 102px;
+$h1-font-size: 144px;
+
+
+// Spaces
+$space-text: $base;
+$space-p: 36px;
+$space-h6: 50px;
+$space-h5: 72px;
+$space-h4: 102px;
+$space-h3: 144px;
+$space-h2: 204px;
+$space-h1: 288px;
+
+$line-height: 150%;
+
+
+// Fonts
+$formula: 'PPFormula', sans-serif;
+$formulaCondensed: 'PPFormulaCondensed', sans-serif;
+$formulaNarrow: 'PPFormulaNarrow', sans-serif;
+
+
+// Colors
+$light-color: #FAFAFA;
+$dark-color: #121212;
+
+$primary-color: #F7D417;
+$secondary-color: #6D00CC;
+
+$link-color: $primary-color;
+$link-hover: #CCAC00;
+$link-active: #F8DE51;
+$link-visited: $primary-color;
+
+
+// Colors changed
+
+
+// Breakpoints
+$breakpoint-mobile: 640px;
