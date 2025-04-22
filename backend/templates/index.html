@@ -6,6 +6,7 @@
     <section id="home" class="home">
         <img src="{{ url_for('static', filename='images/lh01.webp') }}" class="home__img" id="lh-img-01" alt="Photo de Lewis Hamilton avec la tenue Mercedes">
         <img src="{{ url_for('static', filename='images/lh02.webp') }}" class="home__img home__img--mcl" id="lh-img-02" alt="Photo de Lewis Hamilton avec la tenue McLaren">
+        <img src="{{ url_for('static', filename='icons/silver-arrow.svg') }}" class="home__svg" id="silver-arrow-01">
         <div class="home__content">
             <h1 class="home__title">Lewis Hamilton</h1>
             <div class="home__subtitle">
@@ -14,14 +15,24 @@
                     <path d="M0 23C0 18.0294 4.02944 14 9 14H384C384 18.9706 379.971 23 375 23H0Z" fill="#FAFAFA" class="svg-line"/>
                     <path d="M0 9C0 4.02944 4.02944 0 9 0H399C399 4.97056 394.971 9 390 9H0Z" fill="#FAFAFA" class="svg-line"/>
                 </svg>
-                {# <svg>
-                    <use xlink:href="../static/icons/sprite.svg#triple-line"></use>
-                </svg> #}
                 <h2 class="home__title-secondary">7x Champion</h2>
             </div>
             <p class="home__text">Imaginez un roi incontestable sans sa couronne. Comment en est-il arrivé là ?</p>
             <p class="home__text">Découvrez le parcours légendaire du Septuple Champion du Monde qui a su faire évoluer la Formule 1 ainsi que les écuries dans lesquelles il est passé à un niveau jamais égalé.</p>    
         </div>
+        <div class="pattern-bg"></div>
     </section>
-    <section id="presentation" class="presentation"></section>
+    <section id="presentation" class="presentation">
+        <h2 class="presentation__title">Un parcours hors du commun</h2>
+        <div class="presentation__content">
+            <p>Depuis ses débuts en Formule 1 lors de la saison 2007, Hamilton n’a cessé d’enchaîner les succès, les records ainsi que les victoires mais comment tout cela s’est déroulé ?</p>
+            <p>Comment le premier pilote noir de la catégorie a réussi à se hisser à ce qu’il est aujourd’hui ?</p>
+        </div>
+        <a href="{{ url_for('parcours') }}" class="btn">
+            <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.06775 22.9167L7.76046 15.599L2.08337 10.6771L9.58337 10.026L12.5 3.125L15.4167 10.026L22.9167 10.6771L17.2396 15.599L18.9323 22.9167L12.5 19.0365L6.06775 22.9167Z" fill="#FAFAFA"/>
+            </svg>
+            <span>Son parcours</span>
+        </a>
+    </section>
 {% endblock %}
