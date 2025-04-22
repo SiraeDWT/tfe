@@ -43,18 +43,24 @@ mm.add("(min-width: 1440px)", () => {
     }
 
     if(index){
-        tl.to("#lh-img-01", {
-            x: 0,
-            opacity: 1,
+        tl.from("#lh-img-01", {
+            x: '-10%',
+            opacity: 0,
             duration: 0.4,
             ease: "back.out(1.7)"
         })
-        .to("#lh-img-02", {
-            x: 0,
-            opacity: 1,
+        .from("#lh-img-02", {
+            x: '-10%',
+            opacity: 0,
             duration: 0.4,
             ease: "back.out(1.7)"
-        }, "+=0.2");
+        }, "+=0.2")
+        .from("#silver-arrow-01", {
+            x: '-10%',
+            opacity: 0,
+            duration: 0.4,
+            ease: "back.out(1.7)"
+        });
     
     
         const lines = document.querySelectorAll('.svg-line');
