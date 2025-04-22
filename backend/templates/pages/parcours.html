@@ -3,9 +3,25 @@
 {% block title %}Projet Hamilton{% endblock %}
 
 {% block content %}
+    <h1>Le parcours de Lewis Hamilton</h1>
 
+    {% for ecurie, ecurie_data in data.items() %}
+        <section id="{% if ecurie == 'mclaren' %}mclaren{% elif ecurie == 'mercedes' %}mercedes{% elif ecurie == 'ferrari' %}ferrari{% endif %}">
+            <h2>{{ ecurie }}</h2>
 
-    <div id="transition">
-        <p>LH44</p>
-    </div>
+            {% for annee, details in ecurie_data.years.items() %}
+                <div>
+                    <h3>{{ annee }} – {{ details.title }}</h3>
+
+                    {% for phrase in details.story %}
+                        <p>{{ phrase }}</p>
+                    {% endfor %}
+
+                    {% if details.image %}
+                        <img src="{{ details.image }}" alt="{{ annee }}">
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </section>
+    {% endfor %}
 {% endblock %}
