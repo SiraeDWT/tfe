@@ -1,11 +1,11 @@
 <header id="header" class="header">
     <nav class="menu">
-        <a href="#"><img src="{{ url_for('static', filename='images/logo.webp') }}" class="menu__logo" alt="Logo LH44"></a>
+        <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='images/logo.webp') }}" class="menu__logo" alt="Logo LH44"></a>
         <ul class="menu__list">
-            <li class="menu__el"><a href="/" class="menu__link">Accueil</a></li>
-            <li class="menu__el"><a href="/parcours" class="menu__link">Parcours</a></li>
-            <li class="menu__el"><a href="/records" class="menu__link">Records</a></li>
-            <li class="menu__el"><a href="/voitures" class="menu__link">Voitures</a></li>
+            <li class="menu__el"><a href="{{ url_for('index') }}" class="menu__link {% if request.path == '/' %}menu__link--active{% endif %}">Accueil</a></li>
+            <li class="menu__el"><a href="{{ url_for('parcours') }}" class="menu__link {% if request.path == '/parcours' %}menu__link--active{% endif %}">Parcours</a></li>
+            <li class="menu__el"><a href="{{ url_for('records') }}" class="menu__link {% if request.path == '/records' %}menu__link--active{% endif %}">Records</a></li>
+            <li class="menu__el"><a href="{{ url_for('voitures') }}" class="menu__link {% if request.path == '/voitures' %}menu__link--active{% endif %}">Voitures</a></li>
         </ul>
     </nav>
 </header>
