@@ -14,14 +14,24 @@
 
         z-index: 20;
 
-        opacity: 0;
-        transform: translateX(-100px);
+        opacity: 1;
 
         &--mcl{
             left: 12%;
 
             z-index: 19;
         }
+    }
+
+    &__svg{
+        position: absolute;
+        top: 50%;
+        left: 10%;
+
+        opacity: 1;
+        transform: translate(-50%, -50%);
+
+        z-index: 10;
     }
 
     &__content{
@@ -62,6 +72,29 @@
     }
 }
 
+.pattern-bg{
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+
+    background-image: url('/static/icons/one-silver-arrow.svg');
+    background-repeat: repeat;
+    background-size: 180px;
+    background-position: center;
+    opacity: 0.02;
+    animation: move-diagonal 30s linear infinite;
+}
+
+@keyframes move-diagonal{
+    0%{
+        background-position: 0 0;
+    }
+    100%{
+        background-position: -500px -350px;
+    }
+}
+
 .svg-line{
     opacity: 0;
     transform: translateX(-100px);
@@ -69,5 +102,19 @@
 
 .presentation{
     width: 100%;
-    height: 100vh;
+    // height: 100vh;
+
+    padding: $space-h3;
+
+    color: $dark-color;
+    background: $light-color;
+
+    &__title{
+        font-size: $h3-font-size;
+        font-family: $formulaNarrow;
+    }
+
+    &__content{
+        padding: $space-h6 0 $space-p;
+    }
 }
