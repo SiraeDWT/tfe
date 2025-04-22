@@ -1,0 +1,62 @@
+@use "../utils/index" as *;
+
+.menu{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $space-h4;
+    backdrop-filter: blur(25px);
+    z-index: 100;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 $space-h5;
+
+    &__logo{
+        width: 75px;
+    }
+
+    &__list{
+        list-style: none;
+        display: flex;
+        align-items: center;
+        gap: $space-p;
+    }
+
+    &__link{
+        padding: 10px;
+        color: $light-color;
+
+        &:visited{
+            color: $light-color;
+        }
+    
+        &:hover{
+            color: $link-color;
+        }
+    
+        &:active{
+            color: $link-active;
+        }
+
+        &--active{
+            position: relative;
+            display: inline-block;
+    
+            &::after{
+                content: "";
+                position: absolute;
+                transform: translateX(-50%);
+                left: 50%; bottom: 0px;
+                
+                width: 9px;
+                height: 9px;
+                background-color: $link-color;
+                border-radius: 50%;
+            }
+        } 
+    }
+}
