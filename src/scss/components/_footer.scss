@@ -2,16 +2,19 @@
 
 .footer{
     background-color: $dark-color;
-    padding: 10px 0;
     color: $light-color;
+    height: $space-h4;
+    
+    display: flex;
+    align-items: center;
 
     &__content{
         display: flex;
-        justify-content: center;
-        flex-direction: row;
+        justify-content: space-between;
         align-items: center;
         gap: $space-text;
-        padding: 10px 0;
+        padding: 0 $space-h5;
+        width: 100%;
     }
     
     &__list{
@@ -77,7 +80,6 @@
         width: 50px;
         margin-left: 10px;
         position: relative;
-        top: 5px;
         transition: none;
     
         &__txt{
@@ -88,4 +90,10 @@
             fill: $primary-color;
         }
     }   
+
+    .svg__dwt{
+        display: flex;
+        align-items: center;
+        gap: $space-text;
+    }
 }
