@@ -12,6 +12,34 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 
+// Sticky nav
+let oldScrollY = 0;
+const menu = document.querySelector('.menu');
+
+const mediaQuery = window.matchMedia('(min-width: 1024px)');
+
+if(mediaQuery.matches){
+    window.addEventListener('scroll', scrollListener);
+}
+
+function scrollListener() {
+    if(oldScrollY > window.scrollY){
+        menu.classList.remove('menu--hide');
+    } else{
+        menu.classList.add('menu--hide');
+    }
+    oldScrollY = window.scrollY;
+}
+
+mediaQuery.addEventListener('change', (e) => {
+    if(e.matches){
+        window.addEventListener('scroll', scrollListener);
+    } else{
+        window.removeEventListener('scroll', scrollListener);
+    }
+});
+
+
 const index = document.querySelector('.home');
 const transition = document.querySelector('#transition');
 
@@ -60,50 +88,15 @@ mm.add("(min-width: 1440px)", () => {
             opacity: 0,
             duration: 0.4,
             ease: "back.out(1.7)"
+        })
+        .from(".home__content", {
+            x: '10%',
+            opacity: 0,
+            duration: 0.4,
+            ease: "back.out(1.7)"
         });
     
-    
-        const lines = document.querySelectorAll('.svg-line');
-    
-        lines.forEach((line) => {
-            tl.to(line, {
-                x: 0,
-                opacity: 1,
-                duration: 0.4,
-                ease: "back.out(1.7)"
-            });
-        });
 
-        
-
-
-        // const targetText = "« Le moment où vous abandonnez, c'est le moment où vous laissez quelqu'un d'autre gagner. »";
-        // const quoteEl = document.querySelector("#quote");
-
-        // gsap.set(quoteEl, { opacity: 0 });
-
-        // ScrollTrigger.create({
-        //     trigger: "#citation",
-        //     start: "top 90%",
-        //     once: true,
-        //     onEnter: () => {
-        //         gsap.to(quoteEl, {
-        //             opacity: 1,
-        //             duration: 0.3,
-        //             onComplete: () => typeText(targetText)
-        //         });
-        //     }
-        // });
-
-        // function typeText(text) {
-        //     quoteEl.textContent = "";
-        //     let index = 0;
-        //     const interval = setInterval(() => {
-        //         quoteEl.textContent += text.charAt(index);
-        //         index++;
-        //         if (index >= text.length) clearInterval(interval);
-        //     }, 30);
-        // }
 
         const targetText = "« Le moment où vous abandonnez, c'est le moment où vous laissez quelqu'un d'autre gagner. »";
         const quoteEl = document.getElementById("quote");
@@ -140,8 +133,5 @@ mm.add("(min-width: 1440px)", () => {
                 }
             }, 50);
         }
-
-
-
     }
 });
