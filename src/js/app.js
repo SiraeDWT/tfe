@@ -133,5 +133,52 @@ mm.add("(min-width: 1440px)", () => {
                 }
             }, 50);
         }
+
+
+        gsap.from('.presentation__title', {
+            x: '-15%',
+            duration: 0.7,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: '.presentation',
+                start: 'top 40%',
+                end: 'bottom 30%',
+            }
+        });
+
+        gsap.from('.presentation__text', {
+            x: '-15%',
+            duration: 0.7,
+            opacity: 0,
+            stagger: 0.2,
+            scrollTrigger: {
+                trigger: '.presentation',
+                start: 'top 40%',
+                end: 'bottom 30%',
+            }
+        });
+
+        gsap.from('.presentation__btn', {
+            x: '-15%',
+            duration: 0.7,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: '.presentation',
+                start: 'top 40%',
+                end: 'bottom 30%',
+            }
+        });
+
+        gsap.from('.presentation__right', {
+            y: '-15%',
+            duration: 1.4,
+            opacity: 0,
+            stagger: 0.2,
+            scrollTrigger: {
+                trigger: '.presentation',
+                start: 'top 40%',
+                end: 'bottom 30%',
+            }
+        });
     }
 });
