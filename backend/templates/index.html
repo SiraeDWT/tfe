@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% block title %}Projet Hamilton{% endblock %}
+{% block title %}Découvrez la légende • LH44{% endblock %}
 
 {% block content %}
     <section id="home" class="home">
@@ -31,16 +31,23 @@
         </div>
     </section>
     <section id="presentation" class="presentation">
-        <h2 class="presentation__title">Un parcours hors du commun</h2>
-        <div class="presentation__content">
-            <p>Depuis ses débuts en Formule 1 lors de la saison 2007, Hamilton n’a cessé d’enchaîner les succès, les records ainsi que les victoires mais comment tout cela s’est déroulé ?</p>
-            <p>Comment le premier pilote noir de la catégorie a réussi à se hisser à ce qu’il est aujourd’hui ?</p>
+        <div class="">
+            <h2 class="presentation__title">Naissance d’une légende</h2>
+            <div class="presentation__content">
+                <p class="presentation__text">Lewis Hamilton, voici un nom que les gens ne connaissent pas encore en 1993 lorsqu'il commence le karting. Pourtant, cet enfant, âgé seulement de 8 ans montre qu'il a un talent exceptionnel derrière un volant.</p>
+                <p class="presentation__text">En 1998, à seulement 13 ans, il impressionne le patron de McLaren, Ron Dennis, à qui il promet qu'il roulera pour eux en Formule 1 dans le futur.</p>
+                <p class="presentation__text">McLaren et Mercedes décident de financer sa carrière en junior et c'est ainsi qu'en 2001, il rejoint les formules de promotion jusqu'en 2006.</p>
+                <p class="presentation__text presentation__text--last">Après les différents titres de formules de promotion en sa possession, il accède au graal de tout pilote, la Formule 1 pour la saison 2007.</p>
+            </div>
+            <a href="{{ url_for('parcours') }}" class="btn">
+                <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.06775 22.9167L7.76046 15.599L2.08337 10.6771L9.58337 10.026L12.5 3.125L15.4167 10.026L22.9167 10.6771L17.2396 15.599L18.9323 22.9167L12.5 19.0365L6.06775 22.9167Z" fill="#FAFAFA"/>
+                </svg>
+                <span class="btn__text">Son parcours</span>
+            </a>
         </div>
-        <a href="{{ url_for('parcours') }}" class="btn">
-            <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6.06775 22.9167L7.76046 15.599L2.08337 10.6771L9.58337 10.026L12.5 3.125L15.4167 10.026L22.9167 10.6771L17.2396 15.599L18.9323 22.9167L12.5 19.0365L6.06775 22.9167Z" fill="#FAFAFA"/>
-            </svg>
-            <span class="btn__text">Son parcours</span>
-        </a>
+        <div>
+            <img src="{{ url_for('static', filename='images/crown-lh.webp') }}" class="presentation__img" alt="">
+        </div>
     </section>
 {% endblock %}
