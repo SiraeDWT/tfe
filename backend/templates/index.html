@@ -32,20 +32,44 @@
     </section>
     <section id="presentation" class="presentation">
         <div class="presentation__left">
-            <h2 class="presentation__title">Naissance d’une légende</h2>
+            <h2 class="presentation__title">Naissance d’une légende
+                <span>
+                    <svg width="51" height="51" viewBox="0 0 724 566" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M600 561.259C600 561.259 138.667 571.926 22 561.259C7.6 536.459 1.33333 440.926 0 396.259L30 331.259L200 319.259C200 319.259 233.667 267.926 233 248.259L82 209.259L98 172.259H117C117 172.259 245 -7.74102 398 0.258979C551 8.25898 662 80.259 714 238.259C755.6 364.659 655.333 506.259 600 561.259Z" fill="#121212"/>
+                    </svg>
+                </span>
+            </h2>
             <div class="presentation__content">
                 <p class="presentation__text">Lewis Hamilton, voici un nom que les gens ne connaissent pas encore en 1993 lorsqu'il commence le karting. Pourtant, cet enfant, âgé seulement de 8 ans montre qu'il a un talent exceptionnel derrière un volant.</p>
                 <p class="presentation__text">En 1998, à seulement 13 ans, il impressionne le patron de McLaren, Ron Dennis, à qui il promet qu'il roulera pour eux en Formule 1 dans le futur.</p>
                 <p class="presentation__text">McLaren et Mercedes décident de financer sa carrière en junior et c'est ainsi qu'en 2001, il rejoint les formules de promotion jusqu'en 2006.</p>
-                <p class="presentation__text presentation__text--last">Après les différents titres de formules de promotion en sa possession, il accède au graal de tout pilote, la Formule 1, lors de la saison 2007.</p>
+                <p class="presentation__text">Après les différents titres de formules de promotion en sa possession, il accède au graal de tout pilote, la Formule 1, lors de la saison 2007.</p>
+                <p class="presentation__text presentation__text--last">À partir de là, plus rien de pourra l'arrêter pour devenir le pilote le plus titré de la discipline. Le roi est en marche.</p>
             </div>
-            <a href="{{ url_for('parcours') }}" class="btn">
+            <a href="{{ url_for('parcours') }}" class="btn presentation__btn">
                 <span class="btn__text">Son parcours</span>
                 <svg width="18" height="18" viewBox="0 0 40 33" xmlns="http://www.w3.org/2000/svg"><path d="M0.974373 16.474C0.974373 15.5929 1.68869 14.8786 2.56984 14.8786H33.9889L19.1624 0.052002L23.623 0.153624L39.9434 16.474L23.4173 33L19.1881 32.8937L33.9889 18.0695H2.56985C1.68869 18.0695 0.974373 17.3552 0.974373 16.474Z" fill="#FAFAFA" /></svg>
             </a>
         </div>
         <div class="presentation__right">
             <img src="{{ url_for('static', filename='images/lh-ferrari.webp') }}" class="presentation__img" alt="Photo de Lewis Hamilton tenant une coupe de champion du monde">
+        </div>
+    </section>
+    <section id="score" class="score">
+        <div class="score__left">
+            <h2 class="score__title">Records légendaires</h2>
+            <div class="score__content">
+                <p class="score__text">Lorsqu’on parle de Lewis Hamilton, tout le monde sait qu’on parle du Septuple Champion du Monde de Formule 1 mais pourquoi ?</p>
+                <p class="score__text">Ses victoires sont une majeure partie de sa renommée mais ses records y contribuent tout autant.</p>
+                <p class="score__text score__text--last">Avec plus d’une centaine de victoire à son actif, Lewis détient des records qui marquent profondément l’histoire de la catégorie reine.</p>
+            </div>
+            <a href="{{ url_for('records') }}" class="btn btn--dark score__btn">
+                <span class="btn__text">Son parcours</span>
+                <svg width="18" height="18" viewBox="0 0 40 33" xmlns="http://www.w3.org/2000/svg"><path d="M0.974373 16.474C0.974373 15.5929 1.68869 14.8786 2.56984 14.8786H33.9889L19.1624 0.052002L23.623 0.153624L39.9434 16.474L23.4173 33L19.1881 32.8937L33.9889 18.0695H2.56985C1.68869 18.0695 0.974373 17.3552 0.974373 16.474Z" fill="#FAFAFA" /></svg>
+            </a>
+        </div>
+        <div class="score__right">
+            <img src="{{ url_for('static', filename='images/bahrain.jpg') }}" class="score__img" alt="">
         </div>
     </section>
 {% endblock %}
