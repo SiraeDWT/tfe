@@ -10,9 +10,9 @@
 
     &__content{
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
-        gap: $space-text;
+        gap: $space-h3;
         padding: 0 $space-h5;
         width: 100%;
     }
@@ -53,7 +53,6 @@
 
     &__dwt{
         display: flex;
-        flex-direction: row;
         gap: calc($space-p/2);
     }
 
