@@ -48,7 +48,7 @@ body, html{
 
     display: inline-flex;
     align-items: center;
-    gap: calc($space-text/2);
+    gap: $space-text;
 
     vertical-align: middle;
 
@@ -79,6 +79,7 @@ body, html{
     }
 
     path{
+        transition: all $transition-left;
         fill: $light-color;
     }
 
