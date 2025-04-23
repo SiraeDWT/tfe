@@ -52,23 +52,29 @@ body, html{
 
     vertical-align: middle;
 
-    color: $light-color;
-    background: $dark-color;
-    border-radius: 50px 0 50px 0;
+    border-radius: calc($base/2);
     padding: 18px 36px;
 
     font-family: $formula;
-    font-weight: 500;
+    font-weight: 400;
     // font-style: italic;
     font-size: $p-font-size;
     
-    transition: ease-in-out;
-
     position: relative;
     overflow: hidden;
     z-index: 10;
 
-    span{
+	background: linear-gradient(90deg, $primary-color 0%, $primary-color 100%);
+    color: $light-color;
+    background-color: $dark-color;
+	background-size: 0% 100%;
+	background-repeat: no-repeat;
+	background-position: left;
+	transition: all 0.25s cubic-bezier(.4, 0, .2, 1) 0s;
+
+    text-decoration: none;
+
+    &__text{
         padding-top: 5px;
     }
 
@@ -77,12 +83,16 @@ body, html{
     }
 
     &:hover{
-        background: $primary-color;
         color: $dark-color;
+        background-size: 100% 100%;
         
         path{
             fill: $dark-color;
         }
+    }
+
+    &:active{
+        transform: translateX(2%);
     }
 
     &--dark{
