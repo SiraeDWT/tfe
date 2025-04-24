@@ -1,4 +1,10 @@
 @use "../utils/index" as *;
 
 @media (-webkit-min-device-pixel-ratio: 2),
-(min-resolution: 192dpi) {}
+(min-resolution: 192dpi) {
+    .citation{
+        &::before{
+            background-image: url('/static/images/swr-lh@2x.webp');
+        }
+    }
+}
