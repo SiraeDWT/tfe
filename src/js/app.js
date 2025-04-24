@@ -46,30 +46,32 @@ const transition = document.querySelector('#transition');
 const tl = gsap.timeline();
 const mm = gsap.matchMedia();
 
+if(transition){
+    tl.fromTo("#transition p", 
+        { x: "-500%", display: "block" }, 
+        { x: "0", duration: 1, ease: "power4.out" }
+        )
+    .to("#transition p", { 
+        fontSize: "2560px", 
+        duration: 0.4, 
+        ease: "power4.in" 
+    })
+    .to("#transition", { 
+        opacity: 0, 
+        duration: 0.1, 
+        onComplete: () => {
+            document.getElementById("transition").style.display = "none";
+        }
+    });
+}
+
 // Mobile
-mm.add("(max-width: 1439px)", () => {});
+mm.add("(max-width: 1439px)", () => {
+    
+});
 
 // Desktop
 mm.add("(min-width: 1440px)", () => {
-    if(transition){
-        tl.fromTo("#transition p", 
-            { x: "-500%", display: "block" }, 
-            { x: "0", duration: 1, ease: "power4.out" }
-            )
-        .to("#transition p", { 
-            fontSize: "2560px", 
-            duration: 0.4, 
-            ease: "power4.in" 
-        })
-        .to("#transition", { 
-            opacity: 0, 
-            duration: 0.1, 
-            onComplete: () => {
-                document.getElementById("transition").style.display = "none";
-            }
-        });
-    }
-
     if(index){
         tl.from("#lh-img-01", {
             x: '-10%',
@@ -178,6 +180,64 @@ mm.add("(min-width: 1440px)", () => {
                 trigger: '.presentation',
                 start: 'top 40%',
                 end: 'bottom 30%',
+            }
+        });
+
+
+
+        const titles = gsap.utils.toArray('.score__title');
+
+        gsap.set(titles, { opacity: 0, x: 100 });
+
+        let tlScore = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".score",
+                start: "top top",
+                end: `+=${(titles.length - 1) * 200 + 100}%`,
+                scrub: true,
+                pin: true,
+                anticipatePin: 1,
+                markers: false
+            }
+        });
+
+        titles.forEach((title, i) => {
+            tlScore.to(title, {
+                opacity: 1,
+                x: 0,
+                duration: 1,
+                ease: "elastic.out(1,0.3)",
+            });
+
+            if(i < titles.length - 1){
+                tlScore.to(title, {
+                opacity: 0,
+                x: -100,
+                duration: 1,
+                ease: "elastic.out(1,0.3)",
+                }, "+=0.5");
+            }
+        });
+
+
+        const path = document.querySelector('#scorePath');
+        const pathLength = path.getTotalLength();
+
+
+        gsap.set(path, {
+            strokeDasharray: pathLength,
+            strokeDashoffset: -pathLength
+        });
+
+
+        gsap.to(path, {
+            strokeDashoffset: 0,
+            duration: 7,
+            ease: "power2.out",
+            scrollTrigger: {
+            trigger: ".score",
+            start: "top 80%",
+            toggleActions: "play none none none",
             }
         });
     }

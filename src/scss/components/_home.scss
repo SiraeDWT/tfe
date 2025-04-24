@@ -200,13 +200,9 @@
     }
 
     &__title{
-        font-size: $h4-font-size;
+        font-size: $h3-font-size;
         font-family: $formulaNarrow;
         line-height: 120%;
-
-        display: flex;
-        align-items: center;
-        gap: $space-p;
     }
 
     &__content{
@@ -249,63 +245,160 @@
     }
 }
 
+// .score{
+//     width: 100%;
+//     height: 100vh;
+
+//     position: relative;
+//     top: 0; left: 0; right: 0; bottom: 0;
+
+//     display: flex;
+//     gap: $space-h5;
+
+//     &__left{
+//         padding: $space-h4 $space-h3;
+
+//         flex-basis: 0%;
+//         flex-grow: 1;
+//         flex-shrink: 1;
+
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+//         gap: $space-p;
+//     }
+
+//     &__title{
+//         font-size: $h4-font-size;
+//         font-family: $formulaNarrow;
+//         line-height: 120%;
+
+//         display: flex;
+//         align-items: center;
+//         // gap: $space-p;
+
+//         span{
+//             font-size: calc($h1-font-size*$rapport*$rapport);
+//             color: $primary-color;
+//         }
+//     }
+
+//     &__content{
+//         padding: $space-h6 0 $space-p;
+//     }
+
+//     &__text{
+//         margin-bottom: $space-p;
+
+//         &--last{
+//             margin-bottom: 0;
+//         }
+
+//         span{
+//             font-size: $h3-font-size;
+//             font-weight: bold;
+//             color: $primary-color;
+//         }
+//     }
+
+//     &__right{
+//         display: flex;
+//         flex-basis: 0%;
+//         flex-grow: 1;
+//         flex-shrink: 1;
+//         padding-right: $space-h5;
+//     }
+
+//     &__img{
+//         width: 100%;
+//         height: 100%;
+//         object-fit: cover;
+//     }
+// }
+
+
 .score{
     width: 100%;
     height: 100vh;
 
     position: relative;
-    top: 0; left: 0; right: 0; bottom: 0;
+    overflow: hidden;
 
-    display: flex;
-    gap: $space-h5;
+    border-bottom: 2px solid $primary-color;
 
-    &__left{
-        padding: $space-h4 $space-h3;
-
-        flex-basis: 0%;
-        flex-grow: 1;
-        flex-shrink: 1;
+    &__title-wrapper{
+        position: relative;
+        height: 100%;
+        width: 100%;
     }
 
     &__title{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        opacity: 0;
+        transform: translate(-50%, -50%);
+        transition: opacity $transition-left, transform $transition-left;
+    
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: $space-p;
+
         font-size: $h4-font-size;
         font-family: $formulaNarrow;
         line-height: 120%;
 
-        display: flex;
-        align-items: center;
-        gap: $space-p;
+        z-index: 20;
+        pointer-events: none;
+
+        &--visible{
+            opacity: 1;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    @function scale-font($base, $ratio, $power: 2) {
+        @return $base * pow($ratio, $power);
+    }
+
+    &__number{
+        font-size: scale-font($h1-font-size, $rapport);
+        color: $primary-color;
     }
 
     &__content{
-        padding: $space-h6 0 $space-p;
-    }
-
-    &__text{
-        margin-bottom: $space-p;
-
-        &--last{
-            margin-bottom: 0;
-        }
-
-        span{
-            font-size: $h3-font-size;
-            font-weight: bold;
-            color: $primary-color;
-        }
-    }
-
-    &__right{
-        display: flex;
-        flex-basis: 0%;
-        flex-grow: 1;
-        flex-shrink: 1;
-        padding-right: $space-h5;
-    }
-
-    &__img{
-        width: 100%;
         height: 100%;
-        object-fit: cover;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: $space-h4;
     }
+
+    &__btn{
+        position: absolute;
+        transform: translateX(-50%);
+        top: 65%; left: 50%;
+    }
+
+    &__svg{
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%; left: 50%;
+        width: 80%; height: 80%;
+        opacity: 0.5;
+        z-index: -1;
+
+        path{
+            stroke: $secondary-color;
+            stroke-width: 5px;
+        }
+    }
+}
+
+.cars{
+    width: 100%;
+    height: 100vh;
 }
