@@ -1,0 +1,62 @@
+@use "../utils/index" as *;
+
+.top{
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: calc($space-p/3);
+
+    color: $light-color;
+    background: $dark-color;
+    padding: calc($space-p/4) calc($space-p/2);
+    border: 1px solid $primary-color;
+
+    font-size: $p-font-size;
+
+    transition: ease-in-out;
+
+    position: fixed;
+    bottom: $space-p;
+    right: $space-p;
+    width: 44px;
+    height: 44px;
+    overflow: hidden;
+    z-index: 20;
+
+    rotate: -90deg;
+
+
+    &:visited, &:hover, &:active{
+        color: $light-color;
+    }
+
+    &:active{
+        transform: scale(105%);
+        transform-origin: center;
+    }
+
+    & svg{
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        fill: $light-color;
+        transition: fill 0.3s cubic-bezier(0.83, 0, 0.17, 1);
+    }
+
+    &:hover {
+        & path{
+            fill: $primary-color;
+            transition: fill 0.3s cubic-bezier(0.83, 0, 0.17, 1);
+        }
+    }
+
+    &--show{
+        display: block;
+    }
+
+    &--hide{
+        display: none;
+    }
+}
