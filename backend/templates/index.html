@@ -4,8 +4,8 @@
 
 {% block content %}
     <section id="home" class="home">
-        <img src="{{ url_for('static', filename='images/lh01.webp') }}" class="home__img" id="lh-img-01" alt="Photo de Lewis Hamilton avec la tenue Mercedes">
-        <img src="{{ url_for('static', filename='images/lh02.webp') }}" class="home__img home__img--mcl" id="lh-img-02" alt="Photo de Lewis Hamilton avec la tenue McLaren">
+        <img src="{{ url_for('static', filename='images/lh01.webp') }}" srcset="{{ url_for('static', filename='images/lh01@2x.webp') }} 2x" class="home__img" id="lh-img-01" alt="Photo de Lewis Hamilton avec la tenue Mercedes">
+        <img src="{{ url_for('static', filename='images/lh02.webp') }}" srcset="{{ url_for('static', filename='images/lh02@2x.webp') }} 2x" class="home__img home__img--mcl" id="lh-img-02" alt="Photo de Lewis Hamilton avec la tenue McLaren">
         <img src="{{ url_for('static', filename='icons/silver-arrow.svg') }}" class="home__svg" id="silver-arrow-01">
         <div class="home__content">
             <h1 class="home__title">Lewis Hamilton</h1>
@@ -46,26 +46,9 @@
             </a>
         </div>
         <div class="presentation__right">
-            <img src="{{ url_for('static', filename='images/lh-ferrari.webp') }}" class="presentation__img" alt="Photo de Lewis Hamilton tenant une coupe de champion du monde">
+            <img src="{{ url_for('static', filename='images/lh-ferrari.webp') }}" srcset="{{ url_for('static', filename='images/lh-ferrari@2x.webp') }} 2x" class="presentation__img" alt="Photo de Lewis Hamilton en tenue Ferrari tenant son casque jaune">
         </div>
     </section>
-    {# <section id="score" class="score">
-        <div class="score__left">
-            <h2 class="score__title">Records légendaires</h2>
-            <div class="score__content">
-                <p class="score__text">Lorsqu’on parle de Lewis Hamilton, tout le monde sait qu’on parle du Septuple Champion du Monde de Formule 1 mais pourquoi ?</p>
-                <p class="score__text">Ses victoires sont une majeure partie de sa renommée mais ses records y contribuent tout autant.</p>
-                <p class="score__text score__text--last">Avec plus d’une centaine de victoire à son actif, Lewis détient des records qui marquent profondément l’histoire de la catégorie reine.</p>
-            </div>
-            <a href="{{ url_for('records') }}" class="btn btn--dark score__btn">
-                <span class="btn__text">Son parcours</span>
-                <svg width="18" height="18" viewBox="0 0 40 33" xmlns="http://www.w3.org/2000/svg"><path d="M0.974373 16.474C0.974373 15.5929 1.68869 14.8786 2.56984 14.8786H33.9889L19.1624 0.052002L23.623 0.153624L39.9434 16.474L23.4173 33L19.1881 32.8937L33.9889 18.0695H2.56985C1.68869 18.0695 0.974373 17.3552 0.974373 16.474Z" fill="#FAFAFA" /></svg>
-            </a>
-        </div>
-        <div class="score__right">
-            <img src="{{ url_for('static', filename='images/bahrain.jpg') }}" class="score__img" alt="">
-        </div>
-    </section> #}
 
     <section id="score" class="score">
         <div class="score__content">
@@ -84,5 +67,29 @@
         </svg>     
     </section>
 
-    <section class="cars">aUIfnuINFuinfuiNF</section>
+    <section class="cars">
+        <div class="cars__video">
+            <video autoplay muted loop>
+                <source src="{{ url_for('static', filename='videos/w11-video.mp4') }}" type="video/mp4">
+                Votre navigateur ne supporte pas la balise vidéo.
+            </video>
+        </div>
+        <div class="cars__content">
+            <div class="cars__left">
+                <h2 class="cars__title">Des voitures légendaires</h2>
+                <div class="cars__slider">
+                    <img src="{{ url_for('static', filename='images/mp4-23-slider.webp') }}" srcset="{{ url_for('static', filename='images/mp4-23-slider@2x.webp') }} 2x" class="cars__slide cars__slide--active" alt="McLaren MP4-23 vue de côté">
+                    <img src="{{ url_for('static', filename='images/w05-slider.webp') }}" srcset="{{ url_for('static', filename='images/w05-slider@2x.webp') }} 2x" class="cars__slide" alt="Mercedes W05 vue de côté">
+                    <img src="{{ url_for('static', filename='images/w11-slider.webp') }}" srcset="{{ url_for('static', filename='images/w11-slider@2x.webp') }} 2x" class="cars__slide" alt="Mercedes W11 vue de côté">
+                </div>
+                <a href="{{ url_for('voitures') }}" class="btn cars__btn">
+                    <span class="btn__text">Ses voitures</span>
+                    <svg width="18" height="18" viewBox="0 0 40 33" xmlns="http://www.w3.org/2000/svg"><path d="M0.974373 16.474C0.974373 15.5929 1.68869 14.8786 2.56984 14.8786H33.9889L19.1624 0.052002L23.623 0.153624L39.9434 16.474L23.4173 33L19.1881 32.8937L33.9889 18.0695H2.56985C1.68869 18.0695 0.974373 17.3552 0.974373 16.474Z" fill="#FAFAFA" /></svg>
+                </a>
+            </div>
+            <div class="cars__right">
+                <img src="{{ url_for('static', filename='images/w11-plan.webp') }}" srcset="{{ url_for('static', filename='images/w11-plan@2x.webp') }} 2x" class="cars__img" alt="Plan dessiné de la Mercedes W11">
+            </div>
+        </div>
+    </section>
 {% endblock %}
