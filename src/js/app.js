@@ -184,6 +184,18 @@ mm.add("(min-width: 1440px)", () => {
         });
 
 
+        gsap.from('.score__btn', {
+            x: '-15%',
+            duration: 0.7,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: '.score',
+                start: 'top 40%',
+                end: 'bottom 30%',
+            }
+        });
+
+
 
         const titles = gsap.utils.toArray('.score__title');
 
@@ -240,5 +252,80 @@ mm.add("(min-width: 1440px)", () => {
             toggleActions: "play none none none",
             }
         });
+
+
+
+
+        const slides = document.querySelectorAll('.cars__slide');
+        let current = 0;
+
+        function showNextSlide() {
+            slides[current].classList.remove('cars__slide--active');
+            current = (current + 1) % slides.length;
+            slides[current].classList.add('cars__slide--active');
+        }
+
+        setInterval(showNextSlide, 3000);
+
+
+
+        gsap.from('.cars__title', {
+            x: '-15%',
+            duration: 0.7,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: '.cars',
+                start: 'top 40%',
+                end: 'bottom 30%',
+            }
+        });
+
+        gsap.from('.cars__slider', {
+            x: '-15%',
+            duration: 0.7,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: '.cars',
+                start: 'top 40%',
+                end: 'bottom 30%',
+            }
+        });
+
+        gsap.from('.cars__btn', {
+            x: '-15%',
+            duration: 0.7,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: '.cars',
+                start: 'top 40%',
+                end: 'bottom 30%',
+            }
+        });
+
+        gsap.from('.cars__right', {
+            y: '-15%',
+            duration: 0.7,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: '.cars',
+                start: 'top 40%',
+                end: 'bottom 30%',
+            }
+        });
+    }
+});
+
+// Button top
+window.addEventListener('scroll', function(){
+    const button = document.querySelector('.top');
+
+    if(button){
+        if (window.scrollY > 250) {
+            button.classList.remove('top--hide');
+            button.classList.add('top--show');
+        } else {
+            button.classList.remove('top--show');
+            button.classList.add('top--hide');
+        }
     }
 });
