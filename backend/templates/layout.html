@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <title>{% block title %}Projet Hamilton{% endblock %}</title>
+    <title>{% block title %}LH44{% endblock %}</title>
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <meta property ="og:site_name" content="Projet Hamilton">
+    <meta property ="og:site_name" content="Projet LH44">
     <meta property ="og:title" content="TFE">
-    <meta property ="og:description" content="">
+    <meta property ="og:description" content="{% block ogdescription %}{% endblock %}">
     <meta property ="og:type" content="website">
-    <meta property ="og:url" content="">
-    <meta property ="og:image" content="">
+    <meta property ="og:url" content="{% block url %}{% endblock %}">
+    <meta property ="og:image" content="{{ url_for('static', filename='images/logo.webp') }}">
     <meta property ="og:image:width" content="386">
     <meta property ="og:image:height" content="386">
 
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="author" content="">
-    <meta name="copyright" content="">
+    <meta name="description" content="{% block description %}{% endblock %}">
+    <meta name="keywords" content="TFE, Dylan Vercalsteren, DWT, HEAJ, Design Web, Développement Web, Transmédia">
+    <meta name="author" content="Dylan Vercalsteren">
+    <meta name="copyright" content="Dylan Vercalsteren">
+    <meta name="robots" content="index">
 
     <link type="image/x-icon" rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='assets/app.css') }}">
