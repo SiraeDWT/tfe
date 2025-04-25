@@ -75,7 +75,7 @@ history = {
             },
 
             "2021": {
-                "title": "Duel historique, rivalité légendaire",
+                "title": "Duel historique",
                 "story": [
                     "Hamilton affronte son adversaire le plus redoutable : Max Verstappen. La saison est intense, dramatique, pleine d'incidents et de controverses. Leur rivalité pousse chacun à leurs limites, provoquant l’histérie de millions de fans à travers le monde.",
                     "Le titre se joue jusqu’au dernier virage du Grand Prix d’Abu Dhabi, où une décision controversée prive Hamilton d’un huitième titre historique. Lewis termine vice-champion mais gagne définitivement le cœur de nombreux fans grâce à son fair-play et son sang-froid dans l’adversité.",
@@ -99,7 +99,7 @@ history = {
     "ferrari": {
         "years": {
             "2025": {
-                "title": "44 en rouge",
+                "title": "Transfert légendaire",
                 "story": [
                     "Lewis Hamilton débute sa carrière en F1 chez McLaren en 2007.",
                     "Il remporte son premier titre mondial dès 2008, devenant le plus jeune champion à l'époque."
