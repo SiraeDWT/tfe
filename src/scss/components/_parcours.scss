@@ -1,0 +1,66 @@
+@use "../utils/index" as *;
+
+.parcours{
+    position: relative;
+    padding: $space-h3 $space-h3;
+
+    &__main-title{
+        position: absolute;
+        left: -100%;
+    }
+
+    &__ecurie{
+        position: sticky;
+        top: 0; left: 0;
+        font-size: $h4-font-size;
+        font-family: 'PPFormulaNarrow';
+        text-transform: capitalize;
+        margin-bottom: -$space-text;
+    }
+
+    &__team{
+        padding-bottom: $space-h2;
+    }
+
+    &__content{
+        position: relative;
+        height: 100vh;
+    }
+
+    &__title{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+
+        font-size: $h2-font-size;
+        font-family: 'PPFormulaNarrow';
+
+        .mclaren{
+            color: $mclaren-primary-color;
+        }
+
+        .mercedes{
+            color: $mercedes-primary-color;
+        }
+
+        .ferrari{
+            color: $ferrari-primary-color;
+        }
+    }
+
+    &__textuals{
+        margin: $space-h6 0;
+    }
+
+    &__text{
+        padding-bottom: $space-text;
+        width: 40%;
+    }
+
+    .test{
+        position: absolute;
+        transform: translateY(-50%);
+        bottom: $space-h4; right: 0;
+    }
+}
