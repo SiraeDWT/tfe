@@ -211,6 +211,7 @@
 
     &__text{
         margin-bottom: $space-p;
+        font-weight: 500;
 
         &--last{
             margin-bottom: 0;
@@ -252,7 +253,7 @@
     position: relative;
     overflow: hidden;
 
-    // border-bottom: 2px solid $primary-color;
+    border-bottom: 2px solid $primary-color;
 
     &__title-wrapper{
         position: relative;
@@ -344,15 +345,31 @@
     }
 
     &__left{
-        flex-basis: 65%;
+        flex-basis: 45%;
         padding: $space-h4 0 $space-h4 $space-h3;
+    }
+
+    &__text-group{
+        padding: $space-h6 0 $space-p;
+    }
+
+    &__text{
+        margin-bottom: $space-p;
+        color: $dark-color;
+        font-weight: 500;
+
+        &--last{
+            margin-bottom: 0;
+        }
     }
 
     &__right{
         flex-basis: 35%;
-        padding-right: $space-h3;
-        position: relative;
+        // padding-right: $space-h3;
+        
+        position: absolute;
         z-index: 15;
+        top: 0; right: -10%; bottom: 0;
     }
 
     &__title{
@@ -367,8 +384,8 @@
         height: 100vh;
         object-fit: cover;
 
-        border-left: 2px solid $dark-color;
-        border-right: 2px solid $dark-color;
+        // border-left: 2px solid $dark-color;
+        // border-right: 2px solid $dark-color;
     }
 
     &__video{
@@ -393,32 +410,4 @@
             pointer-events: none;
         }
     }
-
-    &__slider{
-        position: relative;
-        width: 100%;
-        height: 50%;
-        overflow: hidden;
-
-        border-bottom: 2px solid $secondary-color;
-
-        z-index: 5;
-
-        margin: $space-h6 0 $space-p;
-    }
-    
-    &__slide{
-        position: absolute;
-        top: 0;
-        left: 0;
-        opacity: 0;
-        transition: opacity 0.5s ease;
-        width: 100%;
-        height: auto;
-
-        &--active{
-            opacity: 1;
-            z-index: 1;
-        }
-    }   
 }

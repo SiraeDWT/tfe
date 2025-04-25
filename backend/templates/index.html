@@ -71,16 +71,15 @@
         <div class="cars__video">
             <video autoplay muted loop>
                 <source src="{{ url_for('static', filename='videos/w11-video.mp4') }}" type="video/mp4">
-                Votre navigateur ne supporte pas la balise vidéo.
             </video>
         </div>
         <div class="cars__content">
             <div class="cars__left">
-                <h2 class="cars__title">Des voitures légendaires</h2>
-                <div class="cars__slider">
-                    <img src="{{ url_for('static', filename='images/mp4-23-slider.webp') }}" srcset="{{ url_for('static', filename='images/mp4-23-slider@2x.webp') }} 2x" class="cars__slide cars__slide--active" alt="McLaren MP4-23 vue de côté">
-                    <img src="{{ url_for('static', filename='images/w05-slider.webp') }}" srcset="{{ url_for('static', filename='images/w05-slider@2x.webp') }} 2x" class="cars__slide" alt="Mercedes W05 vue de côté">
-                    <img src="{{ url_for('static', filename='images/w11-slider.webp') }}" srcset="{{ url_for('static', filename='images/w11-slider@2x.webp') }} 2x" class="cars__slide" alt="Mercedes W11 vue de côté">
+                <h2 class="cars__title">Voitures légendaires</h2>
+                <div class="cars__text-group">
+                    <p class="cars__text">MP4-23, W05 et W11 EQ Performance, ce sont les noms de certaines monoplaces légendaires qu'Hamilton a piloté.</p>
+                    <p class="cars__text">Mais pourquoi sont-elles devenues si connues ?</p>
+                    <p class="cars__text cars__text--last">Entre la voiture qui permet une premier titre à une légende du sport automobile, celle qui marque le début d'une dynastie prestigieuse qui durera dans le temps et celle qui a permis à un Champion parmis les Champions d'obtenir tous les records, découvrez ces monstres de puissances qui ont fait trembler la Formule 1.</p>
                 </div>
                 <a href="{{ url_for('voitures') }}" class="btn cars__btn">
                     <span class="btn__text">Ses voitures</span>
@@ -88,7 +87,7 @@
                 </a>
             </div>
             <div class="cars__right">
-                <img src="{{ url_for('static', filename='images/w11-plan.webp') }}" srcset="{{ url_for('static', filename='images/w11-plan@2x.webp') }} 2x" class="cars__img" alt="Plan dessiné de la Mercedes W11">
+                <img src="{{ url_for('static', filename='images/test.png') }}" srcset="" class="cars__img" alt="Plan dessiné de la Mercedes W11">
             </div>
         </div>
     </section>

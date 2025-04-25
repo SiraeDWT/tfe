@@ -256,19 +256,6 @@ mm.add("(min-width: 1440px)", () => {
 
 
 
-        const slides = document.querySelectorAll('.cars__slide');
-        let current = 0;
-
-        function showNextSlide() {
-            slides[current].classList.remove('cars__slide--active');
-            current = (current + 1) % slides.length;
-            slides[current].classList.add('cars__slide--active');
-        }
-
-        setInterval(showNextSlide, 3000);
-
-
-
         gsap.from('.cars__title', {
             x: '-15%',
             duration: 0.7,
@@ -280,10 +267,11 @@ mm.add("(min-width: 1440px)", () => {
             }
         });
 
-        gsap.from('.cars__slider', {
+        gsap.from('.cars__text', {
             x: '-15%',
             duration: 0.7,
             opacity: 0,
+            stagger: 0.2,
             scrollTrigger: {
                 trigger: '.cars',
                 start: 'top 40%',
@@ -303,7 +291,7 @@ mm.add("(min-width: 1440px)", () => {
         });
 
         gsap.from('.cars__right', {
-            y: '-15%',
+            x: '15%',
             duration: 0.7,
             opacity: 0,
             scrollTrigger: {
