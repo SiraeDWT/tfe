@@ -1,36 +1,48 @@
 {% extends "layout.html" %}
 
-{% block title %}Projet Hamilton{% endblock %}
+{% block title %}Le parcours • LH44{% endblock %}
 
 {% block content %}
-    <section class="parcours">
-        <h1 class="parcours__main-title">Le parcours de Lewis Hamilton</h1>
-    
-        {% for ecurie, ecurie_data in data.items() %}
-            <div id="{% if ecurie == 'mclaren' %}mclaren{% elif ecurie == 'mercedes' %}mercedes{% elif ecurie == 'ferrari' %}ferrari{% endif %}" class="parcours__team">
-                {# <h2 class="parcours__ecurie">{{ ecurie }}</h2> #}
-    
-                {% for annee, details in ecurie_data.years.items() %}
-                    <div class="parcours__content">
-                        <h3 class="parcours__title">
-                            <span class="parcours__ecurie">{{ ecurie }}</span>
-                            <span class="test {% if ecurie == 'mclaren' %}mclaren{% elif ecurie == 'mercedes' %}mercedes{% elif ecurie == 'ferrari' %}ferrari{% endif %}">{{ annee }}</span>
-                            <span class="{% if ecurie == 'mclaren' %}mclaren{% elif ecurie == 'mercedes' %}mercedes{% elif ecurie == 'ferrari' %}ferrari{% endif %}">{{ details.title }}</span>
-                        </h3>
-    
-                        <div class="parcours__textuals">
-                            {% for phrase in details.story %}
-                                <p class="parcours__text">{{ phrase }}</p>
-                            {% endfor %}
-                        </div>
-    
-                        {% if details.image %}
-                            {% set filename = details.image.split('/')[-1] %}
-                            <img src="{{ details.image }}" alt="{{ filename }}">
-                        {% endif %}
+<div class="parcours__start">
+    <p>Tout commence lors de la saison 2007 de Formule 1 ...</p>
+</div>
+
+<div class="test">
+    <h2 class="test__title">
+        <span>Hamilton</span>
+        <span>rejoint</span>
+        <span class="test__title--red">McLaren</span>
+    </h2>
+</div>
+
+<section class="parcours">
+    <h1 class="parcours__main-title">Le parcours de Lewis Hamilton</h1>
+
+    {% for ecurie, ecurie_data in data.items() %}
+        <div id="{% if ecurie == 'mclaren' %}mclaren{% elif ecurie == 'mercedes' %}mercedes{% elif ecurie == 'ferrari' %}ferrari{% endif %}" class="parcours__team">
+            {# <h2 class="parcours__ecurie">{{ ecurie }}</h2> #}
+
+            {% for annee, details in ecurie_data.years.items() %}
+                <div class="parcours__content">
+                    <h3 class="parcours__title">
+                        <span class="parcours__title--ecurie">{{ ecurie }}</span>
+                        <span class="parcours__title--year {% if ecurie == 'mclaren' %}mclaren{% elif ecurie == 'mercedes' %}mercedes{% elif ecurie == 'ferrari' %}ferrari{% endif %}">{{ annee }}</span>
+                        <span class="{% if ecurie == 'mclaren' %}mclaren{% elif ecurie == 'mercedes' %}mercedes{% elif ecurie == 'ferrari' %}ferrari{% endif %}">{{ details.title }}</span>
+                    </h3>
+
+                    <div class="parcours__textuals">
+                        {% for phrase in details.story %}
+                            <p class="parcours__text">{{ phrase }}</p>
+                        {% endfor %}
                     </div>
-                {% endfor %}
-            </div>
-        {% endfor %}
-    </section>
+
+                    {% if details.image %}
+                        {% set filename = details.image.split('/')[-1] %}
+                        <img src="{{ details.image }}" alt="{{ filename }}">
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</section>
 {% endblock %}

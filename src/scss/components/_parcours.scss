@@ -9,15 +9,6 @@
         left: -100%;
     }
 
-    &__ecurie{
-        position: sticky;
-        top: 0; left: 0;
-        font-size: $h4-font-size;
-        font-family: 'PPFormulaNarrow';
-        text-transform: capitalize;
-        margin-bottom: -$space-text;
-    }
-
     &__team{
         padding-bottom: $space-h2;
     }
@@ -47,6 +38,21 @@
         .ferrari{
             color: $ferrari-primary-color;
         }
+
+        &--ecurie{
+            position: sticky;
+            top: 0; left: 0;
+            font-size: $h4-font-size;
+            font-family: 'PPFormulaNarrow';
+            text-transform: capitalize;
+            margin-bottom: -$space-text;
+        }
+
+        &--year{
+            position: absolute;
+            transform: translateY(-50%);
+            bottom: $space-h4; right: 0;
+        }
     }
 
     &__textuals{
@@ -58,9 +64,51 @@
         width: 40%;
     }
 
-    .test{
+    &__start{
         position: absolute;
-        transform: translateY(-50%);
-        bottom: $space-h4; right: 0;
+        transform: translate(-50%, -50%);
+        top: 50%; left: 50%;
     }
 }
+
+
+.test{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+
+
+    &__title{
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%; left: 50%;
+        color: $light-color;
+
+        font-family: 'PPFormulaNarrow';
+        font-size: 144px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &--red{
+            color: $mclaren-primary-color;
+        }
+
+        span{
+            line-height: 120%;
+        }
+    }
+}
+
+
+// Un text apparait : "L'aventure commence en 2007 ..."
+// Transition
+
+
+// Avoir un text en grand avec "McLaren", au scroll, le contenu se révèle au travers d'un mask.
+// On arrive sur un parallax avec Hamilton.
+
+// Refaire le même avec Mercedes et Ferrari
+
+// Pour le contenu textuel, je fais apparaitre au scroll petit à petit.
