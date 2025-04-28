@@ -8,8 +8,9 @@ import { gsap } from 'gsap';
 
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import { TextPlugin } from "gsap/TextPlugin";
 
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, TextPlugin);
 
 
 // Sticky nav
@@ -40,6 +41,23 @@ mediaQuery.addEventListener('change', (e) => {
 });
 
 
+// Button top
+window.addEventListener('scroll', function(){
+    const button = document.querySelector('.top');
+
+    if(button){
+        if (window.scrollY > 250) {
+            button.classList.remove('top--hide');
+            button.classList.add('top--show');
+        } else {
+            button.classList.remove('top--show');
+            button.classList.add('top--hide');
+        }
+    }
+});
+
+
+// GSAP
 const index = document.querySelector('.home');
 const transition = document.querySelector('#transition');
 
@@ -73,6 +91,7 @@ mm.add("(max-width: 1439px)", () => {
 // Desktop
 mm.add("(min-width: 1440px)", () => {
     if(index){
+        // Home intro transition
         tl.from("#lh-img-01", {
             x: '-10%',
             opacity: 0,
@@ -99,44 +118,31 @@ mm.add("(min-width: 1440px)", () => {
         });
     
 
-
-        const targetText = "« Le moment où vous abandonnez, c'est le moment où vous laissez quelqu'un d'autre gagner. »";
-        const quoteEl = document.getElementById("quote");
-        const lhEl = document.querySelector(".citation__lh");
-
-        gsap.set(quoteEl, { opacity: 0 });
-        gsap.set(lhEl, { opacity: 0 });
-
-        ScrollTrigger.create({
-            trigger: "#citation",
-            start: "top 40%",
-            once: true,
-            onEnter: () => {
-                gsap.to(quoteEl, {
-                    opacity: 1,
-                    duration: 0.3,
-                    onComplete: () => typeText(targetText)
-                });
+        // Home citation animation
+        gsap.from(".citation__text", {
+            duration: 4,
+            text: "",
+            ease: "none",
+            delay: 0.4,
+            scrollTrigger: {
+                trigger: '.citation',
+                start: 'top 40%',
             }
         });
 
-        function typeText(text) {
-            quoteEl.textContent = "";
-            let index = 0;
-            const interval = setInterval(() => {
-                quoteEl.textContent += text.charAt(index);
-                index++;
-                if (index >= text.length) {
-                    clearInterval(interval);
-                    gsap.to(lhEl, {
-                        opacity: 1,
-                        duration: 1
-                    });
-                }
-            }, 50);
-        }
+        gsap.from(".citation__lh", {
+            duration: 0.7,
+            ease: "cubic-bezier(.4, 0, .2, 1)",
+            delay: 4.4,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: '.citation',
+                start: 'top 40%',
+            }
+        });
 
 
+        // Home presentation transition
         gsap.from('.presentation__title', {
             x: '-15%',
             duration: 0.7,
@@ -184,6 +190,7 @@ mm.add("(min-width: 1440px)", () => {
         });
 
 
+        // Home score scroll transition
         gsap.from('.score__btn', {
             x: '-15%',
             duration: 0.7,
@@ -194,8 +201,6 @@ mm.add("(min-width: 1440px)", () => {
                 end: 'bottom 30%',
             }
         });
-
-
 
         const titles = gsap.utils.toArray('.score__title');
 
@@ -231,7 +236,6 @@ mm.add("(min-width: 1440px)", () => {
             }
         });
 
-
         const path = document.querySelector('#scorePath');
         const pathLength = path.getTotalLength();
 
@@ -240,7 +244,6 @@ mm.add("(min-width: 1440px)", () => {
             strokeDasharray: pathLength,
             strokeDashoffset: -pathLength
         });
-
 
         gsap.to(path, {
             strokeDashoffset: 0,
@@ -254,8 +257,7 @@ mm.add("(min-width: 1440px)", () => {
         });
 
 
-
-
+        // Home cars transitions
         gsap.from('.cars__title', {
             x: '-15%',
             duration: 0.7,
@@ -303,17 +305,55 @@ mm.add("(min-width: 1440px)", () => {
     }
 });
 
-// Button top
-window.addEventListener('scroll', function(){
-    const button = document.querySelector('.top');
 
-    if(button){
-        if (window.scrollY > 250) {
-            button.classList.remove('top--hide');
-            button.classList.add('top--show');
-        } else {
-            button.classList.remove('top--show');
-            button.classList.add('top--hide');
-        }
-    }
+tl.from(".parcours__start p", {
+    duration: 3,
+    text: "",
+    ease: "cubic-bezier(.4, 0, .2, 1)",
+    delay: 0.5,
+    opacity: 0,
 });
+
+tl.to(".parcours__start p", {
+    opacity: 0,
+    duration: 0.5,
+}, "+=1");
+
+tl.from(".test__title span", {
+    opacity: 0,
+    stagger: 0.2,
+    y: "25%"
+});
+
+tl.to(".test__title span", {
+    opacity: 0,
+    duration: 0.5,
+    x: "25%",
+    stagger: 0.2
+}, "+=1");
+
+tl.to(".test", {
+    display: "none",
+});
+
+tl.from(".parcours", {
+    opacity: 0,
+    duration: 0.5,
+});
+
+
+// document.querySelectorAll(".parcours").forEach(section => {
+//     tl.from(section.querySelectorAll(".parcours__text"), {
+//         scrollTrigger: {
+//         trigger: section,
+//         start: "top 75%",
+//         end: "bottom 25%",
+//         toggleActions: "play none none reverse"
+//         },
+//         y: 50,
+//         opacity: 0,
+//         duration: 0.6,
+//         stagger: 0.2,
+//         ease: "power2.out"
+//     });
+// });

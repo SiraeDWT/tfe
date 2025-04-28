@@ -142,21 +142,8 @@
 
         opacity: 1;
     }
-    
-    &__text{
-        white-space: pre-wrap;
-        opacity: 0;
-
-        &--hidden{
-            visibility: hidden;
-            height: 0;
-            overflow: hidden;
-            position: absolute;
-        }
-    }
 
     &__lh {
-        opacity: 0;
         transition: opacity $transition-left;
         color: $primary-color;
         font-family:$formulaNarrow;
@@ -227,14 +214,15 @@
     &__left{
         padding: $space-h4 0 $space-h3 $space-h3;
         flex-basis: 45%;
+
+        overflow-y: auto;
     }
 
     &__right{
         position: sticky;
-        top: 0; bottom: 0;
+        top: 0;
 
         flex-basis: 50%;
-        // align-self: flex-start;
 
         height: auto;
         max-height: 100vh;
