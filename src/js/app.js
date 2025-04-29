@@ -306,7 +306,7 @@ mm.add("(min-width: 1440px)", () => {
 });
 
 
-tl.from(".parcours__start p", {
+tl.from(".intro-animation__start p", {
     duration: 3,
     text: "",
     ease: "cubic-bezier(.4, 0, .2, 1)",
@@ -314,46 +314,57 @@ tl.from(".parcours__start p", {
     opacity: 0,
 });
 
-tl.to(".parcours__start p", {
+tl.to(".intro-animation__start p", {
     opacity: 0,
     duration: 0.5,
 }, "+=1");
 
-tl.from(".test__title span", {
+tl.from(".intro-animation__title span", {
     opacity: 0,
     stagger: 0.2,
     y: "25%"
 });
 
-tl.to(".test__title span", {
+tl.to(".intro-animation__title span", {
     opacity: 0,
     duration: 0.5,
     x: "25%",
     stagger: 0.2
 }, "+=1");
 
-tl.to(".test", {
+tl.to(".intro-animation__annonce", {
     display: "none",
 });
+
+tl.from(".intro-animation__parallax", {
+    opacity: 0,
+    ease: "cubic-bezier(.4, 0, .2, 1)",
+    y: "100%",
+});
+
+tl.from(".intro-animation__logo", {
+    opacity: 0,
+    x: "-150%",
+    ease: "power2.in",
+    duration: 2,
+}, "+=0.2");
+
+tl.to(".intro-animation__logo", {
+    opacity: 0,
+    x: "150%",
+    ease: "power2.out",
+    display: "none",
+    duration: 2,
+},);
+
+tl.to(".intro-animation__parallax", {
+    opacity: 0,
+    ease: "cubic-bezier(.4, 0, .2, 1)",
+    display: "none",
+}, "+=0.4");
 
 tl.from(".parcours", {
     opacity: 0,
     duration: 0.5,
+    display: "none",
 });
-
-
-// document.querySelectorAll(".parcours").forEach(section => {
-//     tl.from(section.querySelectorAll(".parcours__text"), {
-//         scrollTrigger: {
-//         trigger: section,
-//         start: "top 75%",
-//         end: "bottom 25%",
-//         toggleActions: "play none none reverse"
-//         },
-//         y: 50,
-//         opacity: 0,
-//         duration: 0.6,
-//         stagger: 0.2,
-//         ease: "power2.out"
-//     });
-// });
