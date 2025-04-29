@@ -8,6 +8,8 @@
 {% block content %}
 <h1 class="parcours__main-title">Le parcours de Lewis Hamilton</h1>
 
+
+
 <section class="intro-animation">
     <div class="intro-animation__start">
         <p>Tout commence lors de la saison 2007 de Formule 1 ...</p>
@@ -29,6 +31,11 @@
 
 
 
+<nav class="subnav">
+    <a href="#mclaren">McLaren</a>
+    <a href="#mercedes">Mercedes</a>
+    <a href="#ferrari">Ferrari</a>
+</nav>
 
 {% for ecurie, ecurie_data in data.items() %}
 <section class="parcours parcours--{% if ecurie == 'mclaren' %}mclaren{% elif ecurie == 'mercedes' %}mercedes{% elif ecurie == 'ferrari' %}ferrari{% endif %}" id="{% if ecurie == 'mclaren' %}mclaren{% elif ecurie == 'mercedes' %}mercedes{% elif ecurie == 'ferrari' %}ferrari{% endif %}">

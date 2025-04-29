@@ -33,6 +33,8 @@
 
         span{
             line-height: 120%;
+            display: block;
+            // overflow-x: hidden;
         }
     }
 
@@ -148,4 +150,17 @@
         padding-bottom: $space-text;
         width: 40%;
     }  
+}
+
+
+.subnav{
+    position: fixed;
+    top: $space-h3; right: $space-h5;
+
+    display: flex;
+    flex-direction: column;
+    gap: $space-text;
+    align-items: start;
+
+    z-index: 100;
 }

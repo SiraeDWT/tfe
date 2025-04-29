@@ -322,6 +322,8 @@ tl.to(".intro-animation__start p", {
 tl.from(".intro-animation__title span", {
     opacity: 0,
     stagger: 0.2,
+    ease: "power3.out",
+    autoAlpha: 0,
     y: "25%"
 });
 
@@ -340,22 +342,22 @@ tl.from(".intro-animation__parallax", {
     opacity: 0,
     ease: "cubic-bezier(.4, 0, .2, 1)",
     y: "100%",
-    duration: 0.4,
+    duration: 0.2,
 });
 
 tl.from(".intro-animation__logo", {
     opacity: 0,
-    x: "-150%",
+    x: "-100%",
     ease: "power2.in",
-    duration: 1,
+    duration: 0.5,
 }, "+=0.2");
 
 tl.to(".intro-animation__logo", {
     opacity: 0,
-    x: "150%",
+    x: "100%",
     ease: "power2.out",
     display: "none",
-    duration: 1,
+    duration: 0.5,
 },);
 
 tl.to(".intro-animation__parallax", {
@@ -371,3 +373,10 @@ tl.from(".parcours", {
     display: "none",
 });
 
+tl.from(".parcours__title--mclaren", {
+    opacity: 0,
+    x: "-15%",
+    overflow: "hidden",
+    duration: 0.5,
+    stagger: 0.2,
+});
