@@ -75,16 +75,28 @@
 
 .parcours{
     position: relative;
-    padding: $space-h3 $space-h3;
+    // padding: $space-h3 $space-h3;
+
+    &--mclaren{
+        padding: $space-h3 $space-h3 0;
+    }
+
+    &--mercedes{
+        padding: $space-h3 $space-h3 0;
+    }
+
+    &--ferrari{
+        padding: $space-h3 $space-h3 0;
+    }
 
     &__main-title{
         position: absolute;
         left: -100%;
     }
 
-    &__team{
-        padding-bottom: $space-h2;
-    }
+    // &__team{
+    //     padding-bottom: $space-h2;
+    // }
 
     &__content{
         position: relative;
@@ -100,15 +112,15 @@
         font-size: $h2-font-size;
         font-family: 'PPFormulaNarrow';
 
-        .mclaren{
+        &--mclaren{
             color: $mclaren-primary-color;
         }
 
-        .mercedes{
+        &--mercedes{
             color: $mercedes-primary-color;
         }
 
-        .ferrari{
+        &--ferrari{
             color: $ferrari-primary-color;
         }
 

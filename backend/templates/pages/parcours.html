@@ -31,16 +31,16 @@
 
 
 {% for ecurie, ecurie_data in data.items() %}
-<section class="parcours">
-    <div id="{% if ecurie == 'mclaren' %}mclaren{% elif ecurie == 'mercedes' %}mercedes{% elif ecurie == 'ferrari' %}ferrari{% endif %}" class="parcours__team">
+<section class="parcours parcours--{% if ecurie == 'mclaren' %}mclaren{% elif ecurie == 'mercedes' %}mercedes{% elif ecurie == 'ferrari' %}ferrari{% endif %}" id="{% if ecurie == 'mclaren' %}mclaren{% elif ecurie == 'mercedes' %}mercedes{% elif ecurie == 'ferrari' %}ferrari{% endif %}">
+    <div class="parcours__team">
         {# <h2 class="parcours__ecurie">{{ ecurie }}</h2> #}
 
         {% for annee, details in ecurie_data.years.items() %}
             <div class="parcours__content">
                 <h3 class="parcours__title">
                     <span class="parcours__title--ecurie">{{ ecurie }}</span>
-                    <span class="parcours__title--year {% if ecurie == 'mclaren' %}mclaren{% elif ecurie == 'mercedes' %}mercedes{% elif ecurie == 'ferrari' %}ferrari{% endif %}">{{ annee }}</span>
-                    <span class="{% if ecurie == 'mclaren' %}mclaren{% elif ecurie == 'mercedes' %}mercedes{% elif ecurie == 'ferrari' %}ferrari{% endif %}">{{ details.title }}</span>
+                    <span class="parcours__title--year parcours__title--{% if ecurie == 'mclaren' %}mclaren{% elif ecurie == 'mercedes' %}mercedes{% elif ecurie == 'ferrari' %}ferrari{% endif %}">{{ annee }}</span>
+                    <span class="parcours__title--{% if ecurie == 'mclaren' %}mclaren{% elif ecurie == 'mercedes' %}mercedes{% elif ecurie == 'ferrari' %}ferrari{% endif %}">{{ details.title }}</span>
                 </h3>
 
                 <div class="parcours__textuals">

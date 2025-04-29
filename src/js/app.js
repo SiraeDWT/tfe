@@ -305,7 +305,7 @@ mm.add("(min-width: 1440px)", () => {
     }
 });
 
-
+// Intro animation timeline
 tl.from(".intro-animation__start p", {
     duration: 3,
     text: "",
@@ -340,13 +340,14 @@ tl.from(".intro-animation__parallax", {
     opacity: 0,
     ease: "cubic-bezier(.4, 0, .2, 1)",
     y: "100%",
+    duration: 0.4,
 });
 
 tl.from(".intro-animation__logo", {
     opacity: 0,
     x: "-150%",
     ease: "power2.in",
-    duration: 2,
+    duration: 1,
 }, "+=0.2");
 
 tl.to(".intro-animation__logo", {
@@ -354,17 +355,19 @@ tl.to(".intro-animation__logo", {
     x: "150%",
     ease: "power2.out",
     display: "none",
-    duration: 2,
+    duration: 1,
 },);
 
 tl.to(".intro-animation__parallax", {
     opacity: 0,
     ease: "cubic-bezier(.4, 0, .2, 1)",
     display: "none",
-}, "+=0.4");
+    duration: 0.2,
+});
 
 tl.from(".parcours", {
     opacity: 0,
     duration: 0.5,
     display: "none",
 });
+
