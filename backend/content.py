@@ -5,7 +5,9 @@ history = {
                 "title": "Départ d’un rêve",
                 "story": [
                     "Lewis Hamilton réalise son rêve d’enfance et débute sa carrière en Formule 1 à 22 ans chez McLaren, aux côtés du double champion du monde Fernando Alonso.",
-                    "Dès sa première saison, Lewis marque les fans avec son style agressif, sa vitesse et sa maturité. C'est une année de records car jamais un rookie n'avait été aussi proche de remporter le titre dès sa première tentative. Il échoue à seulement un point lors de la dernière course à Interlagos, terminant à égalité avec Alonso. Un début prometteur, et une saison qui laisse présager une grande carrière."
+                    "Dès sa première saison, Lewis marque les fans avec son style agressif, sa vitesse et sa maturité.",
+                    "C'est une année de records car jamais un rookie n'avait été aussi proche de remporter le titre dès sa première tentative. Il échoue à seulement un point lors de la dernière course à Interlagos, terminant à égalité avec Alonso.",
+                    "Un début prometteur, et une saison qui laisse présager une grande carrière."
                 ],
                 "image": "static/images/"
             },
@@ -13,7 +15,8 @@ history = {
             "2008": {
                 "title": "Le sacre historique",
                 "story": [
-                    "Lors de la saison suivante Hamilton accueille un nouveau coéquipier, Heikki Kovalainen. Animé d'une grande détermination après la frustration de 2007, Lewis enchaîne victoires et podiums. Il remporte son premier titre mondial dans une situation exceptionnelle. Dans le dernier virage du dernier tour à Interlagos, sous la pluie, il arrache la couronne mondiale à Felipe Massa pour devenir à 23 ans, le plus jeune champion du monde de l'époque."
+                    "Lors de la saison suivante Hamilton accueille un nouveau coéquipier, Heikki Kovalainen.",
+                    "Animé d'une grande détermination après la frustration de 2007, Lewis enchaîne victoires et podiums. Il remporte son premier titre mondial dans une situation exceptionnelle. Dans le dernier virage du dernier tour à Interlagos, sous la pluie, il arrache la couronne mondiale à Felipe Massa pour devenir à 23 ans, le plus jeune champion du monde de l'époque."
                 ],
                 "image": "static/images/"
             },
@@ -21,7 +24,8 @@ history = {
             "2009": {
                 "title": "Saison de transition",
                 "story": [
-                    "Les changements réglementaires bouleversent l’ordre établi et McLaren peine à trouver son rythme. C’est un début d'année difficile mais Hamilton refuse de baisser les bras, signant deux magnifiques victoires en Hongrie et à Singapour. Il termine 5e du championnat, rappelant au monde qu’il est toujours là, prêt à se battre quelles que soient les circonstances."
+                    "Les changements réglementaires bouleversent l’ordre établi et McLaren peine à trouver son rythme. C’est un début d'année difficile mais Hamilton refuse de baisser les bras, signant deux magnifiques victoires en Hongrie et à Singapour.",
+                    "Il termine 5e du championnat, rappelant au monde qu’il est toujours là, prêt à se battre quelles que soient les circonstances."
                 ],
                 "image": "static/images/"
             },
@@ -61,7 +65,9 @@ history = {
             "2016": {
                 "title": "Duel dramatique",
                 "story": [
-                    "La tension entre Hamilton et Rosberg atteint son apogée en 2016. Incidents, tensions et rivalités ponctuent toute la saison. Hamilton, trahi par plusieurs problèmes mécaniques, voit Rosberg lui arracher le titre pour seulement cinq points. Rosberg, épuisé par la lutte, annonce sa retraite surprise à peine titré. Un moment amer pour Lewis, mais qui pousse encore plus haut sa détermination pour la suite de sa carrière."
+                    "La tension entre Hamilton et Rosberg atteint son apogée en 2016.",
+                    "Incidents, tensions et rivalités ponctuent toute la saison. Hamilton, trahi par plusieurs problèmes mécaniques, voit Rosberg lui arracher le titre pour seulement cinq points. Rosberg, épuisé par la lutte, annonce sa retraite surprise à peine titré.",
+                    "Un moment amer pour Lewis, mais qui pousse encore plus haut sa détermination pour la suite de sa carrière."
                 ],
                 "image": "static/images/"
             },
@@ -69,7 +75,9 @@ history = {
             "2017-2020": {
                 "title": "L'ère Hamilton",
                 "story": [
-                    "Valtteri Bottas remplace Rosberg chez Mercedes. Hamilton étant désormais le leader incontesté de Mercedes, entre dans une ère de domination écrasante. Il remporte quatre titres consécutifs et atteint un total de sept titres mondiaux, égalant Michael Schumacher, et bat même son record de victoires en Grand Prix. Le Britannique est une légende vivante du sport automobile et fais naître de plus en plus de passion."
+                    "Valtteri Bottas remplace Rosberg chez Mercedes. Hamilton étant désormais le leader incontesté de Mercedes, entre dans une ère de domination écrasante.",
+                    "Il remporte quatre titres consécutifs et atteint un total de sept titres mondiaux, égalant Michael Schumacher, et bat même son record de victoires en Grand Prix.",
+                    "Le Britannique est une légende vivante du sport automobile et fait naître de plus en plus de passion."
                 ],
                 "image": "static/images/"
             },
@@ -101,8 +109,8 @@ history = {
             "2025": {
                 "title": "Transfert légendaire",
                 "story": [
-                    "Lewis Hamilton débute sa carrière en F1 chez McLaren en 2007.",
-                    "Il remporte son premier titre mondial dès 2008, devenant le plus jeune champion à l'époque."
+                    "Après avoir littéralement retourné le monde du sport automobile avec ce transfert totalement inattendu, Lewis Hamilton fait face à un tout nouveau défis : remporter son huitième titre et faire renouer Ferrari avec une victoire de champion du monde.",
+                    "La dernière champion du monde avec une Ferrari remonte à 2007, l’année où il a commencé et où il a perdu son potentiel premier titre face à Kimi Raikkonen, alors en rouge à ce moment-là."
                 ],
                 "image": "static/images/"
             },
