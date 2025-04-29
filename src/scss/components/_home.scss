@@ -190,6 +190,19 @@
         font-size: $h3-font-size;
         font-family: $formulaNarrow;
         line-height: 120%;
+
+        position: relative;
+        display: inline;
+
+        &::before{
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            background-color: $dark-color;
+            transform: translateY(-50%);
+            bottom: 50%; right: 104.414%;;
+        }
     }
 
     &__content{
@@ -213,7 +226,7 @@
 
     &__left{
         padding: $space-h4 0 $space-h3 $space-h3;
-        flex-basis: 45%;
+        flex-basis: 50%; // 45%
 
         overflow-y: auto;
     }
@@ -365,6 +378,19 @@
         font-family: $formulaNarrow;
 
         color: $dark-color;
+
+        position: relative;
+        display: inline;
+
+        &::before{
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            background-color: $dark-color;
+            transform: translateY(-50%);
+            bottom: 50%; right: 104.414%;
+        }
     }
 
     &__img{
