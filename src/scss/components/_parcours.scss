@@ -103,6 +103,18 @@
     &__content{
         position: relative;
         height: 100vh;
+
+        display: flex;
+        // align-items: start;
+        justify-content: space-between;
+    }
+
+    &__left{
+        flex-basis: 75%;
+    }
+
+    &__right{
+        flex-basis: 25%;
     }
 
     &__title{
@@ -144,12 +156,81 @@
 
     &__textuals{
         margin: $space-h6 0;
+        width: 65%;
     }
 
     &__text{
-        padding-bottom: $space-text;
-        width: 40%;
-    }  
+        padding-bottom: $space-text;  
+    }
+    
+    &__img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    &__carousel{
+        position: relative;
+        width: 600px;
+        height: 600px;
+        overflow: hidden;
+        border-radius: calc($base/2);
+        z-index: 5;
+    }
+
+    &__slides{
+        display: flex;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__slide{
+        flex: 0 0 100%;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__btn{
+        cursor: pointer;
+
+        border: none;
+        border-radius: calc($base/2);
+        background: $dark-color;
+
+        color: $light-color;
+        padding: $space-text;
+        
+        user-select: none;
+
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+
+        &:hover{
+            path{
+                fill: $primary-color;
+            }
+        }
+
+        &:focus { outline: none; }
+
+        &--prev{
+            left: 0px;
+            z-index: 10;
+            border-radius: 0 calc($base/2) calc($base/2) 0;
+
+            svg{
+                rotate: -180deg;
+            }
+        }
+
+        &--next{
+            z-index: 10;
+            right: 0px;
+            border-radius: calc($base/2) 0 0 calc($base/2);
+        }
+      }
 }
 
 

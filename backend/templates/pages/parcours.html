@@ -31,11 +31,11 @@
 
 
 
-<nav class="subnav">
+{# <nav class="subnav">
     <a href="#mclaren">McLaren</a>
     <a href="#mercedes">Mercedes</a>
     <a href="#ferrari">Ferrari</a>
-</nav>
+</nav> #}
 
 {% for ecurie, ecurie_data in data.items() %}
 <section class="parcours parcours--{% if ecurie == 'mclaren' %}mclaren{% elif ecurie == 'mercedes' %}mercedes{% elif ecurie == 'ferrari' %}ferrari{% endif %}" id="{% if ecurie == 'mclaren' %}mclaren{% elif ecurie == 'mercedes' %}mercedes{% elif ecurie == 'ferrari' %}ferrari{% endif %}">
@@ -44,22 +44,42 @@
 
         {% for annee, details in ecurie_data.years.items() %}
             <div class="parcours__content">
-                <h3 class="parcours__title">
-                    <span class="parcours__title--ecurie">{{ ecurie }}</span>
-                    <span class="parcours__title--year parcours__title--{% if ecurie == 'mclaren' %}mclaren{% elif ecurie == 'mercedes' %}mercedes{% elif ecurie == 'ferrari' %}ferrari{% endif %}">{{ annee }}</span>
-                    <span class="parcours__title--{% if ecurie == 'mclaren' %}mclaren{% elif ecurie == 'mercedes' %}mercedes{% elif ecurie == 'ferrari' %}ferrari{% endif %}">{{ details.title }}</span>
-                </h3>
-
-                <div class="parcours__textuals">
-                    {% for phrase in details.story %}
-                        <p class="parcours__text">{{ phrase }}</p>
-                    {% endfor %}
+                <div class="parcours__left">
+                    <h3 class="parcours__title">
+                        <span class="parcours__title--ecurie">{{ ecurie }}</span>
+                        <span class="parcours__title--year parcours__title--{% if ecurie == 'mclaren' %}mclaren{% elif ecurie == 'mercedes' %}mercedes{% elif ecurie == 'ferrari' %}ferrari{% endif %}">{{ annee }}</span>
+                        <span class="parcours__title--{% if ecurie == 'mclaren' %}mclaren{% elif ecurie == 'mercedes' %}mercedes{% elif ecurie == 'ferrari' %}ferrari{% endif %}">{{ details.title }}</span>
+                    </h3>
+    
+                    <div class="parcours__textuals">
+                        {% for phrase in details.story %}
+                            <p class="parcours__text">{{ phrase }}</p>
+                        {% endfor %}
+                    </div>
                 </div>
-
-                {% if details.image %}
-                    {% set filename = details.image.split('/')[-1] %}
-                    <img src="{{ details.image }}" alt="{{ filename }}">
-                {% endif %}
+                
+                <div class="parcours__right">
+                    
+                    <div class="parcours__carousel">
+                        <button class="parcours__btn parcours__btn--prev">
+                            <svg width="18" height="18" viewBox="0 0 40 33" xmlns="http://www.w3.org/2000/svg"><path d="M0.974373 16.474C0.974373 15.5929 1.68869 14.8786 2.56984 14.8786H33.9889L19.1624 0.052002L23.623 0.153624L39.9434 16.474L23.4173 33L19.1881 32.8937L33.9889 18.0695H2.56985C1.68869 18.0695 0.974373 17.3552 0.974373 16.474Z" fill="#FAFAFA" /></svg>
+                        </button>
+                        {% if details.image %}
+                        <div class="parcours__slides">
+                            {% for img_path in details.image %}
+                            <div class="parcours__slide">
+                                {% set filename = img_path.split('/')[-1] %}
+                                <img src="{{ url_for('static', filename=img_path) }}" class="parcours__img" alt="{{ filename }}">
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        <button class="parcours__btn parcours__btn--next">
+                            <svg width="18" height="18" viewBox="0 0 40 33" xmlns="http://www.w3.org/2000/svg"><path d="M0.974373 16.474C0.974373 15.5929 1.68869 14.8786 2.56984 14.8786H33.9889L19.1624 0.052002L23.623 0.153624L39.9434 16.474L23.4173 33L19.1881 32.8937L33.9889 18.0695H2.56985C1.68869 18.0695 0.974373 17.3552 0.974373 16.474Z" fill="#FAFAFA" /></svg>
+                        </button>
+                    </div>
+                    
+                </div>
             </div>
         {% endfor %}
     </div>

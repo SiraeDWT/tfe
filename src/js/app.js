@@ -380,3 +380,29 @@ tl.from(".parcours__title--mclaren", {
     duration: 0.5,
     stagger: 0.2,
 });
+
+
+// Parcours carousel img
+document.querySelectorAll('.parcours__carousel').forEach((carousel) => {
+    const slides = gsap.utils.toArray('.parcours__slide', carousel);
+    let currentIndex = 0;
+
+    gsap.set(slides, { xPercent: (i) => i * 100 });
+
+    function goToSlide(index) {
+        const total = slides.length;
+        const newIndex = (index + total) % total;
+        gsap.to(slides, {
+            duration: 0.6,
+            xPercent: (i) => (i - newIndex) * 100,
+            ease: 'power1.out'
+        });
+        currentIndex = newIndex;
+    }
+
+    carousel.querySelector('.parcours__btn--next')
+            .addEventListener('click', () => goToSlide(currentIndex + 1));
+
+    carousel.querySelector('.parcours__btn--prev')
+            .addEventListener('click', () => goToSlide(currentIndex - 1));
+});
