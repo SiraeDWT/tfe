@@ -109,13 +109,13 @@
         justify-content: space-between;
     }
 
-    &__left{
-        flex-basis: 75%;
-    }
+    // &__left{
+    //     flex-basis: 75%;
+    // }
 
-    &__right{
-        flex-basis: 25%;
-    }
+    // &__right{
+    //     flex-basis: 25%;
+    // }
 
     &__title{
         display: flex;
@@ -172,7 +172,7 @@
 
     &__carousel{
         position: relative;
-        width: 600px;
+        width: 400px; // 300px Mac
         height: 600px;
         overflow: hidden;
         border-radius: calc($base/2);
