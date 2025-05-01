@@ -376,21 +376,28 @@ tl.from(".parcours", {
 tl.from(".parcours__title--mclaren", {
     opacity: 0,
     x: "-15%",
-    overflow: "hidden",
-    duration: 0.5,
+    //overflow: "hidden",
+    //stagger: 0.2,
+});
+
+tl.from(".parcours__text", {
+    opacity: 0,
+    display: "none",
+    x: "-15%",
     stagger: 0.2,
 });
 
 
 // Parcours carousel img
 document.querySelectorAll('.parcours__carousel').forEach((carousel) => {
-    const slides = gsap.utils.toArray('.parcours__slide', carousel);
+    const slides = Array.from(carousel.querySelectorAll('.parcours__slide'));
     let currentIndex = 0;
 
     gsap.set(slides, { xPercent: (i) => i * 100 });
 
     function goToSlide(index) {
         const total = slides.length;
+        console.log(total);
         const newIndex = (index + total) % total;
         gsap.to(slides, {
             duration: 0.6,
