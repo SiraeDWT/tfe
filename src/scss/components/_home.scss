@@ -12,14 +12,17 @@
 
     &__img{
         position: absolute;
-        bottom: 0; left: -10%;
+        bottom: 0; 
+        //left: -10%;
+        left: -$space-h2;
 
         z-index: 20;
 
         opacity: 1;
 
         &--mcl{
-            left: 12%;
+            //left: 12%;
+            left: $space-h3;
 
             z-index: 19;
         }
@@ -28,7 +31,7 @@
     &__svg{
         position: absolute;
         top: 50%;
-        left: 10%;
+        left: 5%;
 
         opacity: 1;
         transform: translate(-50%, -50%);
@@ -45,6 +48,7 @@
         position: absolute;
         right: $space-h3;
         top: 50%;
+        z-index: 50;
     }
 
     &__title{
@@ -219,31 +223,34 @@
     }
 
     &__img{
-        max-width: 100%;
-        height: auto;
-        object-fit: contain;
+        //max-width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+        //position: sticky;
+        //top: 0; left: 0;
     }
 
     &__left{
         padding: $space-h4 0 $space-h3 $space-h3;
-        flex-basis: 50%; // 45%
+        flex-basis: 55%; // 45%
 
         overflow-y: auto;
     }
 
     &__right{
-        position: sticky;
-        top: 0;
+        //position: sticky;
+        //top: 0;
 
-        flex-basis: 50%;
+        flex-basis: 40%;
 
         height: auto;
         max-height: 100vh;
-        padding-right: $space-h3;
+        //padding-right: $space-h3;
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        //display: flex;
+        //justify-content: center;
+        //align-items: center;
     }
 }
 
@@ -370,7 +377,7 @@
         
         position: absolute;
         z-index: 15;
-        top: 0; right: -10%; bottom: 0;
+        top: 0; right: -20%; bottom: 0;
     }
 
     &__title{
