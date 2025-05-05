@@ -7,4 +7,10 @@
             background-image: url('/static/images/swr-lh@2x.webp');
         }
     }
+
+    .intro-animation{
+        &__parallax{
+            background-image: url('/static/images/background-lh-victoire@2x.webp');
+        }
+    }
 }
