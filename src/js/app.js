@@ -305,6 +305,7 @@ mm.add("(min-width: 1440px)", () => {
     }
 });
 
+
 // Intro animation timeline
 tl.from(".intro-animation__start p", {
     duration: 3,
@@ -367,25 +368,105 @@ tl.to(".intro-animation__parallax", {
     duration: 0.2,
 });
 
-tl.from(".parcours", {
-    opacity: 0,
-    duration: 0.5,
-    display: "none",
+tl.call(() => {
+    sections.forEach(section => {
+        section.style.opacity = "1";
+        section.style.pointerEvents = "auto";
+    });
+
+    scrollEnabled = true;
+    goToSection(0);
 });
 
-tl.from(".parcours__title--mclaren", {
-    opacity: 0,
-    x: "-15%",
-    //overflow: "hidden",
-    //stagger: 0.2,
+
+const sections = gsap.utils.toArray(".parcours");
+let currentIndex = 0;
+let isAnimating = false;
+let scrollEnabled = false;
+
+function animateSection(section) {
+    const tl = gsap.timeline();
+
+    tl.from(section.querySelector(".parcours"), {
+        opacity: 0,
+        display: "none",
+    });
+
+    tl.from(section.querySelector(".parcours__title"), {
+        opacity: 0,
+        x: "-15%",
+        ease: "power2.out"
+    });
+
+    tl.from(section.querySelectorAll(".parcours__text"), {
+        opacity: 0,
+        x: "-15%",
+        stagger: 0.2,
+        ease: "power2.out"
+    });
+
+    tl.from(section.querySelector(".parcours__right"), {
+        opacity: 0,
+        x: "15%",
+        ease: "power2.out"
+    }, "-=0.5");
+}
+
+function goToSection(index, direction) {
+    if (isAnimating || index < 0 || index >= sections.length) return;
+
+    isAnimating = true;
+    currentIndex = index;
+
+    const easeType = direction === "down" ? "back.out(1.7)" : "back.in(0.4)";
+
+    gsap.to(window, {
+        duration: 1,
+        scrollTo: { y: sections[index], autoKill: false },
+        ease: easeType,
+        onComplete: () => {
+            isAnimating = false;
+            animateSection(sections[index]);
+        }
+    });
+}
+
+window.addEventListener("wheel", (e) => {
+    if (!scrollEnabled || isAnimating) return;
+
+    if (e.deltaY > 0) {
+        goToSection(currentIndex + 1, "down");
+    } else if (e.deltaY < 0) {
+        goToSection(currentIndex - 1, "up");
+    }
 });
 
-tl.from(".parcours__text", {
-    opacity: 0,
-    display: "none",
-    x: "-15%",
-    stagger: 0.2,
-});
+// -----
+
+// tl.from(".parcours", {
+//     opacity: 0,
+//     duration: 0.5,
+//     display: "none",
+// });
+
+// tl.from(".parcours__title--mclaren", {
+//     opacity: 0,
+//     x: "-15%",
+// });
+
+// tl.from(".parcours__text", {
+//     opacity: 0,
+//     // display: "none",
+//     x: "-15%",
+//     stagger: 0.2,
+// });
+
+// tl.from(".parcours__right", {
+//     opacity: 0,
+//     x: "15%",
+// });
+
+// -----
 
 
 // Parcours carousel img
