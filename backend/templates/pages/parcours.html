@@ -6,71 +6,63 @@
 {% block description %}Lewis Hamilton a une carrière incroyable. Découvrez son parcours exceptionnel de ses débuts en 2007 jusqu'à aujourd'hui.{% endblock %}
 
 {% block content %}
-<h1 class="parcours__main-title">Le parcours de Lewis Hamilton</h1>
+    <h1 class="parcours__main-title">Le parcours de Lewis Hamilton</h1>
 
-<section class="intro-animation">
     <div class="intro-animation__start">
         <p>Tout commence lors de la saison 2007 de Formule 1 ...</p>
     </div>
-    
     <div class="intro-animation__annonce">
-        <h2 class="intro-animation__title">
+        <p class="intro-animation__title">
             <span>Hamilton</span>
             <span>rejoint</span>
             <span class="intro-animation__title--red">McLaren</span>
-        </h2>
+        </p>
     </div>
-    
     <div class="intro-animation__parallax">
         <img src="{{ url_for('static', filename='images/lewis.png') }}" class="intro-animation__img" alt="">
         <img src="{{ url_for('static', filename='images/lh44.png') }}" class="intro-animation__logo" alt="">
     </div>
-</section>
 
-{% for ecurie, ecurie_data in data.items() %}
-    {% for annee, details in ecurie_data.years.items() %}
-        <section class="parcours parcours--{% if ecurie == 'mclaren' %}mclaren{% elif ecurie == 'mercedes' %}mercedes{% elif ecurie == 'ferrari' %}ferrari{% endif %}" id="{% if ecurie == 'mclaren' %}mclaren{% elif ecurie == 'mercedes' %}mercedes{% elif ecurie == 'ferrari' %}ferrari{% endif %}">
-            <div class="parcours__team">
-                <div class="parcours__content">
-                    <div class="parcours__left">
-                        <h3 class="parcours__title">
-                            <span class="parcours__title--ecurie">{{ ecurie }}</span>
-                            <span class="parcours__title--year parcours__title--{% if ecurie == 'mclaren' %}mclaren{% elif ecurie == 'mercedes' %}mercedes{% elif ecurie == 'ferrari' %}ferrari{% endif %}">{{ annee }}</span>
-                            <span class="parcours__title--{% if ecurie == 'mclaren' %}mclaren{% elif ecurie == 'mercedes' %}mercedes{% elif ecurie == 'ferrari' %}ferrari{% endif %}">{{ details.title }}</span>
-                        </h3>
-        
-                        <div class="parcours__textuals">
-                            {% for phrase in details.story %}
-                                <p class="parcours__text">{{ phrase }}</p>
-                            {% endfor %}
-                        </div>
-                    </div>
-                    
-                    <div class="parcours__right">
-                        
-                        <div class="parcours__carousel">
-                            <button class="parcours__btn parcours__btn--prev">
-                                <svg width="18" height="18" viewBox="0 0 40 33" xmlns="http://www.w3.org/2000/svg"><path d="M0.974373 16.474C0.974373 15.5929 1.68869 14.8786 2.56984 14.8786H33.9889L19.1624 0.052002L23.623 0.153624L39.9434 16.474L23.4173 33L19.1881 32.8937L33.9889 18.0695H2.56985C1.68869 18.0695 0.974373 17.3552 0.974373 16.474Z" fill="#FAFAFA" /></svg>
-                            </button>
-                            {% if details.image %}
-                            <div class="parcours__slides">
-                                {% for img_path in details.image %}
-                                <div class="parcours__slide">
-                                    {% set filename = img_path.split('/')[-1] %}
-                                    <img src="{{ url_for('static', filename=img_path) }}" class="parcours__img" alt="{{ filename }}">
-                                </div>
+    {% for ecurie, ecurie_data in data.items() %}
+        {% for annee, details in ecurie_data.years.items() %}
+            <section class="parcours parcours--{{ ecurie }}" id="parcours-{{ ecurie }}-{{ '%02d' % loop.index }}">
+                <div class="parcours__team">
+                    <div class="parcours__content">
+                        <div class="parcours__left">
+                            <h2 class="parcours__title">
+                                <span class="parcours__title--ecurie">{{ ecurie }}</span>
+                                <span class="parcours__title--year parcours__title--{{ ecurie }}">{{ annee }}</span>
+                                <span class="parcours__title--{{ ecurie }}">{{ details.title }}</span>
+                            </h2>
+                            <div class="parcours__textuals">
+                                {% for phrase in details.story %}
+                                    <p class="parcours__text">{{ phrase }}</p>
                                 {% endfor %}
                             </div>
-                            {% endif %}
-                            <button class="parcours__btn parcours__btn--next">
-                                <svg width="18" height="18" viewBox="0 0 40 33" xmlns="http://www.w3.org/2000/svg"><path d="M0.974373 16.474C0.974373 15.5929 1.68869 14.8786 2.56984 14.8786H33.9889L19.1624 0.052002L23.623 0.153624L39.9434 16.474L23.4173 33L19.1881 32.8937L33.9889 18.0695H2.56985C1.68869 18.0695 0.974373 17.3552 0.974373 16.474Z" fill="#FAFAFA" /></svg>
-                            </button>
                         </div>
-                        
+                        <div class="parcours__right">
+                            <div class="parcours__carousel">
+                                <button class="parcours__btn parcours__btn--prev">
+                                    <svg width="18" height="18" viewBox="0 0 40 33" xmlns="http://www.w3.org/2000/svg"><path d="M0.974373 16.474C0.974373 15.5929 1.68869 14.8786 2.56984 14.8786H33.9889L19.1624 0.052002L23.623 0.153624L39.9434 16.474L23.4173 33L19.1881 32.8937L33.9889 18.0695H2.56985C1.68869 18.0695 0.974373 17.3552 0.974373 16.474Z" fill="#FAFAFA" /></svg>
+                                </button>
+                                {% if details.image %}
+                                    <div class="parcours__slides">
+                                        {% for img_path in details.image %}
+                                            <div class="parcours__slide">
+                                                {% set filename = img_path.split('/')[-1] %}
+                                                <img src="{{ url_for('static', filename=img_path) }}" class="parcours__img" alt="{{ filename }}">
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                                <button class="parcours__btn parcours__btn--next">
+                                    <svg width="18" height="18" viewBox="0 0 40 33" xmlns="http://www.w3.org/2000/svg"><path d="M0.974373 16.474C0.974373 15.5929 1.68869 14.8786 2.56984 14.8786H33.9889L19.1624 0.052002L23.623 0.153624L39.9434 16.474L23.4173 33L19.1881 32.8937L33.9889 18.0695H2.56985C1.68869 18.0695 0.974373 17.3552 0.974373 16.474Z" fill="#FAFAFA" /></svg>
+                                </button>
+                            </div>   
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        {% endfor %}
     {% endfor %}
-{% endfor %}
 {% endblock %}

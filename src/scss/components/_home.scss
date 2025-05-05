@@ -130,7 +130,7 @@
         background-image: url('/static/icons/one-silver-arrow.svg');
         background-repeat: repeat;
         background-size: 180px;
-        background-position: center;
+        background-position: 0 0;
         opacity: 0.02;
         animation: move-diagonal 30s linear infinite;
     }
@@ -140,7 +140,7 @@
             background-position: 0 0;
         }
         100%{
-            background-position: -500px -350px;
+            background-position: -360px -360px; // -500 -350
         }
     }
 
