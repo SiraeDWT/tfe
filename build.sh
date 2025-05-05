@@ -10,8 +10,8 @@ npm run build
 # rm -rf backend/static/assets/*
 # rm -rf backend/static/icons/sprite.svg
 
-echo "📂 Copie des nouveaux fichiers générés"
-cp public/icons/sprite.svg backend/static/icons/
+# echo "📂 Copie des nouveaux fichiers générés"
+# cp public/icons/sprite.svg backend/static/icons/
 
 if [[ "$RENDER" != "true" ]]; then
   echo "🐍 Création de l'environnement virtuel Python (local)"
