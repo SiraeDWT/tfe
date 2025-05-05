@@ -6,9 +6,9 @@ echo "📦 Installation des dépendances frontend"
 npm install
 npm run build
 
-echo "🧹 Nettoyage des anciens assets"
-rm -rf backend/static/assets/*
-rm -rf backend/static/icons/sprite.svg
+# echo "🧹 Nettoyage des anciens assets"
+# rm -rf backend/static/assets/*
+# rm -rf backend/static/icons/sprite.svg
 
 echo "📂 Copie des nouveaux fichiers générés"
 cp public/icons/sprite.svg backend/static/icons/
