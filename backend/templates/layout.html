@@ -24,7 +24,7 @@
 
     <link type="image/x-icon" rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='assets/app.css') }}">
-    <script type="module" src="{{ url_for('static', filename='assets/app.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='assets/app.js') }}" defer></script>
 </head>
 <body id="#top">
     {% include "components/header.html" %}
