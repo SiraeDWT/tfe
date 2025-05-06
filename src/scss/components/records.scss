@@ -11,12 +11,57 @@
         left: -100%;
     }
 
+    &__wrapper{
+        display: flex;
+        gap: $space-h4;
+    }
+
     &__left{
-        width: 40%;
+        width: 45%;
+        flex-basis: 50%;
+    }
+
+    &__buttons{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__right{
+        flex-basis: 50%;
+    }
+
+    &__title{
+        font-size: $h3-font-size;
+        font-family: 'PPFormulaNarrow';
     }
 
     &__map{
         max-width: 100%;
         height: auto;
+        overflow: visible;
+        margin-bottom: $space-h4;
+    }
+}
+
+.map{
+
+    // path{
+    //     stroke: #FAFAFA;
+    // }
+
+    &__point{
+        transition: transform 0.2s ease-in-out;
+        transform-box: fill-box;
+        transform-origin: center;
+
+        &:hover{
+            cursor: pointer;
+            transform: scale(1.5);
+        }
+
+        &--active{
+            transform: scale(2);
+        }
     }
 }
