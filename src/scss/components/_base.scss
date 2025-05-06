@@ -119,8 +119,9 @@ body, html{
 }
 
 .wrapper{
-    width: 50%;
-    margin: 0 auto;
+    // width: 50%;
+    // margin: 0 auto;
+    padding: $space-h4 $space-h3;
 }
 
 #transition{
