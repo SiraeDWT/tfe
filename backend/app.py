@@ -9,7 +9,7 @@ def index():
 
 @app.route("/parcours")
 def parcours():
-    return render_template("pages/parcours.html", body_class="body__parcours", data=history)
+    return render_template("pages/parcours.html", main_class="main__parcours", body_class="body__parcours", data=history)
 
 @app.route("/records")
 def records():
