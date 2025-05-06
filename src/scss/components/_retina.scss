@@ -13,4 +13,10 @@
             background-image: url('/static/images/background-lh-victoire@2x.webp');
         }
     }
+
+    .parcours{
+        &::before{
+            background-image: url('/static/images/parcours-background@2x.webp');
+        }
+    }
 }
