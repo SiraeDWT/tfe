@@ -494,3 +494,72 @@ document.querySelectorAll('.parcours__carousel').forEach((carousel) => {
     carousel.querySelector('.parcours__btn--prev')
             .addEventListener('click', () => goToSlide(currentIndex - 1));
 });
+
+
+// Records map
+// const points = document.querySelectorAll(".map__point");
+// const contents = document.querySelectorAll(".records__content");
+
+// points.forEach((point) => {
+//     point.addEventListener("click", () => {
+//         points.forEach(p => p.classList.remove("map__point--active"));
+//         point.classList.add("map__point--active");
+
+//         const targetId = point.getAttribute("data-id");
+//         contents.forEach(content => {
+//             content.classList.toggle("hidden", content.getAttribute("data-id") !== targetId);
+//         });
+//     });
+// });
+
+// Records map
+const points = [...document.querySelectorAll(".map__point")];
+const contents = document.querySelectorAll(".records__content");
+const btnPrev = document.querySelector('[data-action="prev"]');
+const btnNext = document.querySelector('[data-action="next"]');
+
+function updateUI(activeIndex){
+    points.forEach((p, i) => {
+        p.classList.toggle("map__point--active", i === activeIndex);
+    });
+
+    const targetId = points[activeIndex].getAttribute("data-id");
+    contents.forEach(content => {
+        content.classList.toggle("hidden", content.getAttribute("data-id") !== targetId);
+    });
+
+    if(activeIndex === 0){
+        btnPrev.style.display = "none";
+        btnNext.textContent = "Démarrer";
+    } else if(activeIndex === points.length - 1){
+        btnPrev.style.display = "inline-flex";
+        btnNext.textContent = "Terminer le tour";
+    } else{
+        btnPrev.style.display = "inline-flex";
+        btnNext.textContent = "Avancer";
+    }
+}
+
+function getActiveIndex(){
+    return points.findIndex(p => p.classList.contains("map__point--active"));
+}
+
+points.forEach((point, index) => {
+    point.addEventListener("click", () => updateUI(index));
+});
+
+btnNext.addEventListener("click", () => {
+    const current = getActiveIndex();
+    if(current < points.length - 1){
+        updateUI(current + 1);
+    } else{
+        updateUI(0);
+    }
+});
+
+btnPrev.addEventListener("click", () => {
+    const current = getActiveIndex();
+    if (current > 0) updateUI(current - 1);
+});
+
+updateUI(getActiveIndex());

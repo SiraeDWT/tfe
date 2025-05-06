@@ -28,30 +28,44 @@
                     <path d="M479.53 83.0134L699.023 241.404C712.023 248.899 734.122 282.875 718.523 358.823C712.856 375.977 706.323 420.98 725.522 463.75L829.519 589.163" stroke="#F7D417" stroke-width="10"/>
                     <path d="M479.53 83.0134L699.023 241.404" stroke="#F7D417" stroke-width="10"/>
                     
-                    <circle cx="479" cy="83" r="15" fill="#6D00CC" class="map__point map__point--active"/>
-                    <circle cx="698" cy="241" r="15" fill="#6D00CC" class="map__point"/>
-                    <circle cx="829" cy="589" r="15" fill="#6D00CC" class="map__point"/>
-                    <circle cx="891" cy="718" r="15" fill="#6D00CC" class="map__point"/>
-                    <circle cx="1254" cy="297" r="15" fill="#6D00CC" class="map__point"/>
-                    <circle cx="1175" cy="134" r="15" fill="#6D00CC" class="map__point"/>
-                    <circle cx="1303" cy="189" r="15" fill="#6D00CC" class="map__point"/>
-                    <circle cx="1303" cy="189" r="15" fill="#6D00CC" class="map__point"/>
-                    <circle cx="1431" cy="661" r="15" fill="#6D00CC" class="map__point"/>
-                    <circle cx="962" cy="813" r="15" fill="#6D00CC" class="map__point"/>
-                    <circle cx="819" cy="800" r="15" fill="#6D00CC" class="map__point"/>
-                    <circle cx="654" cy="828" r="15" fill="#6D00CC" class="map__point"/>
-                    <circle cx="100" cy="491" r="15" fill="#6D00CC" class="map__point"/>
-                    <circle cx="267" cy="147" r="15" fill="#6D00CC" class="map__point"/>
-                    <circle cx="267" cy="44" r="15" fill="#6D00CC" class="map__point "/>
+                    <circle cx="479" cy="83" r="15" fill="#6D00CC" class="map__point map__point--active" data-id="point-01"/>
+                    <circle cx="698" cy="241" r="15" fill="#6D00CC" class="map__point" data-id="point-02"/>
+                    <circle cx="829" cy="589" r="15" fill="#6D00CC" class="map__point" data-id="point-03"/>
+                    <circle cx="891" cy="718" r="15" fill="#6D00CC" class="map__point" data-id="point-04"/>
+                    <circle cx="1254" cy="297" r="15" fill="#6D00CC" class="map__point" data-id="point-05"/>
+                    <circle cx="1175" cy="134" r="15" fill="#6D00CC" class="map__point" data-id="point-06"/>
+                    <circle cx="1303" cy="189" r="15" fill="#6D00CC" class="map__point" data-id="point-07"/>
+                    <circle cx="1431" cy="661" r="15" fill="#6D00CC" class="map__point" data-id="point-08"/>
+                    <circle cx="962" cy="813" r="15" fill="#6D00CC" class="map__point" data-id="point-09"/>
+                    <circle cx="819" cy="800" r="15" fill="#6D00CC" class="map__point" data-id="point-10"/>
+                    <circle cx="654" cy="828" r="15" fill="#6D00CC" class="map__point" data-id="point-11"/>
+                    <circle cx="100" cy="491" r="15" fill="#6D00CC" class="map__point" data-id="point-12"/>
+                    <circle cx="267" cy="147" r="15" fill="#6D00CC" class="map__point" data-id="point-13"/>
+                    <circle cx="267" cy="44" r="15" fill="#6D00CC" class="map__point " data-id="point-14"/>
                 </svg>
                 <div class="records__buttons">
-                    <button class="btn btn--dark btn--reverse records__btn">Reculer</button>
-                    <button class="btn btn--dark records__btn">Avancer</button>
+                    <button class="btn btn--dark btn--reverse records__btn" data-action="prev">Reculer</button>
+                    <button class="btn btn--dark records__btn" data-action="next">Avancer</button>
                 </div>
             </div>
             <div class="records__right">
-                <h2 class="records__title">Tour des records</h2>
-            </div>
+                <div class="records__content" data-id="point-01">
+                    <h2 class="records__title">Tour des records</h2>
+                </div>
+                <div class="records__content hidden" data-id="point-02"></div>
+                <div class="records__content hidden" data-id="point-03"></div>
+                <div class="records__content hidden" data-id="point-04"></div>
+                <div class="records__content hidden" data-id="point-05"></div>
+                <div class="records__content hidden" data-id="point-06"></div>
+                <div class="records__content hidden" data-id="point-07"></div>
+                <div class="records__content hidden" data-id="point-08"></div>
+                <div class="records__content hidden" data-id="point-09"></div>
+                <div class="records__content hidden" data-id="point-10"></div>
+                <div class="records__content hidden" data-id="point-11"></div>
+                <div class="records__content hidden" data-id="point-12"></div>
+                <div class="records__content hidden" data-id="point-13"></div>
+                <div class="records__content hidden" data-id="point-14"></div>
+            </div> 
         </div>
     </section>
 {% endblock %}
