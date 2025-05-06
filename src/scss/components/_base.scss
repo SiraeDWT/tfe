@@ -116,6 +116,20 @@ body, html{
             background-size: 100% 100%;
         }
     }
+
+    &--reverse{
+        background: linear-gradient(-90deg, $primary-color 100%, $primary-color 0%);
+        color: $dark-color;
+        background-color: $light-color;
+        background-size: 0% 100%;
+        background-repeat: no-repeat;
+        background-position: right;
+        transition: all $transition-left;
+
+        &:hover {
+            background-size: 100% 100%;
+        }
+    }
 }
 
 .wrapper{
