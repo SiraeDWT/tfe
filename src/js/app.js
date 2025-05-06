@@ -563,3 +563,80 @@ btnPrev.addEventListener("click", () => {
 });
 
 updateUI(getActiveIndex());
+
+
+// ChartJS
+const raw = document.getElementById("champions-data").textContent;
+const champions = JSON.parse(raw);
+
+const labels = champions.map(c => c.name);
+const data = champions.map(c => c.titles);
+
+const ctx = document.getElementById("chartRecords").getContext("2d");
+
+new Chart(ctx, {
+    type: "bar",
+    data: {
+        labels: labels,
+        datasets: [{
+            label: "Titres de Champion du Monde",
+            data: data,
+            backgroundColor: [
+                "#F7D417",
+                "#F7D417",
+                "#F7D417",
+                "#F7D417",
+                "#F7D417",
+            ],
+            borderColor: "#ffffff",
+            borderWidth: 0,
+            borderRadius: 0,
+            barThickness: 40
+        }]
+    },
+    options: {
+        plugins: {
+            legend: {
+                labels: {
+                    color: "#ffffff",
+                    font: {
+                        size: 12,
+                        family: "'PPFormula', sans-serif"
+                    }
+                }
+            }
+        },
+        scales: {
+            x: {
+                ticks: {
+                    color: "#ffffff",
+                    font: {
+                        size: 12,
+                        family: "'PPFormula', sans-serif"
+                    }
+                },
+                grid: {
+                    color: "rgba(255, 255, 255, 0.1)"
+                }
+            },
+            y: {
+                beginAtZero: true,
+                ticks: {
+                    stepSize: 1,
+                    color: "#ffffff",
+                    font: {
+                        size: 12,
+                        family: "'PPFormula', sans-serif"
+                    }
+                },
+                grid: {
+                    color: "rgba(255, 255, 255, 0.1)"
+                }
+            }
+        },
+        layout: {
+            padding: 20
+        },
+        responsive: true
+    }
+});

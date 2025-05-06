@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 from content import history
+from call import get_top_champions
 
 app = Flask(__name__, static_folder='static', static_url_path='/static')
 
@@ -13,7 +14,8 @@ def parcours():
 
 @app.route("/records")
 def records():
-    return render_template("pages/records.html")
+    champions = get_top_champions()
+    return render_template("pages/records.html", champions=champions)
 
 @app.route("/voitures")
 def voitures():

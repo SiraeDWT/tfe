@@ -52,7 +52,9 @@
                 <div class="records__content" data-id="point-01">
                     <h2 class="records__title">Tour des records</h2>
                 </div>
-                <div class="records__content hidden" data-id="point-02"></div>
+                <div class="records__content hidden" data-id="point-02">
+                    <canvas id="chartRecords"></canvas>
+                </div>
                 <div class="records__content hidden" data-id="point-03"></div>
                 <div class="records__content hidden" data-id="point-04"></div>
                 <div class="records__content hidden" data-id="point-05"></div>
@@ -68,4 +70,5 @@
             </div> 
         </div>
     </section>
+    <script id="champions-data" type="application/json">{{ champions | tojson }}</script>
 {% endblock %}
