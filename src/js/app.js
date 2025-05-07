@@ -579,26 +579,22 @@ new Chart(ctx, {
     data: {
         labels: labels,
         datasets: [{
-            label: "Titres de Champion du Monde",
+            label: "",
             data: data,
             backgroundColor: [
                 "#F7D417",
-                "#F7D417",
-                "#F7D417",
-                "#F7D417",
-                "#F7D417",
             ],
-            borderColor: "#ffffff",
+            borderColor: "#FAFAFA",
             borderWidth: 0,
             borderRadius: 0,
-            barThickness: 40
+            barThickness: 20
         }]
     },
     options: {
         plugins: {
             legend: {
                 labels: {
-                    color: "#ffffff",
+                    color: "#FAFAFA",
                     font: {
                         size: 12,
                         family: "'PPFormula', sans-serif"
@@ -609,7 +605,7 @@ new Chart(ctx, {
         scales: {
             x: {
                 ticks: {
-                    color: "#ffffff",
+                    color: "#FAFAFA",
                     font: {
                         size: 12,
                         family: "'PPFormula', sans-serif"
@@ -623,7 +619,7 @@ new Chart(ctx, {
                 beginAtZero: true,
                 ticks: {
                     stepSize: 1,
-                    color: "#ffffff",
+                    color: "#FAFAFA",
                     font: {
                         size: 12,
                         family: "'PPFormula', sans-serif"
