@@ -36,6 +36,18 @@
         font-family: 'PPFormulaNarrow';
     }
 
+    &__textuals{
+        margin: $space-h6 0;
+    }
+
+    &__text{
+        margin-bottom: $space-text;
+
+        &--last{
+            margin-bottom: 0;
+        }
+    }
+
     &__map{
         max-width: 100%;
         height: auto;
@@ -46,14 +58,16 @@
 
 .map{
 
-    // path{
-    //     stroke: #FAFAFA;
-    // }
+    path{
+        stroke: $light-color;
+    }
 
     &__point{
         transition: transform 0.2s ease-in-out;
         transform-box: fill-box;
         transform-origin: center;
+
+        fill: $primary-color;
 
         &:hover{
             cursor: pointer;
@@ -62,6 +76,8 @@
 
         &--active{
             transform: scale(2);
+
+            fill: $secondary-color;
         }
     }
 }
