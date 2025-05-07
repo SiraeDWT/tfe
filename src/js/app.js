@@ -497,26 +497,23 @@ document.querySelectorAll('.parcours__carousel').forEach((carousel) => {
 
 
 // Records map
-// const points = document.querySelectorAll(".map__point");
-// const contents = document.querySelectorAll(".records__content");
-
-// points.forEach((point) => {
-//     point.addEventListener("click", () => {
-//         points.forEach(p => p.classList.remove("map__point--active"));
-//         point.classList.add("map__point--active");
-
-//         const targetId = point.getAttribute("data-id");
-//         contents.forEach(content => {
-//             content.classList.toggle("hidden", content.getAttribute("data-id") !== targetId);
-//         });
-//     });
-// });
-
-// Records map
 const points = [...document.querySelectorAll(".map__point")];
 const contents = document.querySelectorAll(".records__content");
 const btnPrev = document.querySelector('[data-action="prev"]');
 const btnNext = document.querySelector('[data-action="next"]');
+
+function animateCounter(span, target, duration = 1) {
+    const obj = { val: 0 };
+
+    gsap.to(obj, {
+        val: target,
+        duration: duration,
+        ease: "power2.out",
+        onUpdate: () => {
+            span.textContent = Math.floor(obj.val);
+        }
+    });
+}
 
 function updateUI(activeIndex){
     points.forEach((p, i) => {
@@ -524,19 +521,61 @@ function updateUI(activeIndex){
     });
 
     const targetId = points[activeIndex].getAttribute("data-id");
+
     contents.forEach(content => {
-        content.classList.toggle("hidden", content.getAttribute("data-id") !== targetId);
+        const isTarget = content.getAttribute("data-id") === targetId;
+        content.classList.toggle("hidden", !isTarget);
+
+        if (isTarget) {
+            gsap.set(content, {opacity: 0, y: 20});
+
+            gsap.to(content, {
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                ease: "power2.out"
+            });
+
+            const counterSpan = content.querySelector(".records__title--bigger");
+            if (counterSpan) {
+                const target = parseInt(counterSpan.textContent, 10);
+                if (!isNaN(target)) {
+                    counterSpan.textContent = "0";
+                    animateCounter(counterSpan, target, 1); // tu peux ajuster la durée
+                }
+            }
+        }
     });
 
-    if(activeIndex === 0){
+    // Gestion des boutons
+    // if(activeIndex === 0){
+    //     btnPrev.style.display = "none";
+    //     btnNext.textContent = "Démarrer";
+    //     btnNext.classList.add("records__btn--begin");
+    // } else if(activeIndex === points.length - 1){
+    //     btnPrev.style.display = "inline-flex";
+    //     btnNext.textContent = "Terminer le tour";
+    //     btnNext.classList.remove("records__btn--begin");
+    // } else{
+    //     btnPrev.style.display = "inline-flex";
+    //     btnNext.textContent = "Avancer";
+    //     btnNext.classList.remove("records__btn--begin");
+    // }
+
+    const spanNextText = btnNext.querySelector('.btn__text');
+
+    if (activeIndex === 0) {
         btnPrev.style.display = "none";
-        btnNext.textContent = "Démarrer";
-    } else if(activeIndex === points.length - 1){
+        spanNextText.textContent = "Démarrer";
+        btnNext.classList.add("records__btn--begin");
+    } else if (activeIndex === points.length - 1) {
         btnPrev.style.display = "inline-flex";
-        btnNext.textContent = "Terminer le tour";
-    } else{
+        spanNextText.textContent = "Terminer le tour";
+        btnNext.classList.remove("records__btn--begin");
+    } else {
         btnPrev.style.display = "inline-flex";
-        btnNext.textContent = "Avancer";
+        spanNextText.textContent = "Avancer";
+        btnNext.classList.remove("records__btn--begin");
     }
 }
 
@@ -578,28 +617,49 @@ new Chart(ctx, {
     type: "bar",
     data: {
         labels: labels,
-        datasets: [{
-            label: "",
-            data: data,
-            backgroundColor: [
-                "#F7D417",
-            ],
-            borderColor: "#FAFAFA",
-            borderWidth: 0,
-            borderRadius: 0,
-            barThickness: 20
-        }]
+        datasets: [
+            {
+                type: "bar",
+                label: "Titres",
+                data: data,
+                backgroundColor: "#F7D417",
+                borderColor: "#FAFAFA",
+                borderWidth: 0,
+                borderRadius: 0,
+                barThickness: 18
+            },
+            {
+                type: "line",
+                label: "Courbe",
+                data: data,
+                borderColor: "#F7D417",
+                backgroundColor: "#F7D417",
+                tension: 0.1,
+                pointBackgroundColor: "#F7D417",
+                pointBorderColor: "#F7D417",
+                fill: false
+            }
+        ]
     },
     options: {
+        animation: {
+            y: {
+                duration: 1000,
+                easing: 'easeOutCubic',
+                animateScale: false,
+                animateRotate: false
+            }
+        },
         plugins: {
             legend: {
-                labels: {
-                    color: "#FAFAFA",
-                    font: {
-                        size: 12,
-                        family: "'PPFormula', sans-serif"
-                    }
-                }
+                // labels: {
+                //     color: "#FAFAFA",
+                //     font: {
+                //         size: 12,
+                //         family: "'PPFormula', sans-serif"
+                //     }
+                // }
+                display: false
             }
         },
         scales: {
@@ -612,7 +672,7 @@ new Chart(ctx, {
                     }
                 },
                 grid: {
-                    color: "rgba(255, 255, 255, 0.1)"
+                    color: "rgba(250, 250, 250, 0.5)"
                 }
             },
             y: {
@@ -626,12 +686,12 @@ new Chart(ctx, {
                     }
                 },
                 grid: {
-                    color: "rgba(255, 255, 255, 0.1)"
+                    color: "rgba(250, 250, 250, 0.5)"
                 }
             }
         },
         layout: {
-            padding: 20
+            padding: 0
         },
         responsive: true
     }
