@@ -44,8 +44,14 @@
                     <circle cx="267" cy="44" r="15" fill="#6D00CC" class="map__point " data-id="point-14"/>
                 </svg>
                 <div class="records__buttons">
-                    <button class="btn btn--dark btn--reverse records__btn" data-action="prev">Reculer</button>
-                    <button class="btn btn--dark records__btn" data-action="next">Avancer</button>
+                    <button class="btn btn--dark btn--reverse records__btn" data-action="prev">
+                        <svg width="18" height="18" viewBox="0 0 40 33" xmlns="http://www.w3.org/2000/svg"><path d="M0.974373 16.474C0.974373 15.5929 1.68869 14.8786 2.56984 14.8786H33.9889L19.1624 0.052002L23.623 0.153624L39.9434 16.474L23.4173 33L19.1881 32.8937L33.9889 18.0695H2.56985C1.68869 18.0695 0.974373 17.3552 0.974373 16.474Z" fill="#FAFAFA" /></svg>
+                        <span class="btn__text">Reculer</span>
+                    </button>
+                    <button class="btn btn--dark records__btn" data-action="next">
+                        <span class="btn__text">Avancer</span>
+                        <svg width="18" height="18" viewBox="0 0 40 33" xmlns="http://www.w3.org/2000/svg"><path d="M0.974373 16.474C0.974373 15.5929 1.68869 14.8786 2.56984 14.8786H33.9889L19.1624 0.052002L23.623 0.153624L39.9434 16.474L23.4173 33L19.1881 32.8937L33.9889 18.0695H2.56985C1.68869 18.0695 0.974373 17.3552 0.974373 16.474Z" fill="#FAFAFA" /></svg>
+                    </button>
                 </div>
             </div>
             <div class="records__right">
@@ -56,20 +62,50 @@
                         <p class="records__text records__text--last">Cliquez simplement sur le bouton "Démarrer" pour les découvrir dans l'ordre ou sur n'importe quel point du circuit pour les parcourir selon votre envie.</p>
                     </div>
                 </div>
+
                 <div class="records__content hidden" data-id="point-02">
-                    <canvas id="chartRecords"></canvas>
+                    <h2 class="records__title"><span class="records__title--bigger">7</span> titres mondiaux</h2>
+                    <canvas id="chartRecords" class="records__chart"></canvas>
                 </div>
-                <div class="records__content hidden" data-id="point-03"></div>
-                <div class="records__content hidden" data-id="point-04"></div>
-                <div class="records__content hidden" data-id="point-05"></div>
-                <div class="records__content hidden" data-id="point-06"></div>
-                <div class="records__content hidden" data-id="point-07"></div>
-                <div class="records__content hidden" data-id="point-08"></div>
-                <div class="records__content hidden" data-id="point-09"></div>
-                <div class="records__content hidden" data-id="point-10"></div>
+
+                <div class="records__content hidden" data-id="point-03">
+                    <h2 class="records__title"><span class="records__title--bigger">105</span> victoires</h2>
+                </div>
+
+                <div class="records__content hidden" data-id="point-04">
+                    <h2 class="records__title"><span class="records__title--bigger">106</span> pôles</h2>
+                </div>
+
+                <div class="records__content hidden" data-id="point-05">
+                    <h2 class="records__title"><span class="records__title--bigger">202</span> podiums</h2>
+                </div>
+
+                <div class="records__content hidden" data-id="point-06">
+                    <h2 class="records__title"><span class="records__title--bigger">84</span> victoires Mercedes</h2>
+                </div>
+
+                <div class="records__content hidden" data-id="point-07">
+                    <h2 class="records__title"><span class="records__title--bigger">9</span> victoires à Silverstone</h2>
+                </div>
+
+                <div class="records__content hidden" data-id="point-08">
+                    <h2 class="records__title"><span class="records__title--bigger">15</span> saisons avec victoires</h2>
+                </div>
+
+                <div class="records__content hidden" data-id="point-09">
+                    <h2 class="records__title"><span class="records__title--bigger">191</span> courses en leader</h2>
+                </div>
+
+                <div class="records__content hidden" data-id="point-10">
+                    <h2 class="records__title"><span class="records__title--bigger">4903</span> points accumulés</h2>
+                </div>
+
                 <div class="records__content hidden" data-id="point-11"></div>
+
                 <div class="records__content hidden" data-id="point-12"></div>
+
                 <div class="records__content hidden" data-id="point-13"></div>
+
                 <div class="records__content hidden" data-id="point-14"></div>
             </div> 
         </div>
