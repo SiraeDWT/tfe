@@ -9,11 +9,11 @@ app = Flask(__name__, static_folder='static', static_url_path='/static')
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("index.html", body_class="body__home")
 
 @app.route("/parcours")
 def parcours():
-    return render_template("pages/parcours.html", main_class="main__parcours", body_class="body__parcours", data=history)
+    return render_template("pages/parcours.html", body_class="body__parcours", data=history)
 
 @app.route("/records")
 def records():
@@ -22,19 +22,19 @@ def records():
     poles = get_top_poles()
     podiums = get_top_podiums()
     team_wins = get_top_wins_with_team()
-    return render_template("pages/records.html", champions=champions, winners=winners, poles=poles, podiums=podiums, team_wins=team_wins)
+    return render_template("pages/records.html", body_class="body__records", champions=champions, winners=winners, poles=poles, podiums=podiums, team_wins=team_wins)
 
 @app.route("/voitures")
 def voitures():
-    return render_template("pages/voitures.html")
+    return render_template("pages/voitures.html", body_class="body__voitures")
 
 @app.route("/credits")
 def credits():
-    return render_template("pages/credits.html")
+    return render_template("pages/credits.html", body_class="body__credits")
 
 @app.route("/sources")
 def sources():
-    return render_template("pages/sources.html")
+    return render_template("pages/sources.html", body_class="body__sources")
 
 if __name__ == "__main__":
     app.run(debug=True)

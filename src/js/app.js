@@ -306,718 +306,692 @@ mm.add("(min-width: 1440px)", () => {
 });
 
 
-// Intro animation timeline
-tl.from(".intro-animation__start p", {
-    duration: 3,
-    text: "",
-    ease: "cubic-bezier(.4, 0, .2, 1)",
-    delay: 0.5,
-    opacity: 0,
-});
 
-tl.to(".intro-animation__start p", {
-    opacity: 0,
-    duration: 0.5,
-}, "+=1");
+// ----- Parcours page -----
+let bodyParcours = document.querySelector('.body__parcours');
 
-tl.from(".intro-animation__title span", {
-    opacity: 0,
-    stagger: 0.2,
-    ease: "power3.out",
-    autoAlpha: 0,
-    y: "25%"
-});
-
-tl.to(".intro-animation__title span", {
-    opacity: 0,
-    duration: 0.5,
-    x: "25%",
-    stagger: 0.2
-}, "+=1");
-
-tl.to(".intro-animation__annonce", {
-    display: "none",
-});
-
-tl.from(".intro-animation__parallax", {
-    opacity: 0,
-    ease: "cubic-bezier(.4, 0, .2, 1)",
-    y: "100%",
-    duration: 0.2,
-});
-
-tl.from(".intro-animation__logo", {
-    opacity: 0,
-    x: "-100%",
-    ease: "power2.in",
-    duration: 0.5,
-}, "+=0.2");
-
-tl.to(".intro-animation__logo", {
-    opacity: 0,
-    x: "100%",
-    ease: "power2.out",
-    display: "none",
-    duration: 0.5,
-},);
-
-tl.to(".intro-animation__parallax", {
-    opacity: 0,
-    ease: "cubic-bezier(.4, 0, .2, 1)",
-    display: "none",
-    duration: 0.2,
-});
-
-tl.call(() => {
-    sections.forEach(section => {
-        section.style.opacity = "1";
-        section.style.pointerEvents = "auto";
-    });
-
-    scrollEnabled = true;
-    goToSection(0);
-});
-
-
-const sections = gsap.utils.toArray(".parcours");
-let currentIndex = 0;
-let isAnimating = false;
-let scrollEnabled = false;
-
-function animateSection(section) {
-    const tl = gsap.timeline();
-
-    tl.from(section.querySelector(".parcours"), {
+if(bodyParcours){
+    // Intro animation timeline
+    tl.from(".intro-animation__start p", {
+        duration: 3,
+        text: "",
+        ease: "cubic-bezier(.4, 0, .2, 1)",
+        delay: 0.5,
         opacity: 0,
+    });
+    
+    tl.to(".intro-animation__start p", {
+        opacity: 0,
+        duration: 0.5,
+    }, "+=1");
+    
+    tl.from(".intro-animation__title span", {
+        opacity: 0,
+        stagger: 0.2,
+        ease: "power3.out",
+        autoAlpha: 0,
+        y: "25%"
+    });
+    
+    tl.to(".intro-animation__title span", {
+        opacity: 0,
+        duration: 0.5,
+        x: "25%",
+        stagger: 0.2
+    }, "+=1");
+    
+    tl.to(".intro-animation__annonce", {
         display: "none",
     });
-
-    tl.from(section.querySelector(".parcours__title"), {
+    
+    tl.from(".intro-animation__parallax", {
         opacity: 0,
-        x: "-15%",
-        ease: "power2.out"
+        ease: "cubic-bezier(.4, 0, .2, 1)",
+        y: "100%",
+        duration: 0.2,
     });
-
-    tl.from(section.querySelectorAll(".parcours__text"), {
+    
+    tl.from(".intro-animation__logo", {
         opacity: 0,
-        x: "-15%",
-        stagger: 0.2,
-        ease: "power2.out"
-    });
-
-    tl.from(section.querySelector(".parcours__right"), {
+        x: "-100%",
+        ease: "power2.in",
+        duration: 0.5,
+    }, "+=0.2");
+    
+    tl.to(".intro-animation__logo", {
         opacity: 0,
-        x: "15%",
-        ease: "power2.out"
-    }, "-=0.5");
-}
-
-function goToSection(index, direction) {
-    if (isAnimating || index < 0 || index >= sections.length) return;
-
-    isAnimating = true;
-    currentIndex = index;
-
-    const easeType = direction === "down" ? "back.out(1.7)" : "back.in(0.4)";
-
-    gsap.to(window, {
-        duration: 1,
-        scrollTo: { y: sections[index], autoKill: false },
-        ease: easeType,
-        onComplete: () => {
-            isAnimating = false;
-            animateSection(sections[index]);
-        }
-    });
-}
-
-window.addEventListener("wheel", (e) => {
-    if (!scrollEnabled || isAnimating) return;
-
-    if (e.deltaY > 0) {
-        goToSection(currentIndex + 1, "down");
-    } else if (e.deltaY < 0) {
-        goToSection(currentIndex - 1, "up");
-    }
-});
-
-// -----
-
-// tl.from(".parcours", {
-//     opacity: 0,
-//     duration: 0.5,
-//     display: "none",
-// });
-
-// tl.from(".parcours__title--mclaren", {
-//     opacity: 0,
-//     x: "-15%",
-// });
-
-// tl.from(".parcours__text", {
-//     opacity: 0,
-//     // display: "none",
-//     x: "-15%",
-//     stagger: 0.2,
-// });
-
-// tl.from(".parcours__right", {
-//     opacity: 0,
-//     x: "15%",
-// });
-
-// -----
-
-
-// Parcours carousel img
-document.querySelectorAll('.parcours__carousel').forEach((carousel) => {
-    const slides = Array.from(carousel.querySelectorAll('.parcours__slide'));
-    let currentIndex = 0;
-
-    gsap.set(slides, { xPercent: (i) => i * 100 });
-
-    function goToSlide(index) {
-        const total = slides.length;
-        console.log(total);
-        const newIndex = (index + total) % total;
-        gsap.to(slides, {
-            duration: 0.6,
-            xPercent: (i) => (i - newIndex) * 100,
-            ease: 'power1.out'
-        });
-        currentIndex = newIndex;
-    }
-
-    carousel.querySelector('.parcours__btn--next')
-            .addEventListener('click', () => goToSlide(currentIndex + 1));
-
-    carousel.querySelector('.parcours__btn--prev')
-            .addEventListener('click', () => goToSlide(currentIndex - 1));
-});
-
-
-// Records map
-const points = [...document.querySelectorAll(".map__point")];
-const contents = document.querySelectorAll(".records__content");
-const btnPrev = document.querySelector('[data-action="prev"]');
-const btnNext = document.querySelector('[data-action="next"]');
-
-function animateCounter(span, target, duration = 1) {
-    const obj = { val: 0 };
-
-    gsap.to(obj, {
-        val: target,
-        duration: duration,
+        x: "100%",
         ease: "power2.out",
-        onUpdate: () => {
-            span.textContent = Math.floor(obj.val);
+        display: "none",
+        duration: 0.5,
+    },);
+    
+    tl.to(".intro-animation__parallax", {
+        opacity: 0,
+        ease: "cubic-bezier(.4, 0, .2, 1)",
+        display: "none",
+        duration: 0.2,
+    });
+    
+    tl.call(() => {
+        sections.forEach(section => {
+            section.style.opacity = "1";
+            section.style.pointerEvents = "auto";
+        });
+    
+        scrollEnabled = true;
+        goToSection(0);
+    });
+    
+    
+    const sections = gsap.utils.toArray(".parcours");
+    let currentIndex = 0;
+    let isAnimating = false;
+    let scrollEnabled = false;
+    
+    function animateSection(section) {
+        const tl = gsap.timeline();
+    
+        tl.from(section.querySelector(".parcours"), {
+            opacity: 0,
+            display: "none",
+        });
+    
+        tl.from(section.querySelector(".parcours__title"), {
+            opacity: 0,
+            x: "-15%",
+            ease: "power2.out"
+        });
+    
+        tl.from(section.querySelectorAll(".parcours__text"), {
+            opacity: 0,
+            x: "-15%",
+            stagger: 0.2,
+            ease: "power2.out"
+        });
+    
+        tl.from(section.querySelector(".parcours__right"), {
+            opacity: 0,
+            x: "15%",
+            ease: "power2.out"
+        }, "-=0.5");
+    }
+    
+    function goToSection(index, direction) {
+        if (isAnimating || index < 0 || index >= sections.length) return;
+    
+        isAnimating = true;
+        currentIndex = index;
+    
+        const easeType = direction === "down" ? "back.out(1.7)" : "back.in(0.4)";
+    
+        gsap.to(window, {
+            duration: 1,
+            scrollTo: { y: sections[index], autoKill: false },
+            ease: easeType,
+            onComplete: () => {
+                isAnimating = false;
+                animateSection(sections[index]);
+            }
+        });
+    }
+    
+    window.addEventListener("wheel", (e) => {
+        if (!scrollEnabled || isAnimating) return;
+    
+        if (e.deltaY > 0) {
+            goToSection(currentIndex + 1, "down");
+        } else if (e.deltaY < 0) {
+            goToSection(currentIndex - 1, "up");
         }
     });
-}
 
-function updateUI(activeIndex){
-    points.forEach((p, i) => {
-        p.classList.toggle("map__point--active", i === activeIndex);
-    });
 
-    const targetId = points[activeIndex].getAttribute("data-id");
+    // Parcours carousel img
+    document.querySelectorAll('.parcours__carousel').forEach((carousel) => {
+        const slides = Array.from(carousel.querySelectorAll('.parcours__slide'));
+        let currentIndex = 0;
 
-    contents.forEach(content => {
-        const isTarget = content.getAttribute("data-id") === targetId;
-        content.classList.toggle("hidden", !isTarget);
+        gsap.set(slides, { xPercent: (i) => i * 100 });
 
-        if (isTarget) {
-            gsap.set(content, {opacity: 0, x: "-20%"});
-
-            gsap.to(content, {
-                opacity: 1,
-                x: 0,
+        function goToSlide(index) {
+            const total = slides.length;
+            console.log(total);
+            const newIndex = (index + total) % total;
+            gsap.to(slides, {
                 duration: 0.6,
-                ease: "cubic-bezier(.4, 0, .2, 1)",
+                xPercent: (i) => (i - newIndex) * 100,
+                ease: 'power1.out'
             });
+            currentIndex = newIndex;
+        }
 
-            const counterSpan = content.querySelector(".records__title--bigger");
-            if (counterSpan) {
-                const target = parseInt(counterSpan.textContent, 10);
-                if (!isNaN(target)) {
-                    counterSpan.textContent = "0";
-                    animateCounter(counterSpan, target, 1); // tu peux ajuster la durée
+        carousel.querySelector('.parcours__btn--next')
+                .addEventListener('click', () => goToSlide(currentIndex + 1));
+
+        carousel.querySelector('.parcours__btn--prev')
+                .addEventListener('click', () => goToSlide(currentIndex - 1));
+    });
+}
+
+
+
+// ----- Records page -----
+let bodyRecords = document.querySelector('.body__records');
+
+if(bodyRecords){
+    // Records map
+    const points = [...document.querySelectorAll(".map__point")];
+    const contents = document.querySelectorAll(".records__content");
+    const btnPrev = document.querySelector('[data-action="prev"]');
+    const btnNext = document.querySelector('[data-action="next"]');
+
+    function animateCounter(span, target, duration = 1) {
+        const obj = { val: 0 };
+
+        gsap.to(obj, {
+            val: target,
+            duration: duration,
+            ease: "power2.out",
+            onUpdate: () => {
+                span.textContent = Math.floor(obj.val);
+            }
+        });
+    }
+
+    function updateUI(activeIndex){
+        points.forEach((p, i) => {
+            p.classList.toggle("map__point--active", i === activeIndex);
+        });
+
+        const targetId = points[activeIndex].getAttribute("data-id");
+
+        contents.forEach(content => {
+            const isTarget = content.getAttribute("data-id") === targetId;
+            content.classList.toggle("hidden", !isTarget);
+
+            if (isTarget) {
+                gsap.set(content, {opacity: 1});
+
+                const children = content.querySelectorAll(":scope > *");
+                gsap.set(children, {opacity: 0, x: "-20%"});
+
+                gsap.to(children, {
+                    opacity: 1,
+                    x: 0,
+                    duration: 0.6,
+                    ease: "cubic-bezier(.4, 0, .2, 1)",
+                    stagger: 0.4,
+                });
+
+
+                const counterSpan = content.querySelector(".records__title--bigger");
+                if (counterSpan) {
+                    const target = parseInt(counterSpan.textContent, 10);
+                    if (!isNaN(target)) {
+                        counterSpan.textContent = "0";
+                        animateCounter(counterSpan, target, 1); // tu peux ajuster la durée
+                    }
                 }
             }
+        });
+
+        const spanNextText = btnNext.querySelector('.btn__text');
+
+        if (activeIndex === 0) {
+            btnPrev.style.display = "none";
+            spanNextText.textContent = "Démarrer";
+            btnNext.classList.add("records__btn--begin");
+        } else if (activeIndex === points.length - 1) {
+            btnPrev.style.display = "inline-flex";
+            spanNextText.textContent = "Terminer le tour";
+            btnNext.classList.remove("records__btn--begin");
+        } else {
+            btnPrev.style.display = "inline-flex";
+            spanNextText.textContent = "Avancer";
+            btnNext.classList.remove("records__btn--begin");
+        }
+    }
+
+    function getActiveIndex(){
+        return points.findIndex(p => p.classList.contains("map__point--active"));
+    }
+
+    points.forEach((point, index) => {
+        point.addEventListener("click", () => updateUI(index));
+    });
+
+    btnNext.addEventListener("click", () => {
+        const current = getActiveIndex();
+        if(current < points.length - 1){
+            updateUI(current + 1);
+        } else{
+            updateUI(0);
         }
     });
 
-    // Gestion des boutons
-    // if(activeIndex === 0){
-    //     btnPrev.style.display = "none";
-    //     btnNext.textContent = "Démarrer";
-    //     btnNext.classList.add("records__btn--begin");
-    // } else if(activeIndex === points.length - 1){
-    //     btnPrev.style.display = "inline-flex";
-    //     btnNext.textContent = "Terminer le tour";
-    //     btnNext.classList.remove("records__btn--begin");
-    // } else{
-    //     btnPrev.style.display = "inline-flex";
-    //     btnNext.textContent = "Avancer";
-    //     btnNext.classList.remove("records__btn--begin");
-    // }
+    btnPrev.addEventListener("click", () => {
+        const current = getActiveIndex();
+        if (current > 0) updateUI(current - 1);
+    });
 
-    const spanNextText = btnNext.querySelector('.btn__text');
+    updateUI(getActiveIndex());
 
-    if (activeIndex === 0) {
-        btnPrev.style.display = "none";
-        spanNextText.textContent = "Démarrer";
-        btnNext.classList.add("records__btn--begin");
-    } else if (activeIndex === points.length - 1) {
-        btnPrev.style.display = "inline-flex";
-        spanNextText.textContent = "Terminer le tour";
-        btnNext.classList.remove("records__btn--begin");
-    } else {
-        btnPrev.style.display = "inline-flex";
-        spanNextText.textContent = "Avancer";
-        btnNext.classList.remove("records__btn--begin");
+
+    // Records Charts
+    const raw = document.getElementById("champions-data").textContent;
+    const champions = JSON.parse(raw);
+
+    const labels = champions.map(c => c.name);
+    const data = champions.map(c => c.titles);
+
+    const ctx = document.getElementById("chartRecords").getContext("2d");
+
+    new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: labels,
+            datasets: [
+                {
+                    type: "bar",
+                    label: "Titres",
+                    data: data,
+                    backgroundColor: "#F7D417",
+                    borderColor: "#FAFAFA",
+                    borderWidth: 0,
+                    borderRadius: 0,
+                    barThickness: 18
+                },
+                {
+                    type: "line",
+                    label: "Courbe",
+                    data: data,
+                    borderColor: "#F7D417",
+                    backgroundColor: "#F7D417",
+                    tension: 0.1,
+                    pointBackgroundColor: "#F7D417",
+                    pointBorderColor: "#F7D417",
+                    fill: false
+                }
+            ]
+        },
+        options: {
+            animation: {
+                y: {
+                    duration: 1000,
+                    easing: 'easeOutCubic',
+                    animateScale: false,
+                    animateRotate: false
+                }
+            },
+            plugins: {
+                legend: {
+                    // labels: {
+                    //     color: "#FAFAFA",
+                    //     font: {
+                    //         size: 12,
+                    //         family: "'PPFormula', sans-serif"
+                    //     }
+                    // }
+                    display: false
+                }
+            },
+            scales: {
+                x: {
+                    ticks: {
+                        color: "#FAFAFA",
+                        font: {
+                            size: 12,
+                            family: "'PPFormula', sans-serif"
+                        }
+                    },
+                    grid: {
+                        color: "rgba(250, 250, 250, 0.5)"
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        stepSize: 1,
+                        color: "#FAFAFA",
+                        font: {
+                            size: 12,
+                            family: "'PPFormula', sans-serif"
+                        }
+                    },
+                    grid: {
+                        color: "rgba(250, 250, 250, 0.5)"
+                    }
+                }
+            },
+            layout: {
+                padding: 0
+            },
+            responsive: true
+        }
+    });
+
+
+    const rawWins = document.getElementById("winners-data").textContent;
+    const winners = JSON.parse(rawWins);
+
+    const winLabels = winners.map(w => w.name);
+    const winData = winners.map(w => w.wins);
+
+    const ctxWins = document.getElementById("chartWins")?.getContext("2d");
+
+    if (ctxWins) {
+        new Chart(ctxWins, {
+            type: "bar",
+            data: {
+                labels: winLabels,
+                datasets: [
+                    {
+                        type: "bar",
+                        label: "Victoires",
+                        data: winData,
+                        backgroundColor: "#F7D417",
+                        borderColor: "#FAFAFA",
+                        borderWidth: 0,
+                        borderRadius: 0,
+                        barThickness: 18
+                    },
+                    {
+                        type: "line",
+                        label: "Courbe",
+                        data: winData,
+                        borderColor: "#F7D417",
+                        backgroundColor: "#F7D417",
+                        tension: 0.1,
+                        pointBackgroundColor: "#F7D417",
+                        pointBorderColor: "#F7D417",
+                        fill: false
+                    }
+                ]
+            },
+            options: {
+                animation: {
+                    y: {
+                        duration: 1000,
+                        easing: 'easeOutCubic'
+                    }
+                },
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: "#FAFAFA",
+                            font: {
+                                size: 12,
+                                family: "'PPFormula', sans-serif"
+                            }
+                        },
+                        grid: {
+                            color: "rgba(250, 250, 250, 0.5)"
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 10,
+                            color: "#FAFAFA",
+                            font: {
+                                size: 12,
+                                family: "'PPFormula', sans-serif"
+                            }
+                        },
+                        grid: {
+                            color: "rgba(250, 250, 250, 0.5)"
+                        }
+                    }
+                },
+                responsive: true
+            }
+        });
+    }
+
+
+    const rawPoles = document.getElementById("poles-data").textContent;
+    const poles = JSON.parse(rawPoles);
+
+    const poleLabels = poles.map(p => p.name);
+    const poleData = poles.map(p => p.poles);
+
+    const ctxPoles = document.getElementById("chartPoles")?.getContext("2d");
+
+    if (ctxPoles) {
+        new Chart(ctxPoles, {
+            type: "bar",
+            data: {
+                labels: poleLabels,
+                datasets: [
+                    {
+                        type: "bar",
+                        label: "Pôles",
+                        data: poleData,
+                        backgroundColor: "#F7D417",
+                        borderColor: "#FAFAFA",
+                        borderWidth: 0,
+                        borderRadius: 0,
+                        barThickness: 18
+                    },
+                    {
+                        type: "line",
+                        label: "Courbe",
+                        data: poleData,
+                        borderColor: "#F7D417",
+                        backgroundColor: "#F7D417",
+                        tension: 0.1,
+                        pointBackgroundColor: "#F7D417",
+                        pointBorderColor: "#F7D417",
+                        fill: false
+                    }
+                ]
+            },
+            options: {
+                animation: {
+                    y: {
+                        duration: 1000,
+                        easing: 'easeOutCubic'
+                    }
+                },
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: "#FAFAFA",
+                            font: {
+                                size: 12,
+                                family: "'PPFormula', sans-serif"
+                            }
+                        },
+                        grid: {
+                            color: "rgba(250, 250, 250, 0.5)"
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 10,
+                            color: "#FAFAFA",
+                            font: {
+                                size: 12,
+                                family: "'PPFormula', sans-serif"
+                            }
+                        },
+                        grid: {
+                            color: "rgba(250, 250, 250, 0.5)"
+                        }
+                    }
+                },
+                responsive: true
+            }
+        });
+    }
+
+
+    const rawPodiums = document.getElementById("podiums-data").textContent;
+    const podiums = JSON.parse(rawPodiums);
+
+    const podiumLabels = podiums.map(p => p.name);
+    const podiumData = podiums.map(p => p.podiums);
+
+    const ctxPodiums = document.getElementById("chartPodiums")?.getContext("2d");
+
+    if (ctxPodiums) {
+        new Chart(ctxPodiums, {
+            type: "bar",
+            data: {
+                labels: podiumLabels,
+                datasets: [
+                    {
+                        type: "bar",
+                        label: "Podiums",
+                        data: podiumData,
+                        backgroundColor: "#F7D417",
+                        borderColor: "#FAFAFA",
+                        borderWidth: 0,
+                        borderRadius: 0,
+                        barThickness: 18
+                    },
+                    {
+                        type: "line",
+                        label: "Courbe",
+                        data: podiumData,
+                        borderColor: "#F7D417",
+                        backgroundColor: "#F7D417",
+                        tension: 0.1,
+                        pointBackgroundColor: "#F7D417",
+                        pointBorderColor: "#F7D417",
+                        fill: false
+                    }
+                ]
+            },
+            options: {
+                animation: {
+                    y: {
+                        duration: 1000,
+                        easing: 'easeOutCubic'
+                    }
+                },
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: "#FAFAFA",
+                            font: {
+                                size: 12,
+                                family: "'PPFormula', sans-serif"
+                            }
+                        },
+                        grid: {
+                            color: "rgba(250, 250, 250, 0.5)"
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 10,
+                            color: "#FAFAFA",
+                            font: {
+                                size: 12,
+                                family: "'PPFormula', sans-serif"
+                            }
+                        },
+                        grid: {
+                            color: "rgba(250, 250, 250, 0.5)"
+                        }
+                    }
+                },
+                responsive: true
+            }
+        });
+    }
+
+
+    const rawTeamWins = document.getElementById("team-wins-data").textContent;
+    const teamWins = JSON.parse(rawTeamWins);
+
+    const teamLabels = teamWins.map(t => t.name);
+    const teamData = teamWins.map(t => t.wins);
+
+    // const teamColors = [
+    //     "#00F5D0",
+    //     "#cf0e0e",
+    //     "#000B8D",
+    //     "#d23b05",
+    //     "#d23b05"
+    // ];
+
+    const ctxTeamWins = document.getElementById("chartTeamWins")?.getContext("2d");
+
+    if (ctxTeamWins) {
+        new Chart(ctxTeamWins, {
+            type: "bar",
+            data: {
+                labels: teamLabels,
+                datasets: [
+                    {
+                        type: "bar",
+                        label: "Victoires avec une écurie",
+                        data: teamData,
+                        backgroundColor: "#F7D417",
+                        borderColor: "#FAFAFA",
+                        borderWidth: 0,
+                        borderRadius: 0,
+                        barThickness: 18
+                    },
+                    {
+                        type: "line",
+                        label: "Courbe",
+                        data: teamData,
+                        borderColor: "#F7D417",
+                        backgroundColor: "#F7D417",
+                        tension: 0.1,
+                        pointBackgroundColor: "#F7D417",
+                        pointBorderColor: "#F7D417",
+                        fill: false
+                    }
+                ]
+            },
+            options: {
+                animation: {
+                    y: {
+                        duration: 1000,
+                        easing: 'easeOutCubic'
+                    }
+                },
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: "#FAFAFA",
+                            font: {
+                                size: 12,
+                                family: "'PPFormula', sans-serif"
+                            }
+                        },
+                        grid: {
+                            color: "rgba(250, 250, 250, 0.5)"
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 10,
+                            color: "#FAFAFA",
+                            font: {
+                                size: 12,
+                                family: "'PPFormula', sans-serif"
+                            }
+                        },
+                        grid: {
+                            color: "rgba(250, 250, 250, 0.5)"
+                        }
+                    }
+                },
+                responsive: true
+            }
+        });
     }
 }
-
-function getActiveIndex(){
-    return points.findIndex(p => p.classList.contains("map__point--active"));
-}
-
-points.forEach((point, index) => {
-    point.addEventListener("click", () => updateUI(index));
-});
-
-btnNext.addEventListener("click", () => {
-    const current = getActiveIndex();
-    if(current < points.length - 1){
-        updateUI(current + 1);
-    } else{
-        updateUI(0);
-    }
-});
-
-btnPrev.addEventListener("click", () => {
-    const current = getActiveIndex();
-    if (current > 0) updateUI(current - 1);
-});
-
-updateUI(getActiveIndex());
-
-
-// ChartJS
-const raw = document.getElementById("champions-data").textContent;
-const champions = JSON.parse(raw);
-
-const labels = champions.map(c => c.name);
-const data = champions.map(c => c.titles);
-
-const ctx = document.getElementById("chartRecords").getContext("2d");
-
-new Chart(ctx, {
-    type: "bar",
-    data: {
-        labels: labels,
-        datasets: [
-            {
-                type: "bar",
-                label: "Titres",
-                data: data,
-                backgroundColor: "#F7D417",
-                borderColor: "#FAFAFA",
-                borderWidth: 0,
-                borderRadius: 0,
-                barThickness: 18
-            },
-            {
-                type: "line",
-                label: "Courbe",
-                data: data,
-                borderColor: "#F7D417",
-                backgroundColor: "#F7D417",
-                tension: 0.1,
-                pointBackgroundColor: "#F7D417",
-                pointBorderColor: "#F7D417",
-                fill: false
-            }
-        ]
-    },
-    options: {
-        animation: {
-            y: {
-                duration: 1000,
-                easing: 'easeOutCubic',
-                animateScale: false,
-                animateRotate: false
-            }
-        },
-        plugins: {
-            legend: {
-                // labels: {
-                //     color: "#FAFAFA",
-                //     font: {
-                //         size: 12,
-                //         family: "'PPFormula', sans-serif"
-                //     }
-                // }
-                display: false
-            }
-        },
-        scales: {
-            x: {
-                ticks: {
-                    color: "#FAFAFA",
-                    font: {
-                        size: 12,
-                        family: "'PPFormula', sans-serif"
-                    }
-                },
-                grid: {
-                    color: "rgba(250, 250, 250, 0.5)"
-                }
-            },
-            y: {
-                beginAtZero: true,
-                ticks: {
-                    stepSize: 1,
-                    color: "#FAFAFA",
-                    font: {
-                        size: 12,
-                        family: "'PPFormula', sans-serif"
-                    }
-                },
-                grid: {
-                    color: "rgba(250, 250, 250, 0.5)"
-                }
-            }
-        },
-        layout: {
-            padding: 0
-        },
-        responsive: true
-    }
-});
-
-
-const rawWins = document.getElementById("winners-data").textContent;
-const winners = JSON.parse(rawWins);
-
-const winLabels = winners.map(w => w.name);
-const winData = winners.map(w => w.wins);
-
-const ctxWins = document.getElementById("chartWins")?.getContext("2d");
-
-if (ctxWins) {
-    new Chart(ctxWins, {
-        type: "bar",
-        data: {
-            labels: winLabels,
-            datasets: [
-                {
-                    type: "bar",
-                    label: "Victoires",
-                    data: winData,
-                    backgroundColor: "#F7D417",
-                    borderColor: "#FAFAFA",
-                    borderWidth: 0,
-                    borderRadius: 0,
-                    barThickness: 18
-                },
-                {
-                    type: "line",
-                    label: "Courbe",
-                    data: winData,
-                    borderColor: "#F7D417",
-                    backgroundColor: "#F7D417",
-                    tension: 0.1,
-                    pointBackgroundColor: "#F7D417",
-                    pointBorderColor: "#F7D417",
-                    fill: false
-                }
-            ]
-        },
-        options: {
-            animation: {
-                y: {
-                    duration: 1000,
-                    easing: 'easeOutCubic'
-                }
-            },
-            plugins: { legend: { display: false } },
-            scales: {
-                x: {
-                    ticks: {
-                        color: "#FAFAFA",
-                        font: {
-                            size: 12,
-                            family: "'PPFormula', sans-serif"
-                        }
-                    },
-                    grid: {
-                        color: "rgba(250, 250, 250, 0.5)"
-                    }
-                },
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                        stepSize: 10,
-                        color: "#FAFAFA",
-                        font: {
-                            size: 12,
-                            family: "'PPFormula', sans-serif"
-                        }
-                    },
-                    grid: {
-                        color: "rgba(250, 250, 250, 0.5)"
-                    }
-                }
-            },
-            responsive: true
-        }
-    });
-}
-
-
-const rawPoles = document.getElementById("poles-data").textContent;
-const poles = JSON.parse(rawPoles);
-
-const poleLabels = poles.map(p => p.name);
-const poleData = poles.map(p => p.poles);
-
-const ctxPoles = document.getElementById("chartPoles")?.getContext("2d");
-
-if (ctxPoles) {
-    new Chart(ctxPoles, {
-        type: "bar",
-        data: {
-            labels: poleLabels,
-            datasets: [
-                {
-                    type: "bar",
-                    label: "Pôles",
-                    data: poleData,
-                    backgroundColor: "#F7D417",
-                    borderColor: "#FAFAFA",
-                    borderWidth: 0,
-                    borderRadius: 0,
-                    barThickness: 18
-                },
-                {
-                    type: "line",
-                    label: "Courbe",
-                    data: poleData,
-                    borderColor: "#F7D417",
-                    backgroundColor: "#F7D417",
-                    tension: 0.1,
-                    pointBackgroundColor: "#F7D417",
-                    pointBorderColor: "#F7D417",
-                    fill: false
-                }
-            ]
-        },
-        options: {
-            animation: {
-                y: {
-                    duration: 1000,
-                    easing: 'easeOutCubic'
-                }
-            },
-            plugins: { legend: { display: false } },
-            scales: {
-                x: {
-                    ticks: {
-                        color: "#FAFAFA",
-                        font: {
-                            size: 12,
-                            family: "'PPFormula', sans-serif"
-                        }
-                    },
-                    grid: {
-                        color: "rgba(250, 250, 250, 0.5)"
-                    }
-                },
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                        stepSize: 10,
-                        color: "#FAFAFA",
-                        font: {
-                            size: 12,
-                            family: "'PPFormula', sans-serif"
-                        }
-                    },
-                    grid: {
-                        color: "rgba(250, 250, 250, 0.5)"
-                    }
-                }
-            },
-            responsive: true
-        }
-    });
-}
-
-
-const rawPodiums = document.getElementById("podiums-data").textContent;
-const podiums = JSON.parse(rawPodiums);
-
-const podiumLabels = podiums.map(p => p.name);
-const podiumData = podiums.map(p => p.podiums);
-
-const ctxPodiums = document.getElementById("chartPodiums")?.getContext("2d");
-
-if (ctxPodiums) {
-    new Chart(ctxPodiums, {
-        type: "bar",
-        data: {
-            labels: podiumLabels,
-            datasets: [
-                {
-                    type: "bar",
-                    label: "Podiums",
-                    data: podiumData,
-                    backgroundColor: "#F7D417",
-                    borderColor: "#FAFAFA",
-                    borderWidth: 0,
-                    borderRadius: 0,
-                    barThickness: 18
-                },
-                {
-                    type: "line",
-                    label: "Courbe",
-                    data: podiumData,
-                    borderColor: "#F7D417",
-                    backgroundColor: "#F7D417",
-                    tension: 0.1,
-                    pointBackgroundColor: "#F7D417",
-                    pointBorderColor: "#F7D417",
-                    fill: false
-                }
-            ]
-        },
-        options: {
-            animation: {
-                y: {
-                    duration: 1000,
-                    easing: 'easeOutCubic'
-                }
-            },
-            plugins: { legend: { display: false } },
-            scales: {
-                x: {
-                    ticks: {
-                        color: "#FAFAFA",
-                        font: {
-                            size: 12,
-                            family: "'PPFormula', sans-serif"
-                        }
-                    },
-                    grid: {
-                        color: "rgba(250, 250, 250, 0.5)"
-                    }
-                },
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                        stepSize: 10,
-                        color: "#FAFAFA",
-                        font: {
-                            size: 12,
-                            family: "'PPFormula', sans-serif"
-                        }
-                    },
-                    grid: {
-                        color: "rgba(250, 250, 250, 0.5)"
-                    }
-                }
-            },
-            responsive: true
-        }
-    });
-}
-
-
-const rawTeamWins = document.getElementById("team-wins-data").textContent;
-const teamWins = JSON.parse(rawTeamWins);
-
-const teamLabels = teamWins.map(t => t.name);
-const teamData = teamWins.map(t => t.wins);
-
-// const teamColors = [
-//     "#00F5D0",
-//     "#cf0e0e",
-//     "#000B8D",
-//     "#d23b05",
-//     "#d23b05"
-// ];
-
-const ctxTeamWins = document.getElementById("chartTeamWins")?.getContext("2d");
-
-if (ctxTeamWins) {
-    new Chart(ctxTeamWins, {
-        type: "bar",
-        data: {
-            labels: teamLabels,
-            datasets: [
-                {
-                    type: "bar",
-                    label: "Victoires avec une écurie",
-                    data: teamData,
-                    backgroundColor: "#F7D417",
-                    borderColor: "#FAFAFA",
-                    borderWidth: 0,
-                    borderRadius: 0,
-                    barThickness: 18
-                },
-                {
-                    type: "line",
-                    label: "Courbe",
-                    data: teamData,
-                    borderColor: "#F7D417",
-                    backgroundColor: "#F7D417",
-                    tension: 0.1,
-                    pointBackgroundColor: "#F7D417",
-                    pointBorderColor: "#F7D417",
-                    fill: false
-                }
-            ]
-        },
-        options: {
-            animation: {
-                y: {
-                    duration: 1000,
-                    easing: 'easeOutCubic'
-                }
-            },
-            plugins: { legend: { display: false } },
-            scales: {
-                x: {
-                    ticks: {
-                        color: "#FAFAFA",
-                        font: {
-                            size: 12,
-                            family: "'PPFormula', sans-serif"
-                        }
-                    },
-                    grid: {
-                        color: "rgba(250, 250, 250, 0.5)"
-                    }
-                },
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                        stepSize: 10,
-                        color: "#FAFAFA",
-                        font: {
-                            size: 12,
-                            family: "'PPFormula', sans-serif"
-                        }
-                    },
-                    grid: {
-                        color: "rgba(250, 250, 250, 0.5)"
-                    }
-                }
-            },
-            responsive: true
-        }
-    });
-}
-
