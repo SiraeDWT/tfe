@@ -10,9 +10,9 @@ history = {
                     "Un début prometteur, et une saison qui laisse présager une grande carrière."
                 ],
                 "images": [
-                    "images/parcours/hamilton-et-alonso-2007.webp",
-                    "images/parcours/mclaren-hamilton-2007.webp",
-                    "images/parcours/victoire-hamilton-2007.webp",
+                    "images/parcours/2007/hamilton-et-alonso-2007.webp",
+                    "images/parcours/2007/mclaren-hamilton-2007.webp",
+                    "images/parcours/2007/victoire-hamilton-2007.webp",
                 ]
             },
 
@@ -24,9 +24,9 @@ history = {
                     "Dans le dernier virage du dernier tour à Interlagos, sous la pluie, il arrache la couronne mondiale à Felipe Massa pour devenir à 23 ans, le plus jeune champion du monde de l'époque."
                 ],
                 "images": [
-                    "images/parcours/hamilton-celebration-2008.webp",
-                    "images/parcours/hamilton-silverstone-2008.webp",
-                    "images/parcours/hamilton-mclaren-2008.webp",
+                    "images/parcours/2008/hamilton-celebration-2008.webp",
+                    "images/parcours/2008/hamilton-silverstone-2008.webp",
+                    "images/parcours/2008/hamilton-mclaren-2008.webp",
                 ]
             },
 
@@ -37,9 +37,9 @@ history = {
                     "Il termine 5e du championnat, rappelant au monde qu’il est toujours là, prêt à se battre quelles que soient les circonstances."
                 ],
                 "images": [
-                    "images/parcours/hamilton-reflexion-2009.webp",
-                    "images/parcours/hamilton-mp4-24-2009.webp",
-                    "images/parcours/hamilton-casque-2009.webp",
+                    "images/parcours/2009/hamilton-reflexion-2009.webp",
+                    "images/parcours/2009/hamilton-mp4-24-2009.webp",
+                    "images/parcours/2009/hamilton-casque-2009.webp",
                 ]
             },
             
@@ -51,9 +51,9 @@ history = {
                     "En 2012, après une nouvelle saison compliquée et malgré plusieurs victoires, Hamilton surprend le monde en annonçant son départ de McLaren, l’écurie qui l'a formé depuis son adolescence, pour rejoindre la future prestigieuse écurie Mercedes."
                 ],
                 "images": [
-                    "images/parcours/",
-                    "images/parcours/",
-                    "images/parcours/",
+                    "images/parcours/2010-2012/",
+                    "images/parcours/2010-2012/",
+                    "images/parcours/2010-2012/",
                 ]
             }, 
         }
@@ -68,9 +68,9 @@ history = {
                     "Il remporte une victoire symbolique en Hongrie, signe d’espoir pour l’avenir. Il termine à la 4e place du championnat derrière le 4 fois Champion du Monde, Sébastian Vettel mais se prépare déjà pour revenir plus fort que jamais."
                 ],
                 "images": [
-                    "images/parcours/",
-                    "images/parcours/",
-                    "images/parcours/",
+                    "images/parcours/2013/",
+                    "images/parcours/2013/",
+                    "images/parcours/2013/",
                 ]
             },
 
@@ -81,9 +81,9 @@ history = {
                     "Hamilton remporte brillamment son deuxième titre mondial en 2014, avec 11 victoires et 384 points. En 2015, il domine encore plus nettement et égale son idole de toujours, Ayrton Senna, en décrochant son troisième titre mondial. Lewis est au sommet de sa forme."
                 ],
                 "images": [
-                    "images/parcours/",
-                    "images/parcours/",
-                    "images/parcours/",
+                    "images/parcours/2014-2015/",
+                    "images/parcours/2014-2015/",
+                    "images/parcours/2014-2015/",
                 ]
             },
 
@@ -95,9 +95,9 @@ history = {
                     "Un moment amer pour Lewis, mais qui pousse encore plus haut sa détermination pour la suite de sa carrière."
                 ],
                 "images": [
-                    "images/parcours/",
-                    "images/parcours/",
-                    "images/parcours/",
+                    "images/parcours/2016/",
+                    "images/parcours/2016/",
+                    "images/parcours/2016/",
                 ]
             },
             
@@ -109,9 +109,9 @@ history = {
                     "Le Britannique est une légende vivante du sport automobile et fait naître de plus en plus de passion."
                 ],
                 "images": [
-                    "images/parcours/",
-                    "images/parcours/",
-                    "images/parcours/",
+                    "images/parcours/2017-2020/",
+                    "images/parcours/2017-2020/",
+                    "images/parcours/2017-2020/",
                 ]
             },
 
@@ -123,9 +123,9 @@ history = {
                     "Cette saison est probablement la meilleure de tous les temps."
                 ],
                 "images": [
-                    "images/parcours/",
-                    "images/parcours/",
-                    "images/parcours/",
+                    "images/parcours/2021/",
+                    "images/parcours/2021/",
+                    "images/parcours/2021/",
                 ]
             },
 
@@ -137,9 +137,9 @@ history = {
                     "Cette année-là, Hamilton bouleverse encore une fois la F1 en annonçant son départ de Mercedes après 12 saisons historiques pour relever un défi encore plus prestigieux : rejoindre la mythique Scuderia Ferrari en 2025. Une nouvelle aventure qui s’annonce légendaire."
                 ],
                 "images": [
-                    "images/parcours/",
-                    "images/parcours/",
-                    "images/parcours/",
+                    "images/parcours/2022-2024/",
+                    "images/parcours/2022-2024/",
+                    "images/parcours/2022-2024/",
                 ]
             }, 
         }
@@ -154,9 +154,9 @@ history = {
                     "La dernière champion du monde avec une Ferrari remonte à 2007, l’année où il a commencé et où il a perdu son potentiel premier titre face à Kimi Raikkonen, alors en rouge à ce moment-là."
                 ],
                 "images": [
-                    "images/lh-ferrari.webp",
-                    "images/parcours/",
-                    "images/parcours/",
+                    "images/parcours/2025/hamilton-casque-ferrari.webp",
+                    "images/parcours/2025/hamilton-sf25-2025.webp",
+                    "images/parcours/2025/hamilton-ferrari-2025.webp",
                 ]
             },
         }
