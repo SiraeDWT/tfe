@@ -259,7 +259,7 @@
     }
 
     &__content{
-        padding: $space-h6 0 $space-p;
+        margin: $space-h6 0 $space-p;
     }
 
     &__text{
@@ -406,8 +406,8 @@
         margin: $space-h4 0 $space-h4 $space-h3;
     }
 
-    &__text-group{
-        padding: $space-h6 0 $space-p;
+    &__textuals{
+        margin: $space-h6 0 $space-p;
     }
 
     &__text{
