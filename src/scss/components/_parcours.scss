@@ -160,7 +160,7 @@
 
     &__textuals{
         margin: $space-h6 0;
-        width: 65%;
+        width: 75%; //65%
     }
 
     &__text{
@@ -176,7 +176,7 @@
 
     &__carousel{
         position: relative;
-        width: 400px; // 300px Mac
+        width: 500px; // 300px Mac // 400px
         height: 600px;
         overflow: hidden;
         border-radius: calc($base/2);
