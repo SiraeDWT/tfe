@@ -70,18 +70,22 @@
 
                 <div class="records__content hidden" data-id="point-03">
                     <h2 class="records__title"><span class="records__title--bigger">105</span> victoires</h2>
+                    <canvas id="chartWins" class="records__chart"></canvas>
                 </div>
 
                 <div class="records__content hidden" data-id="point-04">
                     <h2 class="records__title"><span class="records__title--bigger">106</span> pôles</h2>
+                    <canvas id="chartPoles" class="records__chart"></canvas>
                 </div>
 
                 <div class="records__content hidden" data-id="point-05">
                     <h2 class="records__title"><span class="records__title--bigger">202</span> podiums</h2>
+                    <canvas id="chartPodiums" class="records__chart"></canvas>
                 </div>
 
                 <div class="records__content hidden" data-id="point-06">
                     <h2 class="records__title"><span class="records__title--bigger">84</span> victoires Mercedes</h2>
+                    <canvas id="chartTeamWins" class="records__chart"></canvas>
                 </div>
 
                 <div class="records__content hidden" data-id="point-07">
@@ -100,15 +104,27 @@
                     <h2 class="records__title"><span class="records__title--bigger">4903</span> points accumulés</h2>
                 </div>
 
-                <div class="records__content hidden" data-id="point-11"></div>
+                <div class="records__content hidden" data-id="point-11">
+                    <h2 class="records__title"><span class="records__title--bigger">5487</span> tours en leader</h2>
+                </div>
 
-                <div class="records__content hidden" data-id="point-12"></div>
+                <div class="records__content hidden" data-id="point-12">
+                    <h2 class="records__title"><span class="records__title--bigger">67</span> meilleurs tours</h2>
+                </div>
 
-                <div class="records__content hidden" data-id="point-13"></div>
+                <div class="records__content hidden" data-id="point-13">
+                    <h2 class="records__title"><span class="records__title--bigger">12</span> ans chez Mercedes</h2>
+                </div>
 
-                <div class="records__content hidden" data-id="point-14"></div>
+                <div class="records__content hidden" data-id="point-14">
+                    <h2 class="records__title"><span class="records__title--bigger">103956</span> km roulés</h2>
+                </div>
             </div> 
         </div>
     </section>
     <script id="champions-data" type="application/json">{{ champions | tojson }}</script>
+    <script id="winners-data" type="application/json">{{ winners | tojson }}</script>
+    <script id="poles-data" type="application/json">{{ poles | tojson }}</script>
+    <script id="podiums-data" type="application/json">{{ podiums | tojson }}</script>
+    <script id="team-wins-data" type="application/json">{{ team_wins | tojson }}</script>
 {% endblock %}

@@ -527,13 +527,13 @@ function updateUI(activeIndex){
         content.classList.toggle("hidden", !isTarget);
 
         if (isTarget) {
-            gsap.set(content, {opacity: 0, y: 20});
+            gsap.set(content, {opacity: 0, x: "-20%"});
 
             gsap.to(content, {
                 opacity: 1,
-                y: 0,
+                x: 0,
                 duration: 0.6,
-                ease: "power2.out"
+                ease: "cubic-bezier(.4, 0, .2, 1)",
             });
 
             const counterSpan = content.querySelector(".records__title--bigger");
@@ -696,3 +696,328 @@ new Chart(ctx, {
         responsive: true
     }
 });
+
+
+const rawWins = document.getElementById("winners-data").textContent;
+const winners = JSON.parse(rawWins);
+
+const winLabels = winners.map(w => w.name);
+const winData = winners.map(w => w.wins);
+
+const ctxWins = document.getElementById("chartWins")?.getContext("2d");
+
+if (ctxWins) {
+    new Chart(ctxWins, {
+        type: "bar",
+        data: {
+            labels: winLabels,
+            datasets: [
+                {
+                    type: "bar",
+                    label: "Victoires",
+                    data: winData,
+                    backgroundColor: "#F7D417",
+                    borderColor: "#FAFAFA",
+                    borderWidth: 0,
+                    borderRadius: 0,
+                    barThickness: 18
+                },
+                {
+                    type: "line",
+                    label: "Courbe",
+                    data: winData,
+                    borderColor: "#F7D417",
+                    backgroundColor: "#F7D417",
+                    tension: 0.1,
+                    pointBackgroundColor: "#F7D417",
+                    pointBorderColor: "#F7D417",
+                    fill: false
+                }
+            ]
+        },
+        options: {
+            animation: {
+                y: {
+                    duration: 1000,
+                    easing: 'easeOutCubic'
+                }
+            },
+            plugins: { legend: { display: false } },
+            scales: {
+                x: {
+                    ticks: {
+                        color: "#FAFAFA",
+                        font: {
+                            size: 12,
+                            family: "'PPFormula', sans-serif"
+                        }
+                    },
+                    grid: {
+                        color: "rgba(250, 250, 250, 0.5)"
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        stepSize: 10,
+                        color: "#FAFAFA",
+                        font: {
+                            size: 12,
+                            family: "'PPFormula', sans-serif"
+                        }
+                    },
+                    grid: {
+                        color: "rgba(250, 250, 250, 0.5)"
+                    }
+                }
+            },
+            responsive: true
+        }
+    });
+}
+
+
+const rawPoles = document.getElementById("poles-data").textContent;
+const poles = JSON.parse(rawPoles);
+
+const poleLabels = poles.map(p => p.name);
+const poleData = poles.map(p => p.poles);
+
+const ctxPoles = document.getElementById("chartPoles")?.getContext("2d");
+
+if (ctxPoles) {
+    new Chart(ctxPoles, {
+        type: "bar",
+        data: {
+            labels: poleLabels,
+            datasets: [
+                {
+                    type: "bar",
+                    label: "Pôles",
+                    data: poleData,
+                    backgroundColor: "#F7D417",
+                    borderColor: "#FAFAFA",
+                    borderWidth: 0,
+                    borderRadius: 0,
+                    barThickness: 18
+                },
+                {
+                    type: "line",
+                    label: "Courbe",
+                    data: poleData,
+                    borderColor: "#F7D417",
+                    backgroundColor: "#F7D417",
+                    tension: 0.1,
+                    pointBackgroundColor: "#F7D417",
+                    pointBorderColor: "#F7D417",
+                    fill: false
+                }
+            ]
+        },
+        options: {
+            animation: {
+                y: {
+                    duration: 1000,
+                    easing: 'easeOutCubic'
+                }
+            },
+            plugins: { legend: { display: false } },
+            scales: {
+                x: {
+                    ticks: {
+                        color: "#FAFAFA",
+                        font: {
+                            size: 12,
+                            family: "'PPFormula', sans-serif"
+                        }
+                    },
+                    grid: {
+                        color: "rgba(250, 250, 250, 0.5)"
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        stepSize: 10,
+                        color: "#FAFAFA",
+                        font: {
+                            size: 12,
+                            family: "'PPFormula', sans-serif"
+                        }
+                    },
+                    grid: {
+                        color: "rgba(250, 250, 250, 0.5)"
+                    }
+                }
+            },
+            responsive: true
+        }
+    });
+}
+
+
+const rawPodiums = document.getElementById("podiums-data").textContent;
+const podiums = JSON.parse(rawPodiums);
+
+const podiumLabels = podiums.map(p => p.name);
+const podiumData = podiums.map(p => p.podiums);
+
+const ctxPodiums = document.getElementById("chartPodiums")?.getContext("2d");
+
+if (ctxPodiums) {
+    new Chart(ctxPodiums, {
+        type: "bar",
+        data: {
+            labels: podiumLabels,
+            datasets: [
+                {
+                    type: "bar",
+                    label: "Podiums",
+                    data: podiumData,
+                    backgroundColor: "#F7D417",
+                    borderColor: "#FAFAFA",
+                    borderWidth: 0,
+                    borderRadius: 0,
+                    barThickness: 18
+                },
+                {
+                    type: "line",
+                    label: "Courbe",
+                    data: podiumData,
+                    borderColor: "#F7D417",
+                    backgroundColor: "#F7D417",
+                    tension: 0.1,
+                    pointBackgroundColor: "#F7D417",
+                    pointBorderColor: "#F7D417",
+                    fill: false
+                }
+            ]
+        },
+        options: {
+            animation: {
+                y: {
+                    duration: 1000,
+                    easing: 'easeOutCubic'
+                }
+            },
+            plugins: { legend: { display: false } },
+            scales: {
+                x: {
+                    ticks: {
+                        color: "#FAFAFA",
+                        font: {
+                            size: 12,
+                            family: "'PPFormula', sans-serif"
+                        }
+                    },
+                    grid: {
+                        color: "rgba(250, 250, 250, 0.5)"
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        stepSize: 10,
+                        color: "#FAFAFA",
+                        font: {
+                            size: 12,
+                            family: "'PPFormula', sans-serif"
+                        }
+                    },
+                    grid: {
+                        color: "rgba(250, 250, 250, 0.5)"
+                    }
+                }
+            },
+            responsive: true
+        }
+    });
+}
+
+
+const rawTeamWins = document.getElementById("team-wins-data").textContent;
+const teamWins = JSON.parse(rawTeamWins);
+
+const teamLabels = teamWins.map(t => t.name);
+const teamData = teamWins.map(t => t.wins);
+
+// const teamColors = [
+//     "#00F5D0",
+//     "#cf0e0e",
+//     "#000B8D",
+//     "#d23b05",
+//     "#d23b05"
+// ];
+
+const ctxTeamWins = document.getElementById("chartTeamWins")?.getContext("2d");
+
+if (ctxTeamWins) {
+    new Chart(ctxTeamWins, {
+        type: "bar",
+        data: {
+            labels: teamLabels,
+            datasets: [
+                {
+                    type: "bar",
+                    label: "Victoires avec une écurie",
+                    data: teamData,
+                    backgroundColor: "#F7D417",
+                    borderColor: "#FAFAFA",
+                    borderWidth: 0,
+                    borderRadius: 0,
+                    barThickness: 18
+                },
+                {
+                    type: "line",
+                    label: "Courbe",
+                    data: teamData,
+                    borderColor: "#F7D417",
+                    backgroundColor: "#F7D417",
+                    tension: 0.1,
+                    pointBackgroundColor: "#F7D417",
+                    pointBorderColor: "#F7D417",
+                    fill: false
+                }
+            ]
+        },
+        options: {
+            animation: {
+                y: {
+                    duration: 1000,
+                    easing: 'easeOutCubic'
+                }
+            },
+            plugins: { legend: { display: false } },
+            scales: {
+                x: {
+                    ticks: {
+                        color: "#FAFAFA",
+                        font: {
+                            size: 12,
+                            family: "'PPFormula', sans-serif"
+                        }
+                    },
+                    grid: {
+                        color: "rgba(250, 250, 250, 0.5)"
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        stepSize: 10,
+                        color: "#FAFAFA",
+                        font: {
+                            size: 12,
+                            family: "'PPFormula', sans-serif"
+                        }
+                    },
+                    grid: {
+                        color: "rgba(250, 250, 250, 0.5)"
+                    }
+                }
+            },
+            responsive: true
+        }
+    });
+}
+
