@@ -75,3 +75,16 @@ def get_top_wins_with_team(limit=5):
 
     top_team_wins = sorted(team_wins.items(), key=lambda x: x[1], reverse=True)[:limit]
     return [{"name": name, "wins": value} for name, value in top_team_wins]
+
+
+def get_top_wins_on_circuit(limit=5):
+    circuit_wins = {
+        "Lewis Hamilton": 9,
+        "Michael Schumacher": 8,
+        "Ayrton Senna": 6,
+        "Max Verstappen": 5,
+        "Alain Prost": 4
+    }
+
+    top_circuits = sorted(circuit_wins.items(), key=lambda x: x[1], reverse=True)[:limit]
+    return [{"name": name, "wins": value} for name, value in top_circuits]

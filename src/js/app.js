@@ -994,4 +994,92 @@ if(bodyRecords){
             }
         });
     }
+
+
+    const rawCircuitWins = document.getElementById("circuit-wins-data").textContent;
+    const circuitWins = JSON.parse(rawCircuitWins);
+
+    const circuitLabels = circuitWins.map(t => t.name);
+    const circuitData = circuitWins.map(t => t.wins);
+
+    const circuitColors = [
+        "#00F5D0",  // Hamilton @ Silverstone
+        "#cf0e0e",  // Schumacher @ Magny-Cours
+        "#00F5D0",  // Hamilton @ Hungaroring
+        "#00F5D0",  // Hamilton @ Montreal
+        "#FF6F00"   // Senna @ Monaco
+    ];
+
+    const ctxCircuitWins = document.getElementById("chartCircuitWins")?.getContext("2d");
+
+    if (ctxCircuitWins) {
+        new Chart(ctxCircuitWins, {
+            type: "bar",
+            data: {
+                labels: circuitLabels,
+                datasets: [
+                    {
+                        type: "bar",
+                        label: "Victoires sur un même circuit",
+                        data: circuitData,
+                        backgroundColor: circuitColors,
+                        borderColor: "#FAFAFA",
+                        borderWidth: 0,
+                        borderRadius: 0,
+                        barThickness: 18
+                    },
+                    {
+                        type: "line",
+                        label: "Courbe",
+                        data: circuitData,
+                        borderColor: "#F7D417",
+                        backgroundColor: "#F7D417",
+                        tension: 0.1,
+                        pointBackgroundColor: "#F7D417",
+                        pointBorderColor: "#F7D417",
+                        fill: false
+                    }
+                ]
+            },
+            options: {
+                animation: {
+                    y: {
+                        duration: 1000,
+                        easing: 'easeOutCubic'
+                    }
+                },
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: "#FAFAFA",
+                            font: {
+                                size: 12,
+                                family: "'PPFormula', sans-serif"
+                            }
+                        },
+                        grid: {
+                            color: "rgba(250, 250, 250, 0.5)"
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 1,
+                            color: "#FAFAFA",
+                            font: {
+                                size: 12,
+                                family: "'PPFormula', sans-serif"
+                            }
+                        },
+                        grid: {
+                            color: "rgba(250, 250, 250, 0.5)"
+                        }
+                    }
+                },
+                responsive: true
+            }
+        });
+    }
+
 }

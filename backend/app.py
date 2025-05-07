@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 from content import history
-from call import get_top_champions, get_top_winners, get_top_poles, get_top_podiums, get_top_wins_with_team
+from call import get_top_champions, get_top_winners, get_top_poles, get_top_podiums, get_top_wins_with_team, get_top_wins_on_circuit
 
 for pilot in get_top_poles():
     print(pilot)
@@ -22,7 +22,8 @@ def records():
     poles = get_top_poles()
     podiums = get_top_podiums()
     team_wins = get_top_wins_with_team()
-    return render_template("pages/records.html", body_class="body__records", champions=champions, winners=winners, poles=poles, podiums=podiums, team_wins=team_wins)
+    wins_on_circuit = get_top_wins_on_circuit()
+    return render_template("pages/records.html", body_class="body__records", champions=champions, winners=winners, poles=poles, podiums=podiums, team_wins=team_wins, wins_on_circuit=wins_on_circuit)
 
 @app.route("/voitures")
 def voitures():

@@ -90,6 +90,7 @@
 
                 <div class="records__content hidden" data-id="point-07">
                     <h2 class="records__title"><span class="records__title--bigger">9</span> victoires à Silverstone</h2>
+                    <canvas id="chartCircuitWins" class="records__chart"></canvas>
                 </div>
 
                 <div class="records__content hidden" data-id="point-08">
@@ -127,4 +128,5 @@
     <script id="poles-data" type="application/json">{{ poles | tojson }}</script>
     <script id="podiums-data" type="application/json">{{ podiums | tojson }}</script>
     <script id="team-wins-data" type="application/json">{{ team_wins | tojson }}</script>
+    <script id="circuit-wins-data" type="application/json">{{ wins_on_circuit | tojson }}</script>
 {% endblock %}
