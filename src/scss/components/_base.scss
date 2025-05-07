@@ -93,7 +93,8 @@ body, html{
     }
 
     &:active{
-        transform: translateX(2%);
+        // transform: translateX(2%);
+        transform: scale(90%);
     }
 
     &--dark{
