@@ -51,9 +51,9 @@ history = {
                     "En 2012, après une nouvelle saison compliquée et malgré plusieurs victoires, Hamilton surprend le monde en annonçant son départ de McLaren, l’écurie qui l'a formé depuis son adolescence, pour rejoindre la future prestigieuse écurie Mercedes."
                 ],
                 "images": [
-                    "images/parcours/2010-2012/",
-                    "images/parcours/2010-2012/",
-                    "images/parcours/2010-2012/",
+                    "images/parcours/2010-2012/hamilton-button-2010.webp",
+                    "images/parcours/2010-2012/hamilton-crash-2011.webp",
+                    "images/parcours/2010-2012/hamilton-crash-2012.webp",
                 ]
             }, 
         }
@@ -68,9 +68,10 @@ history = {
                     "Il remporte une victoire symbolique en Hongrie, signe d’espoir pour l’avenir. Il termine à la 4e place du championnat derrière le 4 fois Champion du Monde, Sébastian Vettel mais se prépare déjà pour revenir plus fort que jamais."
                 ],
                 "images": [
-                    "images/parcours/2013/",
-                    "images/parcours/2013/",
-                    "images/parcours/2013/",
+                    "images/parcours/2013/hamilton-mercedes-2013.webp",
+                    "images/parcours/2013/hamilton-casque-mercedes-2013.webp",
+                    "images/parcours/2013/hamilton-mercedes-w04-2013.webp",
+                    "images/parcours/2013/hamilton-victoire-mercedes-2013.webp",
                 ]
             },
 
@@ -81,9 +82,12 @@ history = {
                     "Hamilton remporte brillamment son deuxième titre mondial en 2014, avec 11 victoires et 384 points. En 2015, il domine encore plus nettement et égale son idole de toujours, Ayrton Senna, en décrochant son troisième titre mondial. Lewis est au sommet de sa forme."
                 ],
                 "images": [
-                    "images/parcours/2014-2015/",
-                    "images/parcours/2014-2015/",
-                    "images/parcours/2014-2015/",
+                    "images/parcours/2014-2015/hamilton-2014.webp",
+                    "images/parcours/2014-2015/mercedes-w05-2014.webp",
+                    "images/parcours/2014-2015/hamilton-titre-2014.webp",
+                    "images/parcours/2014-2015/hamilton-titre-celebration-2014.webp",
+                    "images/parcours/2014-2015/hamilton-mercedes-w05-2014.webp",
+                    "images/parcours/2014-2015/hamilton-titre-2015.webp",
                 ]
             },
 
@@ -95,9 +99,11 @@ history = {
                     "Un moment amer pour Lewis, mais qui pousse encore plus haut sa détermination pour la suite de sa carrière."
                 ],
                 "images": [
-                    "images/parcours/2016/",
-                    "images/parcours/2016/",
-                    "images/parcours/2016/",
+                    "images/parcours/2016/hamilton-rosberg-2016.webp",
+                    "images/parcours/2016/hamilton-monaco-2016.webp",
+                    "images/parcours/2016/hamilton-rosberg-incident-2016.webp",
+                    "images/parcours/2016/hamilton-accident-2016.webp",
+                    "images/parcours/2016/hamilton-rosberg-barcelone-2016.webp",
                 ]
             },
             
@@ -109,9 +115,12 @@ history = {
                     "Le Britannique est une légende vivante du sport automobile et fait naître de plus en plus de passion."
                 ],
                 "images": [
-                    "images/parcours/2017-2020/",
-                    "images/parcours/2017-2020/",
-                    "images/parcours/2017-2020/",
+                    "images/parcours/2017-2020/hamilton-septuple-champion-2020.webp",
+                    "images/parcours/2017-2020/hamilton-victoire-2020.webp",
+                    "images/parcours/2017-2020/hamilton-drift-2020.webp",
+                    "images/parcours/2017-2020/hamilton-champion-2019.webp",
+                    "images/parcours/2017-2020/hamilton-spa-2020.webp",
+                    "images/parcours/2017-2020/hamilton-illustration-titres-2020.webp",
                 ]
             },
 
