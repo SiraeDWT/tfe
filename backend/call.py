@@ -29,9 +29,9 @@ def get_top_winners(limit=5):
     wins = {
         "Lewis Hamilton": 105,
         "Michael Schumacher": 91,
+        "Max Verstappen": 64,
         "Sebastian Vettel": 53,
         "Alain Prost": 51,
-        "Ayrton Senna": 41,
     }
 
     top_winners = sorted(wins.items(), key=lambda x: x[1], reverse=True)[:limit]
@@ -68,9 +68,9 @@ def get_top_wins_with_team(limit=5):
     team_wins = {
         "Lewis Hamilton": 84,
         "Michael Schumacher": 72,
+        "Max Verstappen": 64,
         "Sebastian Vettel": 38,
         "Ayrton Senna": 35,
-        "Alain Prost": 30
     }
 
     top_team_wins = sorted(team_wins.items(), key=lambda x: x[1], reverse=True)[:limit]
