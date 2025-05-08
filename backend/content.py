@@ -132,9 +132,12 @@ history = {
                     "Cette saison est probablement la meilleure de tous les temps."
                 ],
                 "images": [
-                    "images/parcours/2021/",
-                    "images/parcours/2021/",
-                    "images/parcours/2021/",
+                    "images/parcours/2021/hamilton-celebration-2021.webp",
+                    "images/parcours/2021/hamilton-silverstone-2021.webp",
+                    "images/parcours/2021/hamilton-victoire-2021.webp",
+                    "images/parcours/2021/hamilton-verstappen-accident-2021.webp",
+                    "images/parcours/2021/hamilton-abudhabi-2021.webp",
+                    "images/parcours/2021/hamilton-verstappen-2021.webp",
                 ]
             },
 
@@ -146,9 +149,12 @@ history = {
                     "Cette année-là, Hamilton bouleverse encore une fois la F1 en annonçant son départ de Mercedes après 12 saisons historiques pour relever un défi encore plus prestigieux : rejoindre la mythique Scuderia Ferrari en 2025. Une nouvelle aventure qui s’annonce légendaire."
                 ],
                 "images": [
-                    "images/parcours/2022-2024/",
-                    "images/parcours/2022-2024/",
-                    "images/parcours/2022-2024/",
+                    "images/parcours/2022-2024/hamilton-mercedes-w13-2022.webp",
+                    "images/parcours/2022-2024/hamilton-mal-2022.webp",
+                    "images/parcours/2022-2024/hamilton-consterne-2022.webp",
+                    "images/parcours/2022-2024/hamilton-monoplace-2023.webp",
+                    "images/parcours/2022-2024/hamilton-celebration-silverstone-2024.webp",
+                    "images/parcours/2022-2024/hamilton-victoire-silverstone-2024.webp",
                 ]
             }, 
         }
@@ -166,6 +172,8 @@ history = {
                     "images/parcours/2025/hamilton-casque-ferrari.webp",
                     "images/parcours/2025/hamilton-sf25-2025.webp",
                     "images/parcours/2025/hamilton-ferrari-2025.webp",
+                    "images/parcours/2025/hamilton-victoire-2025.webp",
+                    "images/parcours/2025/hamilton-monoplace-2025.webp",
                 ]
             },
         }
