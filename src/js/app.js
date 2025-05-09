@@ -57,6 +57,44 @@ window.addEventListener('scroll', function(){
 });
 
 
+// Burger menu
+const menuToggle = document.querySelector('.menu--toggle');
+const menuIcon = document.getElementById('menu-icon');
+
+const navLink = document.querySelector('.menu__logo');
+
+const svgMenu = `<path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z"/>`;
+const svgClose = `<path d="M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z"/>`;
+
+if(menuToggle){
+    menuToggle.addEventListener('click', menuOpen);  
+}
+
+if(navLink){
+    navLink.addEventListener('click', closeMenu);
+}
+
+
+function menuOpen() {
+    document.body.classList.toggle('menu--open');
+    
+    let isOpen = document.body.classList.contains('menu--open');
+
+    if (isOpen) {
+        menuIcon.innerHTML = svgClose;
+        document.body.style.overflow = "hidden";
+    } else {
+        menuIcon.innerHTML = svgMenu;
+        document.body.style.overflow = "";
+    }
+}
+
+function closeMenu() {
+    document.body.classList.remove('menu--open');
+    menuIcon.innerHTML = svgMenu;
+}
+
+
 // GSAP
 const home = document.querySelector('.body__home');
 const transition = document.querySelector('#transition');

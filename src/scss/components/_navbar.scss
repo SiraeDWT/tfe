@@ -16,10 +16,53 @@
 
     padding: 0 $space-h5;
 
+    // transform: translateY(-100%);
     transition: transform $transition-left;
+
+    @include responsive(medium){
+        height: 100vh;
+        flex-direction: column;
+        gap: $space-h6;
+        justify-content: center;
+
+        transform: translateY(-100%);
+
+        .menu--open & {
+            transform: translateY(0);
+        }
+    }
+
+    &--toggle{
+        cursor: pointer;
+
+        position: absolute;
+        top: $space-p; right: $space-p;
+        z-index: 200;
+
+        background: none;
+        border: none;
+
+        position: fixed;
+
+        display: none;
+
+        @include responsive(medium){
+            display: block;
+        }
+    }
+
+    &__icon{
+        width: $h5-font-size;
+        height: $h5-font-size;
+        fill: $primary-color;
+    }
 
     &__logo{
         width: 75px;
+
+        @include responsive(medium){
+            display: none;
+        }
     }
 
     &__list{
@@ -27,6 +70,11 @@
         display: flex;
         align-items: center;
         gap: $space-p;
+
+        @include responsive(medium){
+            flex-direction: column;
+            gap: $space-h6;
+        }
     }
 
     &__link{
