@@ -1,14 +1,20 @@
 @use "variables" as *;
 
 @mixin responsive($breakpoint){
-    @if $breakpoint == vsmall{
-        @media (max-width: $breakpoint-vsmall){
+    @if $breakpoint == xsmall{
+        @media (max-width: $breakpoint-xsmall){
             @content;
         }
     }
 
     @else if $breakpoint == small{
         @media (max-width: $breakpoint-small){
+            @content;
+        }
+    }
+
+    @else if $breakpoint == xmedium{
+        @media (max-width: $breakpoint-xmedium){
             @content;
         }
     }

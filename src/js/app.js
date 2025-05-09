@@ -85,7 +85,38 @@ if(transition){
 
 // Mobile
 mm.add("(max-width: 1439px)", () => {
-    
+    if(home){
+        tl.from(".home__content > *", {
+            x: '-10%',
+            opacity: 0,
+            duration: 0.4,
+            stagger: 0.2,
+            ease: "back.out(1.7)"
+        });
+
+
+        gsap.from(".citation__text", {
+            duration: 4,
+            text: "",
+            ease: "none",
+            delay: 0.4,
+            scrollTrigger: {
+                trigger: '.citation',
+                start: 'top 40%',
+            }
+        });
+
+        gsap.from(".citation__lh", {
+            duration: 0.7,
+            ease: "cubic-bezier(.4, 0, .2, 1)",
+            delay: 4.4,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: '.citation',
+                start: 'top 40%',
+            }
+        });
+    }
 });
 
 // Desktop

@@ -10,6 +10,27 @@
 
     border-bottom: 2px solid $primary-color;
 
+    @include responsive(large){
+        padding: $space-h3 $space-h4;
+        height: 100%;
+    }
+
+    @include responsive(medium){
+        padding: $space-h3 $space-h5;
+    }
+
+    @include responsive(xmedium){
+        padding: $space-h3 $space-h6;
+    }
+
+    @include responsive(small){
+        padding: $space-h3 $space-p;
+    }
+
+    @include responsive(xsmall){
+        padding: $space-h3 $space-text;
+    }
+
     &__img{
         position: absolute;
         bottom: 0; 
@@ -26,43 +47,11 @@
 
             z-index: 19;
         }
+
+        @include responsive(large){
+            display: none;
+        }
     }
-
-    // &__svg{
-    //     position: absolute;
-    //     top: 50%;
-    //     left: 5%;
-
-    //     opacity: 1;
-    //     transform: translate(-50%, -50%);
-
-    //     z-index: 10;
-    // }
-
-    // &__img{
-    //     position: absolute;
-    //     bottom: 0; left: -$space-h2;
-    //     z-index: 20;
-    //     opacity: 1;
-
-    //     width: 1080px;
-    //     height: 1920px;
-
-    //     background-image: url('/static/images/lh01.webp');
-    //     background-size: cover;
-    //     background-position: bottom;
-    //     background-repeat: no-repeat;
-
-    //     &--mcl{
-    //         background-image: url('/static/images/lh02.webp');
-    //         background-size: cover;
-    //         background-position: bottom;
-    //         background-repeat: no-repeat;
-
-    //         left: $space-h3;
-    //         z-index: 19;
-    //     }
-    // }
 
     &__svg{
         position: absolute;
@@ -81,6 +70,10 @@
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
+
+        @include responsive(large){
+            display: none;
+        }
     }
 
     &__content{
@@ -93,6 +86,12 @@
         right: $space-h3;
         top: 50%;
         z-index: 50;
+
+        @include responsive(large){
+            position: static;
+            width: 100%;
+            transform: none;
+        }
     }
 
     &__title{
@@ -100,6 +99,17 @@
         color: $secondary-color;
         font-family: $formulaCondensed;
         margin-bottom: -50px;
+
+        @include responsive(950px){
+            font-size: $h2-font-size;
+            margin-bottom: -25px;
+        }
+
+        @include responsive(medium){
+            font-size: $h3-font-size;
+            line-height: 120%;
+            margin-bottom: 0;
+        }
     }
 
     &__subtitle{
@@ -108,17 +118,35 @@
         gap: $space-text;
 
         margin-bottom: $space-p;
+
+        svg{
+            @include responsive(large){
+                display: none;
+            }
+        }
     }
 
     &__title-secondary{
         font-size: $h3-font-size;
         color: $primary-color;
         font-family: $formulaCondensed;
+
+        @include responsive(xmedium){
+            font-size: $h4-font-size;
+        }
     }
 
     &__text {
         width: 60ch;
         margin-bottom: $space-text;
+
+        &--last{
+            margin-bottom: 0;
+        }
+
+        @include responsive(large){
+            width: 100%;
+        }
     }
 
     .pattern-bg{
@@ -194,6 +222,28 @@
         font-size: $h4-font-size;
 
         opacity: 1;
+
+        @include responsive(large){
+            padding: 0 $space-h5;
+            font-size: $h5-font-size;
+        }
+
+        @include responsive(medium){
+            padding: 0 $space-h5;
+            font-size: $h6-font-size;
+        }
+
+        @include responsive(xmedium){
+            padding: 0 $space-h6;
+        }
+
+        @include responsive(small){
+            padding: 0 $space-p;
+        }
+
+        @include responsive(xsmall){
+            padding: 0 $space-text;
+        }
     }
 
     &__lh {
@@ -224,6 +274,10 @@
 
     overflow: hidden;
 
+    @include responsive(large){
+        flex-direction: column;
+    }
+
     &::before{
         content: "";
         position: absolute;
@@ -246,6 +300,14 @@
 
         position: relative;
         display: inline;
+
+        @include responsive(large){
+            font-size: $h4-font-size;
+        }
+
+        @include responsive(xmedium){
+            font-size: $h5-font-size;
+        }
 
         &::before{
             content: "";
@@ -285,6 +347,26 @@
         flex-basis: 50%; // 45%
 
         overflow-y: auto;
+
+        @include responsive(large){
+            padding: $space-h4;
+        }
+
+        @include responsive(medium){
+            padding: $space-h5;
+        }
+
+        @include responsive(xmedium){
+            padding: $space-h6;
+        }
+
+        @include responsive(small){
+            padding: $space-p;
+        }
+
+        @include responsive(xsmall){
+            padding: $space-text;
+        }
     }
 
     &__right{
@@ -300,6 +382,10 @@
         //display: flex;
         //justify-content: center;
         //align-items: center;
+
+        @include responsive(large){
+            display: none;
+        }
     }
 }
 
@@ -395,15 +481,43 @@
 
     overflow: hidden;
 
+    @include responsive(large){
+        height: 100%;
+    }
+
     &__content{
         display: flex;
         position: relative;
         z-index: 5;
+
+        @include responsive(large){
+            flex-direction: column;
+        }
     }
 
     &__left{
         flex-basis: 45%;
-        margin: $space-h4 0 $space-h4 $space-h3;
+        padding: $space-h4 0 $space-h4 $space-h3;
+
+        @include responsive(large){
+            padding: $space-h4;
+        }
+
+        @include responsive(medium){
+            padding: $space-h5;
+        }
+
+        @include responsive(xmedium){
+            padding: $space-h6;
+        }
+
+        @include responsive(small){
+            padding: $space-p;
+        }
+
+        @include responsive(xsmall){
+            padding: $space-text;
+        }
     }
 
     &__textuals{
@@ -427,6 +541,10 @@
         position: absolute;
         z-index: 15;
         top: 0; right: -20%; bottom: 0;
+
+        @include responsive(large){
+            display: none;
+        }
     }
 
     &__title{
@@ -437,6 +555,14 @@
 
         position: relative;
         display: inline;
+
+        @include responsive(large){
+            font-size: $h4-font-size;
+        }
+
+        @include responsive(xmedium){
+            font-size: $h5-font-size;
+        }
 
         &::before{
             content: "";
@@ -453,9 +579,6 @@
         width: auto;
         height: 100vh;
         object-fit: cover;
-
-        // border-left: 2px solid $dark-color;
-        // border-right: 2px solid $dark-color;
     }
 
     &__video{
