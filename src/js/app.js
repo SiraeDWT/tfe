@@ -530,7 +530,7 @@ if(bodyRecords){
                     const target = parseInt(counterSpan.textContent, 10);
                     if (!isNaN(target)) {
                         counterSpan.textContent = "0";
-                        animateCounter(counterSpan, target, 1); // tu peux ajuster la durée
+                        animateCounter(counterSpan, target, 1);
                     }
                 }
             }
@@ -578,6 +578,8 @@ if(bodyRecords){
     updateUI(getActiveIndex());
 
 
+
+    
     // Records Charts
     const raw = document.getElementById("champions-data").textContent;
     const champions = JSON.parse(raw);
@@ -672,6 +674,7 @@ if(bodyRecords){
     });
 
 
+    // -----
     const rawWins = document.getElementById("winners-data").textContent;
     const winners = JSON.parse(rawWins);
 
@@ -751,6 +754,7 @@ if(bodyRecords){
     }
 
 
+    // -----
     const rawPoles = document.getElementById("poles-data").textContent;
     const poles = JSON.parse(rawPoles);
 
@@ -830,6 +834,7 @@ if(bodyRecords){
     }
 
 
+    // -----
     const rawPodiums = document.getElementById("podiums-data").textContent;
     const podiums = JSON.parse(rawPodiums);
 
@@ -909,19 +914,12 @@ if(bodyRecords){
     }
 
 
+    // -----
     const rawTeamWins = document.getElementById("team-wins-data").textContent;
     const teamWins = JSON.parse(rawTeamWins);
 
     const teamLabels = teamWins.map(t => t.name);
     const teamData = teamWins.map(t => t.wins);
-
-    // const teamColors = [
-    //     "#00F5D0",
-    //     "#cf0e0e",
-    //     "#000B8D",
-    //     "#d23b05",
-    //     "#d23b05"
-    // ];
 
     const ctxTeamWins = document.getElementById("chartTeamWins")?.getContext("2d");
 
@@ -996,19 +994,12 @@ if(bodyRecords){
     }
 
 
+    // -----
     const rawCircuitWins = document.getElementById("circuit-wins-data").textContent;
     const circuitWins = JSON.parse(rawCircuitWins);
 
     const circuitLabels = circuitWins.map(t => t.name);
     const circuitData = circuitWins.map(t => t.wins);
-
-    const circuitColors = [
-        "#00F5D0",  // Hamilton @ Silverstone
-        "#cf0e0e",  // Schumacher @ Magny-Cours
-        "#00F5D0",  // Hamilton @ Hungaroring
-        "#00F5D0",  // Hamilton @ Montreal
-        "#FF6F00"   // Senna @ Monaco
-    ];
 
     const ctxCircuitWins = document.getElementById("chartCircuitWins")?.getContext("2d");
 
@@ -1022,7 +1013,7 @@ if(bodyRecords){
                         type: "bar",
                         label: "Victoires sur un même circuit",
                         data: circuitData,
-                        backgroundColor: circuitColors,
+                        backgroundColor: "#F7D417",
                         borderColor: "#FAFAFA",
                         borderWidth: 0,
                         borderRadius: 0,
@@ -1082,4 +1073,575 @@ if(bodyRecords){
         });
     }
 
+
+    // -----
+    const rawUniqueCircuits = document.getElementById("unique-circuits-data").textContent;
+    const uniqueCircuits = JSON.parse(rawUniqueCircuits);
+
+    const nCircuitLabels = uniqueCircuits.map(t => t.name);
+    const nCircuitData = uniqueCircuits.map(t => t.circuits);
+
+    const ctxUniqueCircuits = document.getElementById("chartUniqueCircuits")?.getContext("2d");
+
+    if (ctxUniqueCircuits) {
+        new Chart(ctxUniqueCircuits, {
+            type: "bar",
+            data: {
+                labels: nCircuitLabels,
+                datasets: [
+                    {
+                        type: "bar",
+                        label: "Circuits différents avec victoire",
+                        data: nCircuitData,
+                        backgroundColor: "#F7D417",
+                        borderColor: "#FAFAFA",
+                        borderWidth: 0,
+                        borderRadius: 0,
+                        barThickness: 18
+                    },
+                    {
+                        type: "line",
+                        label: "Courbe",
+                        data: nCircuitData,
+                        borderColor: "#F7D417",
+                        backgroundColor: "#F7D417",
+                        tension: 0.1,
+                        pointBackgroundColor: "#F7D417",
+                        pointBorderColor: "#F7D417",
+                        fill: false
+                    }
+                ]
+            },
+            options: {
+                animation: {
+                    y: {
+                        duration: 1000,
+                        easing: 'easeOutCubic'
+                    }
+                },
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: "#FAFAFA",
+                            font: {
+                                size: 12,
+                                family: "'PPFormula', sans-serif"
+                            }
+                        },
+                        grid: {
+                            color: "rgba(250, 250, 250, 0.5)"
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 2,
+                            color: "#FAFAFA",
+                            font: {
+                                size: 12,
+                                family: "'PPFormula', sans-serif"
+                            }
+                        },
+                        grid: {
+                            color: "rgba(250, 250, 250, 0.5)"
+                        }
+                    }
+                },
+                responsive: true
+            }
+        });
+    }
+
+
+    // -----
+    const rawLedRaces = document.getElementById("led-races-data").textContent;
+    const ledRaces = JSON.parse(rawLedRaces);
+
+    const ledLabels = ledRaces.map(p => p.name);
+    const ledData = ledRaces.map(p => p.led_races);
+
+    const ctxLedRaces = document.getElementById("chartLedRaces")?.getContext("2d");
+
+    if (ctxLedRaces) {
+        new Chart(ctxLedRaces, {
+            type: "bar",
+            data: {
+                labels: ledLabels,
+                datasets: [
+                    {
+                        type: "bar",
+                        label: "Courses menées",
+                        data: ledData,
+                        backgroundColor: "#F7D417",
+                        borderColor: "#FAFAFA",
+                        borderWidth: 0,
+                        borderRadius: 0,
+                        barThickness: 18
+                    },
+                    {
+                        type: "line",
+                        label: "Courbe",
+                        data: ledData,
+                        borderColor: "#F7D417",
+                        backgroundColor: "#F7D417",
+                        tension: 0.1,
+                        pointBackgroundColor: "#F7D417",
+                        pointBorderColor: "#F7D417",
+                        fill: false
+                    }
+                ]
+            },
+            options: {
+                animation: {
+                    y: {
+                        duration: 1000,
+                        easing: 'easeOutCubic'
+                    }
+                },
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: "#FAFAFA",
+                            font: {
+                                size: 12,
+                                family: "'PPFormula', sans-serif"
+                            }
+                        },
+                        grid: {
+                            color: "rgba(250, 250, 250, 0.5)"
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 10,
+                            color: "#FAFAFA",
+                            font: {
+                                size: 12,
+                                family: "'PPFormula', sans-serif"
+                            }
+                        },
+                        grid: {
+                            color: "rgba(250, 250, 250, 0.5)"
+                        }
+                    }
+                },
+                responsive: true
+            }
+        });
+    }
+
+
+    // -----
+    const rawCareerPoints = document.getElementById("career-points-data").textContent;
+    const careerPoints = JSON.parse(rawCareerPoints);
+
+    const pointsLabels = careerPoints.map(p => p.name);
+    const pointsData = careerPoints.map(p => p.points);
+
+    const ctxCareerPoints = document.getElementById("chartCareerPoints")?.getContext("2d");
+
+    if (ctxCareerPoints) {
+        new Chart(ctxCareerPoints, {
+            type: "bar",
+            data: {
+                labels: pointsLabels,
+                datasets: [
+                    {
+                        type: "bar",
+                        label: "Points accumulés en carrière",
+                        data: pointsData,
+                        backgroundColor: "#F7D417",
+                        borderColor: "#FAFAFA",
+                        borderWidth: 0,
+                        borderRadius: 0,
+                        barThickness: 18
+                    },
+                    {
+                        type: "line",
+                        label: "Courbe",
+                        data: pointsData,
+                        borderColor: "#F7D417",
+                        backgroundColor: "#F7D417",
+                        tension: 0.1,
+                        pointBackgroundColor: "#F7D417",
+                        pointBorderColor: "#F7D417",
+                        fill: false
+                    }
+                ]
+            },
+            options: {
+                animation: {
+                    y: {
+                        duration: 1000,
+                        easing: 'easeOutCubic'
+                    }
+                },
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: "#FAFAFA",
+                            font: {
+                                size: 12,
+                                family: "'PPFormula', sans-serif"
+                            }
+                        },
+                        grid: {
+                            color: "rgba(250, 250, 250, 0.5)"
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 500,
+                            color: "#FAFAFA",
+                            font: {
+                                size: 12,
+                                family: "'PPFormula', sans-serif"
+                            }
+                        },
+                        grid: {
+                            color: "rgba(250, 250, 250, 0.5)"
+                        }
+                    }
+                },
+                responsive: true
+            }
+        });
+    }
+
+
+    // -----
+    const rawLapsLed = document.getElementById("laps-led-data").textContent;
+    const lapsLed = JSON.parse(rawLapsLed);
+
+    const lapsLabels = lapsLed.map(p => p.name);
+    const lapsData = lapsLed.map(p => p.laps_led);
+
+    const ctxLapsLed = document.getElementById("chartLapsLed")?.getContext("2d");
+
+    if (ctxLapsLed) {
+        new Chart(ctxLapsLed, {
+            type: "bar",
+            data: {
+                labels: lapsLabels,
+                datasets: [
+                    {
+                        type: "bar",
+                        label: "Tours passés en tête",
+                        data: lapsData,
+                        backgroundColor: "#F7D417",
+                        borderColor: "#FAFAFA",
+                        borderWidth: 0,
+                        borderRadius: 0,
+                        barThickness: 18
+                    },
+                    {
+                        type: "line",
+                        label: "Courbe",
+                        data: lapsData,
+                        borderColor: "#F7D417",
+                        backgroundColor: "#F7D417",
+                        tension: 0.1,
+                        pointBackgroundColor: "#F7D417",
+                        pointBorderColor: "#F7D417",
+                        fill: false
+                    }
+                ]
+            },
+            options: {
+                animation: {
+                    y: {
+                        duration: 1000,
+                        easing: 'easeOutCubic'
+                    }
+                },
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: "#FAFAFA",
+                            font: {
+                                size: 12,
+                                family: "'PPFormula', sans-serif"
+                            }
+                        },
+                        grid: {
+                            color: "rgba(250, 250, 250, 0.5)"
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 500,
+                            color: "#FAFAFA",
+                            font: {
+                                size: 12,
+                                family: "'PPFormula', sans-serif"
+                            }
+                        },
+                        grid: {
+                            color: "rgba(250, 250, 250, 0.5)"
+                        }
+                    }
+                },
+                responsive: true
+            }
+        });
+    }
+
+
+    // -----
+    const rawHatTricks = document.getElementById("hat-tricks-data").textContent;
+    const hatTricks = JSON.parse(rawHatTricks);
+
+    const hatLabels = hatTricks.map(p => p.name);
+    const hatData = hatTricks.map(p => p.hat_tricks);
+
+    const ctxHatTricks = document.getElementById("chartHatTricks")?.getContext("2d");
+
+    if (ctxHatTricks) {
+        new Chart(ctxHatTricks, {
+            type: "bar",
+            data: {
+                labels: hatLabels,
+                datasets: [
+                    {
+                        type: "bar",
+                        label: "Hat-tricks",
+                        data: hatData,
+                        backgroundColor: "#F7D417",
+                        borderColor: "#FAFAFA",
+                        borderWidth: 0,
+                        borderRadius: 0,
+                        barThickness: 18
+                    },
+                    {
+                        type: "line",
+                        label: "Courbe",
+                        data: hatData,
+                        borderColor: "#F7D417",
+                        backgroundColor: "#F7D417",
+                        tension: 0.1,
+                        pointBackgroundColor: "#F7D417",
+                        pointBorderColor: "#F7D417",
+                        fill: false
+                    }
+                ]
+            },
+            options: {
+                animation: {
+                    y: {
+                        duration: 1000,
+                        easing: 'easeOutCubic'
+                    }
+                },
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: "#FAFAFA",
+                            font: {
+                                size: 12,
+                                family: "'PPFormula', sans-serif"
+                            }
+                        },
+                        grid: {
+                            color: "rgba(250, 250, 250, 0.5)"
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 10,
+                            color: "#FAFAFA",
+                            font: {
+                                size: 12,
+                                family: "'PPFormula', sans-serif"
+                            }
+                        },
+                        grid: {
+                            color: "rgba(250, 250, 250, 0.5)"
+                        }
+                    }
+                },
+                responsive: true
+            }
+        });
+    }
+
+
+    // -----
+    const rawTeamLoyalty = document.getElementById("team-loyalty-data").textContent;
+    const teamLoyalty = JSON.parse(rawTeamLoyalty);
+
+    const loyaltyLabels = teamLoyalty.map(p => p.name);
+    const loyaltyData = teamLoyalty.map(p => p.seasons);
+
+    const ctxTeamLoyalty = document.getElementById("chartTeamLoyalty")?.getContext("2d");
+
+    if (ctxTeamLoyalty) {
+        new Chart(ctxTeamLoyalty, {
+            type: "bar",
+            data: {
+                labels: loyaltyLabels,
+                datasets: [
+                    {
+                        type: "bar",
+                        label: "Saisons complètes avec une même écurie",
+                        data: loyaltyData,
+                        backgroundColor: "#F7D417",
+                        borderColor: "#FAFAFA",
+                        borderWidth: 0,
+                        borderRadius: 0,
+                        barThickness: 18
+                    },
+                    {
+                        type: "line",
+                        label: "Courbe",
+                        data: loyaltyData,
+                        borderColor: "#F7D417",
+                        backgroundColor: "#F7D417",
+                        tension: 0.1,
+                        pointBackgroundColor: "#F7D417",
+                        pointBorderColor: "#F7D417",
+                        fill: false
+                    }
+                ]
+            },
+            options: {
+                animation: {
+                    y: {
+                        duration: 1000,
+                        easing: 'easeOutCubic'
+                    }
+                },
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: "#FAFAFA",
+                            font: {
+                                size: 12,
+                                family: "'PPFormula', sans-serif"
+                            }
+                        },
+                        grid: {
+                            color: "rgba(250, 250, 250, 0.5)"
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 1,
+                            color: "#FAFAFA",
+                            font: {
+                                size: 12,
+                                family: "'PPFormula', sans-serif"
+                            }
+                        },
+                        grid: {
+                            color: "rgba(250, 250, 250, 0.5)"
+                        }
+                    }
+                },
+                responsive: true
+            }
+        });
+    }
+
+
+    // -----
+    const rawSummary = document.getElementById("summary-records-data").textContent;
+    const summaryData = JSON.parse(rawSummary);
+
+    const categories = summaryData.map(row => row.label);
+    const drivers = ["Hamilton", "Schumacher", "Vettel", "Verstappen"];
+
+    const driverColors = {
+        "Hamilton": "#00F5D0",
+        "Schumacher": "#cf0e0e",
+        "Vettel": "#000B8D",
+        "Verstappen": "#1434A4"
+    };
+
+    const datasets = drivers.map(driver => ({
+        label: driver,
+        data: summaryData.map(row => row[driver] ?? 0),
+        borderColor: driverColors[driver],
+        backgroundColor: driverColors[driver],
+        tension: 0.2,
+        fill: false,
+        pointBackgroundColor: "#F7D417",
+        pointBorderColor: "#F7D417",
+        pointRadius: 4,
+        pointHoverRadius: 6,
+        borderWidth: 2
+    }));
+
+    const ctxSummary = document.getElementById("chartSummary")?.getContext("2d");
+
+    if (ctxSummary) {
+        new Chart(ctxSummary, {
+            type: "line",
+            data: {
+                labels: categories,
+                datasets: datasets
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: "bottom",
+                        labels: {
+                            color: "#FAFAFA",
+                            font: {
+                                size: 12,
+                                family: "'PPFormula', sans-serif"
+                            }
+                        }
+                    },
+                    tooltip: {
+                        mode: "index",
+                        intersect: false
+                    }
+                },
+                interaction: {
+                    mode: "nearest",
+                    axis: "x",
+                    intersect: false
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: "#FAFAFA",
+                            font: {
+                                size: 12,
+                                family: "'PPFormula', sans-serif"
+                            }
+                        },
+                        grid: {
+                            color: "rgba(250, 250, 250, 0.1)"
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            color: "#FAFAFA",
+                            font: {
+                                size: 12,
+                                family: "'PPFormula', sans-serif"
+                            }
+                        },
+                        grid: {
+                            color: "rgba(250, 250, 250, 0.1)"
+                        }
+                    }
+                }
+            }
+        });
+    }
 }

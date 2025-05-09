@@ -1,9 +1,7 @@
 from flask import Flask, render_template
 from content import history
-from call import get_top_champions, get_top_winners, get_top_poles, get_top_podiums, get_top_wins_with_team, get_top_wins_on_circuit
+from call import get_top_champions, get_top_winners, get_top_poles, get_top_podiums, get_top_wins_with_team, get_top_wins_on_circuit, get_top_unique_circuit_winners, get_top_races_led, get_top_points, get_top_laps_led, get_top_hat_tricks, get_top_team_loyalty, get_summary_records
 
-for pilot in get_top_poles():
-    print(pilot)
 
 app = Flask(__name__, static_folder='static', static_url_path='/static')
 
@@ -23,7 +21,15 @@ def records():
     podiums = get_top_podiums()
     team_wins = get_top_wins_with_team()
     wins_on_circuit = get_top_wins_on_circuit()
-    return render_template("pages/records.html", body_class="body__records", champions=champions, winners=winners, poles=poles, podiums=podiums, team_wins=team_wins, wins_on_circuit=wins_on_circuit)
+    unique_circuits = get_top_unique_circuit_winners()
+    led_races = get_top_races_led()
+    career_points = get_top_points()
+    laps_led = get_top_laps_led()
+    hat_tricks = get_top_hat_tricks()
+    team_loyalty = get_top_team_loyalty()
+    summary_records = get_summary_records()
+
+    return render_template("pages/records.html", body_class="body__records", champions=champions, winners=winners, poles=poles, podiums=podiums, team_wins=team_wins, wins_on_circuit=wins_on_circuit, unique_circuits=unique_circuits, led_races=led_races, career_points=career_points, laps_led=laps_led, hat_tricks=hat_tricks, team_loyalty=team_loyalty, summary_records=summary_records)
 
 @app.route("/voitures")
 def voitures():

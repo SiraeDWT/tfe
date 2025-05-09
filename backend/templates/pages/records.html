@@ -94,31 +94,38 @@
                 </div>
 
                 <div class="records__content hidden" data-id="point-08">
-                    <h2 class="records__title"><span class="records__title--bigger">15</span> saisons avec victoires</h2>
+                    <h2 class="records__title"><span class="records__title--bigger">31</span> circuits différents</h2>
+                    <canvas id="chartUniqueCircuits" class="records__chart"></canvas>
                 </div>
 
                 <div class="records__content hidden" data-id="point-09">
                     <h2 class="records__title"><span class="records__title--bigger">191</span> courses en leader</h2>
+                    <canvas id="chartLedRaces" class="records__chart"></canvas>
                 </div>
 
                 <div class="records__content hidden" data-id="point-10">
                     <h2 class="records__title"><span class="records__title--bigger">4903</span> points accumulés</h2>
+                    <canvas id="chartCareerPoints" class="records__chart"></canvas>
                 </div>
 
                 <div class="records__content hidden" data-id="point-11">
                     <h2 class="records__title"><span class="records__title--bigger">5487</span> tours en leader</h2>
+                    <canvas id="chartLapsLed" class="records__chart"></canvas>
                 </div>
 
                 <div class="records__content hidden" data-id="point-12">
-                    <h2 class="records__title"><span class="records__title--bigger">67</span> meilleurs tours</h2>
+                    <h2 class="records__title"><span class="records__title--bigger">63</span> hat-tricks</h2>
+                    <canvas id="chartHatTricks" class="records__chart"></canvas>
                 </div>
 
                 <div class="records__content hidden" data-id="point-13">
                     <h2 class="records__title"><span class="records__title--bigger">12</span> ans chez Mercedes</h2>
+                    <canvas id="chartTeamLoyalty" class="records__chart"></canvas>
                 </div>
 
                 <div class="records__content hidden" data-id="point-14">
                     <h2 class="records__title"><span class="records__title--bigger">103956</span> km roulés</h2>
+                    <canvas id="chartSummary" class="records__chart records__chart--summary"></canvas>
                 </div>
             </div> 
         </div>
@@ -129,4 +136,11 @@
     <script id="podiums-data" type="application/json">{{ podiums | tojson }}</script>
     <script id="team-wins-data" type="application/json">{{ team_wins | tojson }}</script>
     <script id="circuit-wins-data" type="application/json">{{ wins_on_circuit | tojson }}</script>
+    <script id="unique-circuits-data" type="application/json">{{ unique_circuits | tojson }}</script>
+    <script id="led-races-data" type="application/json">{{ led_races | tojson }}</script>
+    <script id="career-points-data" type="application/json">{{ career_points | tojson }}</script>
+    <script id="laps-led-data" type="application/json">{{ laps_led | tojson }}</script>
+    <script id="hat-tricks-data" type="application/json">{{ hat_tricks | tojson }}</script>
+    <script id="team-loyalty-data" type="application/json">{{ team_loyalty | tojson }}</script>
+    <script id="summary-records-data" type="application/json">{{ summary_records | tojson }}</script>
 {% endblock %}
