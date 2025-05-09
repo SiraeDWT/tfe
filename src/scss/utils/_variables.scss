@@ -64,4 +64,8 @@ $transition-left: 0.25s cubic-bezier(.4, 0, .2, 1) 0s;
 
 
 // Breakpoints
-$breakpoint-mobile: 640px;
+$breakpoint-vsmall: 360px;
+$breakpoint-small: 450px;
+$breakpoint-medium: 600px;
+$breakpoint-large: 1024px;
+$breakpoint-xlarge: 1440px;
