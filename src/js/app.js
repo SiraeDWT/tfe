@@ -58,7 +58,7 @@ window.addEventListener('scroll', function(){
 
 
 // GSAP
-const index = document.querySelector('.home');
+const home = document.querySelector('.body__home');
 const transition = document.querySelector('#transition');
 
 const tl = gsap.timeline();
@@ -90,7 +90,7 @@ mm.add("(max-width: 1439px)", () => {
 
 // Desktop
 mm.add("(min-width: 1440px)", () => {
-    if(index){
+    if(home){
         // Home intro transition
         tl.from("#lh-img-01", {
             x: '-10%',
