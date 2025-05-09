@@ -86,8 +86,9 @@ if(transition){
 // Mobile
 mm.add("(max-width: 1439px)", () => {
     if(home){
+        // Home intro transition
         tl.from(".home__content > *", {
-            x: '-10%',
+            x: '-5%',
             opacity: 0,
             duration: 0.4,
             stagger: 0.2,
@@ -95,6 +96,7 @@ mm.add("(max-width: 1439px)", () => {
         });
 
 
+        // Home citation transition
         gsap.from(".citation__text", {
             duration: 4,
             text: "",
@@ -114,6 +116,157 @@ mm.add("(max-width: 1439px)", () => {
             scrollTrigger: {
                 trigger: '.citation',
                 start: 'top 40%',
+            }
+        });
+
+
+        // Home presentation transition
+        gsap.from('.presentation__title', {
+            x: '-5%',
+            duration: 0.7,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: '.presentation',
+                start: 'top 40%',
+                end: 'bottom 30%',
+            }
+        });
+
+        gsap.from('.presentation__text', {
+            x: '-5%',
+            duration: 0.7,
+            opacity: 0,
+            stagger: 0.2,
+            scrollTrigger: {
+                trigger: '.presentation',
+                start: 'top 40%',
+                end: 'bottom 30%',
+            }
+        });
+
+        gsap.from('.presentation__btn', {
+            x: '-5%',
+            duration: 0.7,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: '.presentation',
+                start: 'top 40%',
+                end: 'bottom 30%',
+            }
+        });
+
+        gsap.from('.presentation__right', {
+            y: '-5%',
+            duration: 1.4,
+            opacity: 0,
+            stagger: 0.2,
+            scrollTrigger: {
+                trigger: '.presentation',
+                start: 'top 40%',
+                end: 'bottom 30%',
+            }
+        });
+
+
+        // Home score scroll transition
+        gsap.from('.score__btn', {
+            x: '-5%',
+            duration: 0.7,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: '.score',
+                start: 'top 40%',
+                end: 'bottom 30%',
+            }
+        });
+
+        const titles = gsap.utils.toArray('.score__title');
+
+        gsap.set(titles, { opacity: 0, x: 100 });
+
+        let tlScore = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".score",
+                start: "top top",
+                end: `+=${(titles.length - 1) * 200 + 100}%`,
+                scrub: true,
+                pin: true,
+                anticipatePin: 1,
+                markers: false
+            }
+        });
+
+        titles.forEach((title, i) => {
+            tlScore.to(title, {
+                opacity: 1,
+                x: 0,
+                duration: 1,
+                ease: "elastic.out(1,0.3)",
+            });
+
+            if(i < titles.length - 1){
+                tlScore.to(title, {
+                opacity: 0,
+                x: -100,
+                duration: 1,
+                ease: "elastic.out(1,0.3)",
+                }, "+=0.5");
+            }
+        });
+
+        const path = document.querySelector('#scorePath');
+        const pathLength = path.getTotalLength();
+
+
+        gsap.set(path, {
+            strokeDasharray: pathLength,
+            strokeDashoffset: -pathLength
+        });
+
+        gsap.to(path, {
+            strokeDashoffset: 0,
+            duration: 7,
+            ease: "power2.out",
+            scrollTrigger: {
+            trigger: ".score",
+            start: "top 80%",
+            toggleActions: "play none none none",
+            }
+        });
+
+
+        // Home cars transitions
+        gsap.from('.cars__title', {
+            x: '-5%',
+            duration: 0.7,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: '.cars',
+                start: 'top 40%',
+                end: 'bottom 30%',
+            }
+        });
+
+        gsap.from('.cars__text', {
+            x: '-5%',
+            duration: 0.7,
+            opacity: 0,
+            stagger: 0.2,
+            scrollTrigger: {
+                trigger: '.cars',
+                start: 'top 40%',
+                end: 'bottom 30%',
+            }
+        });
+
+        gsap.from('.cars__btn', {
+            x: '-5%',
+            duration: 0.7,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: '.cars',
+                start: 'top 40%',
+                end: 'bottom 30%',
             }
         });
     }
