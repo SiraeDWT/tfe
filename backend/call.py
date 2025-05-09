@@ -157,11 +157,11 @@ def get_top_hat_tricks(limit=5):
 
 def get_top_team_loyalty(limit=5):
     team_loyalty = {
-        "Lewis Hamilton (Mercedes)": 12,
-        "Michael Schumacher (Ferrari)": 11,
-        "Max Verstappen (Red Bull)": 9,
-        "Jim Clark (Lotus)": 7,
-        "Ayrton Senna (McLaren)": 6
+        "Lewis Hamilton": 12,
+        "Michael Schumacher": 11,
+        "Max Verstappen": 9,
+        "Jim Clark": 7,
+        "Ayrton Senna": 6
     }
 
     sorted_loyalty = sorted(team_loyalty.items(), key=lambda x: x[1], reverse=True)[:limit]
