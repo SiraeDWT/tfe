@@ -594,78 +594,44 @@ if(bodyParcours){
         display: "none",
         duration: 0.2,
     });
-    
+
+    tl.to(".intro-animation__start", {
+        display: "none"
+    }, "+=0");
+
     tl.call(() => {
-        sections.forEach(section => {
-            section.style.opacity = "1";
-            section.style.pointerEvents = "auto";
+        document.querySelectorAll(".parcours").forEach(el => {
+            el.classList.remove("hidden");
         });
-    
-        scrollEnabled = true;
-        goToSection(0);
     });
-    
-    
-    const sections = gsap.utils.toArray(".parcours");
-    let currentIndex = 0;
-    let isAnimating = false;
-    let scrollEnabled = false;
-    
-    function animateSection(section) {
-        const tl = gsap.timeline();
-    
-        tl.from(section.querySelector(".parcours"), {
-            opacity: 0,
-            display: "none",
+
+
+    tl.call(() => {
+        document.querySelectorAll(".parcours").forEach(section => {
+            const content = section.querySelector(".parcours__content");
+            if (!content) return;
+
+            gsap.fromTo(content,
+                {
+                    opacity: 0,
+                    x: "-15%"
+                },
+                {
+                    opacity: 1,
+                    x: 0,
+                    duration: 0.8,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: content,
+                        start: "top 40%",
+                        toggleActions: "play none none none",
+                        once: true
+                    }
+                }
+            );
         });
-    
-        tl.from(section.querySelector(".parcours__title"), {
-            opacity: 0,
-            x: "-15%",
-            ease: "power2.out"
-        });
-    
-        tl.from(section.querySelectorAll(".parcours__text"), {
-            opacity: 0,
-            x: "-15%",
-            stagger: 0.2,
-            ease: "power2.out"
-        });
-    
-        tl.from(section.querySelector(".parcours__right"), {
-            opacity: 0,
-            x: "15%",
-            ease: "power2.out"
-        }, "-=0.5");
-    }
-    
-    function goToSection(index, direction) {
-        if (isAnimating || index < 0 || index >= sections.length) return;
-    
-        isAnimating = true;
-        currentIndex = index;
-    
-        const easeType = direction === "down" ? "back.out(1.7)" : "back.in(0.4)";
-    
-        gsap.to(window, {
-            duration: 1,
-            scrollTo: { y: sections[index], autoKill: false },
-            ease: easeType,
-            onComplete: () => {
-                isAnimating = false;
-                animateSection(sections[index]);
-            }
-        });
-    }
-    
-    window.addEventListener("wheel", (e) => {
-        if (!scrollEnabled || isAnimating) return;
-    
-        if (e.deltaY > 0) {
-            goToSection(currentIndex + 1, "down");
-        } else if (e.deltaY < 0) {
-            goToSection(currentIndex - 1, "up");
-        }
+        
+        ScrollTrigger.refresh();
     });
 
 
