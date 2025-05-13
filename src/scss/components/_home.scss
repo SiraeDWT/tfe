@@ -496,7 +496,7 @@
     }
 
     &__left{
-        flex-basis: 45%;
+        flex-basis: 50%;
         padding: $space-h4 0 $space-h4 $space-h3;
 
         @include responsive(large){
