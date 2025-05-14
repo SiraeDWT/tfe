@@ -7,9 +7,27 @@
 {% block description %}Admirez des monoplaces légendaires qu'a piloté Lewis Hamilton.{% endblock %}
 
 {% block content %}
-    <section class="voitures">
-        <div class="voitures__panel voitures__panel--first voitures__panel--active" data-index="0"></div>
-        <div class="voitures__panel voitures__panel--second" data-index="1"></div>
-        <div class="voitures__panel voitures__panel--third" data-index="2"></div>
+    <section class="voitures voitures--mclaren" data-slider="0">
+        <div class="voitures__panel voitures__mp4--first voitures__panel--active" data-index="0">
+            <h2 class="voitures__title voitures__title--mclaren">MP4-23</h2>
+        </div>
+        <div class="voitures__panel voitures__mp4--second" data-index="1"></div>
+        <div class="voitures__panel voitures__mp4--third" data-index="2"></div>
+    </section>
+
+    <section class="voitures voitures--mercedes" data-slider="1">
+        <div class="voitures__panel voitures__w05--first voitures__panel--active" data-index="0">
+            <h2 class="voitures__title voitures__title--mercedes">Mercedes W05</h2>
+        </div>
+        <div class="voitures__panel voitures__w05--second" data-index="1"></div>
+        <div class="voitures__panel voitures__w05--third" data-index="2"></div>
+    </section>
+
+    <section class="voitures voitures--mercedes" data-slider="2">
+        <div class="voitures__panel voitures__w11--first voitures__panel--active" data-index="0">
+            <h2 class="voitures__title voitures__title--mercedes">Mercedes W11</h2>
+        </div>
+        <div class="voitures__panel voitures__w11--second" data-index="1"></div>
+        <div class="voitures__panel voitures__w11--third" data-index="2"></div>
     </section>
 {% endblock %}

@@ -5,33 +5,91 @@
     width: 100%;
     height: 100vh;
 
+    &--mclaren{
+        border-bottom: 5px solid $mclaren-primary-color;
+    }
+
+    &--mercedes{
+        border-bottom: 5px solid $mercedes-primary-color;
+    }
+
     &__panel{
+        cursor: pointer;
+
         height: 100%;
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         transition: width 0.6s ease-in-out;
-        cursor: pointer;
-
+        
         width: 2.5%;
+        box-shadow: inset -25px 25px 25px -25px $dark-color;
 
-        box-shadow: inset -25px 0 25px -25px $dark-color;
-
-        &--first {
-            background-image: url('/static/images/voitures/mclaren-mp4-23-face.webp');
-        }
-
-        &--second {
-            background-image: url('/static/images/voitures/mclaren-mp4-23-cote.webp');
-        }
-
-        &--third {
-            background-image: url('/static/images/voitures/mclaren-mp4-23-front.webp');
-        }
+        position: relative;
 
         &--active{
             width: 95%;
             pointer-events: none;
+        }
+    }
+
+    &__mp4{
+        &--first{
+            background-image: url('/static/images/voitures/mclaren-mp4-23-face.webp');
+        }
+
+        &--second{
+            background-image: url('/static/images/voitures/mclaren-mp4-23-cote.webp');
+        }
+
+        &--third{
+            background-image: url('/static/images/voitures/mclaren-mp4-23-front.webp');
+        }
+    }
+
+    &__w05{
+        &--first{
+            background-image: url('/static/images/voitures/mercedes-w05-front.webp');
+        }
+
+        &--second{
+            background-image: url('/static/images/voitures/mercedes-w05-cote.webp');
+        }
+
+        &--third{
+            background-image: url('/static/images/voitures/mercedes-w05-face.webp');
+        }
+    }
+
+    &__w11{
+        &--first{
+            background-image: url('/static/images/voitures/mercedes-w11-front.webp');
+        }
+
+        &--second{
+            background-image: url('/static/images/voitures/mercedes-w11-cote.webp');
+        }
+
+        &--third{
+            background-image: url('/static/images/voitures/mercedes-w11-high.webp');
+        }
+    }
+
+    &__title{
+        font-family: $formulaNarrow;
+        font-size: $h3-font-size;
+
+        position: absolute;
+        bottom: 0; right: $space-h6;
+
+        &--mclaren{
+            color: $mclaren-primary-color;
+            text-shadow: 3px 0px 0px $mclaren-secondary-color;
+        }
+
+        &--mercedes{
+            color: $mercedes-primary-color;
+            text-shadow: 3px 0px 0px $mercedes-secondary-color;
         }
     }
 }
