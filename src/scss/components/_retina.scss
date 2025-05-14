@@ -19,4 +19,49 @@
             background-image: url('/static/images/parcours-background@2x.webp');
         }
     }
+
+    .voitures{
+        &__mp4{
+            &--first{
+                background-image: url('/static/images/voitures/mclaren-mp4-23-face@2x.webp');
+            }
+
+            &--second{
+                background-image: url('/static/images/voitures/mclaren-mp4-23-cote@2x.webp');
+            }
+
+            &--third{
+                background-image: url('/static/images/voitures/mclaren-mp4-23-front@2x.webp');
+            }
+        }
+
+        &__w05{
+            &--first{
+                background-image: url('/static/images/voitures/mercedes-w05-front@2x.webp');
+            }
+
+            &--second{
+                background-image: url('/static/images/voitures/mercedes-w05-cote@2x.webp');
+            }
+
+            &--third{
+                background-image: url('/static/images/voitures/mercedes-w05-face@2x.webp');
+            }
+        }
+
+        &__w11{
+            &--first{
+                background-image: url('/static/images/voitures/mercedes-w11-front@2x.webp');
+            }
+
+            &--second{
+                background-image: url('/static/images/voitures/mercedes-w11-cote@2x.webp');
+            }
+
+            &--third{
+                background-image: url('/static/images/voitures/mercedes-w11-high@2x.webp');
+            }
+        }
+
+    }
 }
