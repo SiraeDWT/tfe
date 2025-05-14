@@ -1833,3 +1833,18 @@ if(bodyRecords){
         });
     }
 }
+
+
+// Page voitures
+let bodyVoitures = document.querySelector('.body__voitures');
+
+if(bodyVoitures){
+    const panels = document.querySelectorAll(".voitures__panel");
+
+    panels.forEach(panel => {
+        panel.addEventListener("click", () => {
+            panels.forEach(p => p.classList.remove("voitures__panel--active"));
+            panel.classList.add("voitures__panel--active");
+        });
+    });
+}

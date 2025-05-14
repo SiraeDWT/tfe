@@ -1,7 +1,15 @@
 {% extends "layout.html" %}
 
-{% block title %}Projet Hamilton{% endblock %}
+{% block title %}Les voitures • LH44{% endblock %}
+{% block ogtitle %}Voitures de Lewis Hamilton{% endblock %}
+{% block ogdescription %}Admirez des monoplaces légendaires qu'a piloté Lewis Hamilton.{% endblock %}
+{% block url %}{{ request.url }}{% endblock %}
+{% block description %}Admirez des monoplaces légendaires qu'a piloté Lewis Hamilton.{% endblock %}
 
 {% block content %}
-
+    <section class="voitures">
+        <div class="voitures__panel voitures__panel--first voitures__panel--active" data-index="0"></div>
+        <div class="voitures__panel voitures__panel--second" data-index="1"></div>
+        <div class="voitures__panel voitures__panel--third" data-index="2"></div>
+    </section>
 {% endblock %}
