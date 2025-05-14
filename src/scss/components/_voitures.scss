@@ -5,14 +5,6 @@
     width: 100%;
     height: 100vh;
 
-    &--mclaren{
-        border-bottom: 5px solid $mclaren-primary-color;
-    }
-
-    &--mercedes{
-        border-bottom: 5px solid $mercedes-primary-color;
-    }
-
     &__panel{
         cursor: pointer;
 
@@ -36,6 +28,22 @@
     &__mp4{
         &--first{
             background-image: url('/static/images/voitures/mclaren-mp4-23-face.webp');
+            
+            position: relative;
+            overflow: hidden;
+
+            &::after{
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 80%;
+                background: linear-gradient(to top, rgba(18,18,18,1), transparent);
+                pointer-events: none;
+
+                z-index: 20;
+            }
         }
 
         &--second{
@@ -50,6 +58,22 @@
     &__w05{
         &--first{
             background-image: url('/static/images/voitures/mercedes-w05-front.webp');
+
+            position: relative;
+            overflow: hidden;
+
+            &::after{
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 80%;
+                background: linear-gradient(to top, rgba(18,18,18,1), transparent);
+                pointer-events: none;
+
+                z-index: 20;
+            }
         }
 
         &--second{
@@ -64,6 +88,22 @@
     &__w11{
         &--first{
             background-image: url('/static/images/voitures/mercedes-w11-front.webp');
+
+            position: relative;
+            overflow: hidden;
+
+            &::after{
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 80%;
+                background: linear-gradient(to top, rgba(18,18,18,1), transparent);
+                pointer-events: none;
+
+                z-index: 20;
+            }
         }
 
         &--second{
@@ -80,7 +120,10 @@
         font-size: $h3-font-size;
 
         position: absolute;
-        bottom: 0; right: $space-h6;
+        transform: translate(-50%, -50%);
+        bottom: 0; left: 50%;
+
+        z-index: 25;
 
         &--mclaren{
             color: $mclaren-primary-color;
