@@ -91,9 +91,13 @@
         transform: translateY(-50%);
 
         position: absolute;
-        right: $space-h3;
+        right: $space-h1;
         top: 50%;
         z-index: 50;
+
+        @include responsive(xxlarge){
+            right: $space-h3;
+        }
 
         @include responsive(large){
             position: static;
@@ -220,7 +224,7 @@
 
     &__content{
         width: 100%;
-        padding: 0 $space-h2;
+        padding: 0 $space-h1;
 
         position: absolute;
         transform: translate(-50%, -50%);
@@ -230,6 +234,10 @@
         font-size: $h4-font-size;
 
         opacity: 1;
+
+        @include responsive(xxlarge){
+            padding: 0 $space-h2;
+        }
 
         @include responsive(large){
             padding: 0 $space-h5;
@@ -351,13 +359,14 @@
     }
 
     &__left{
-        padding: $space-h4 0 $space-h3 $space-h3;
-        flex-basis: 40%; // 45%
+        padding: $space-h4 0 $space-h4 $space-h1;
+        flex-basis: 40%;
 
         overflow-y: auto;
 
         @include responsive(xxlarge){
-            flex-basis: 50%;
+            padding: $space-h4 0 $space-h4 $space-h3;
+            flex-basis: 50%; // 45%
         }
 
         @include responsive(large){
@@ -385,15 +394,16 @@
         //position: sticky;
         //top: 0;
 
-        flex-basis: 40%;
+        flex-basis: 50%;
 
         height: auto;
         max-height: 100vh;
 
-        padding-right: $space-h3;
+        padding-right: $space-h1;
 
         @include responsive(xxlarge){
             padding-right: 0;
+            flex-basis: 40%;
         }
 
         @include responsive(large){
@@ -510,10 +520,11 @@
 
     &__left{
         flex-basis: 40%;
-        padding: $space-h4 0 $space-h4 $space-h3;
+        padding: $space-h4 0 $space-h4 $space-h1;
 
         @include responsive(xxlarge){
             flex-basis: 50%;
+            padding: $space-h4 0 $space-h4 $space-h3;
         }
 
         @include responsive(large){
@@ -553,7 +564,6 @@
 
     &__right{
         flex-basis: 35%;
-        // padding-right: $space-h3;
         
         position: absolute;
         top: 0; right: -5%; bottom: 0;
