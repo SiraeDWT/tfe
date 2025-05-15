@@ -17,31 +17,31 @@ Ce projet combine un **frontend moderne** avec Vite (JS + SCSS) et un **backend 
 
 ### 1. Cloner le projet
 ```bash
-~ git clone https://github.com/user/project.git
-~ cd project
+~ git clone https://github.com/SiraeDWT/tfe.git
+~ cd tfe
 ```
 
 ### 2. Créer l'environnement virtuel et l'activer
 ```bash
 cd backend
-project/backend ~ python3 -m venv venv
-project/backend ~ source ./venv/bin/activate  # Mac/Linux
-project/backend ~ .\venv\Scripts\Activate.ps1 # Windows
+tfe/backend ~ python3 -m venv venv
+tfe/backend ~ source ./venv/bin/activate  # Mac/Linux
+tfe/backend ~ .\venv\Scripts\Activate.ps1 # Windows
 ```
 
 ### 3. Installer les dépendances Python
 ```bash
-(venv) project/backend ~ pip install -r requirements.txt
+(venv) tfe/backend ~ pip install -r requirements.txt
 ```
 
 ### 3-1. Ajouter des dépendances à la liste
 ```bash
-(venv) project/backend ~ pip freeze > requirements.txt
+(venv) tfe/backend ~ pip freeze > requirements.txt
 ```
 
 ### 4. Installer les dépendances frontend à la racine du projet
 ```bash
-project/ ~ npm install
+tfe/ ~ npm install
 ```
 
 ---
@@ -50,13 +50,13 @@ project/ ~ npm install
 
 #### 1. Compiler les fichiers en mode dev
 ```bash
-project/ ~ npm run dev
+tfe/ ~ npm run dev
 ```
 
 #### 2. Lancer le serveur Flask local
 ```bash
 cd backend
-(venv) project/backend ~ python app.py  # http://localhost:5000 / http://127.0.0.1:5000
+(venv) tfe/backend ~ python app.py  # http://localhost:5000 / http://127.0.0.1:5000
 ```
 
 ---
@@ -65,13 +65,13 @@ cd backend
 
 #### 1. Compiler les fichiers et build le projet
 ```bash
-project/ ~ npm run build
+tfe/ ~ npm run build
 ```
 
 #### 2. Lancer Flask pour tester la version production
 ```bash
 cd backend
-(venv) project/backend ~ python app.py  # http://localhost:5000 / http://127.0.0.1:5000
+(venv) tfe/backend ~ python app.py  # http://localhost:5000 / http://127.0.0.1:5000
 ```
 
 ---
@@ -111,7 +111,7 @@ Le dossier `public/` contient les fichiers statiques bruts à copier tels quels 
 
 - `images/` : pour les visuels (.jpg, .png, .webp, etc.)
 
-- `icons/` : pour les fichiers SVG utilisés dans le sprite (`sprite.svg` est généré à partir de ces fichiers)  
+- `svg/` : pour les fichiers SVG (.svg)  
 
 > Ce dossier est recopié tel quel grâce à Vite et sert de base pour les ressources statiques de ton site.
 
@@ -122,7 +122,7 @@ Le workflow embarque par défaut :
 
 - **GSAP** (GreenSock Animation Platform), pour gérer les animations fluides et performantes
 
-- **TailwindCSS**, pour construire l’interface avec des classes modernes
+- **TailwindCSS**, pour construire l’interface avec des classes modernes (purgé si non utilisé)
 
 > Ces deux bibliothèques sont chargées dans le fichier src/js/app.js et sont prêtes à l'emploi dès le démarrage du projet.
 
@@ -140,6 +140,8 @@ project/ ~ npm run build
 project/
 ├── backend/
 │   ├── app.py
+│   ├── content.py
+│   ├── call.py
 │   ├── requirements.txt
 │   ├── static/              # contient les fichiers générés (assets, sprite, images, etc.)
 │   └── templates/           # HTML avec Jinja
@@ -173,8 +175,10 @@ project/backend ~ python app.py
 
 ## 🔗 Liens utiles
 
-- 📁 [Repository GitHub](https://github.com/SiraeDWT/vite-flask-workflow)  
+- 📁 [Repository GitHub](https://github.com/SiraeDWT/tfe)  
 
 - 👨‍💻 Réalisé par [Dylan Vercalsteren](https://dylan-vercalsteren.be/)  
+
+- 🚀 [Projet en ligne](https://dylan-vercalsteren.be/projets/tfe/beta/)
  
 **Dylan Vercalsteren &copy; 2025**  
