@@ -41,11 +41,19 @@
 
         opacity: 1;
 
+        width: 50%;
+
         &--mcl{
             //left: 12%;
-            left: $space-h3;
+            left: $space-h1;
 
             z-index: 19;
+
+            width: 35%;
+
+            @include responsive(xxlarge){
+                left: $space-h3;
+            }
         }
 
         @include responsive(large){
@@ -344,9 +352,13 @@
 
     &__left{
         padding: $space-h4 0 $space-h3 $space-h3;
-        flex-basis: 50%; // 45%
+        flex-basis: 40%; // 45%
 
         overflow-y: auto;
+
+        @include responsive(xxlarge){
+            flex-basis: 50%;
+        }
 
         @include responsive(large){
             padding: $space-h4;
@@ -377,11 +389,12 @@
 
         height: auto;
         max-height: 100vh;
-        //padding-right: $space-h3;
 
-        //display: flex;
-        //justify-content: center;
-        //align-items: center;
+        padding-right: $space-h3;
+
+        @include responsive(xxlarge){
+            padding-right: 0;
+        }
 
         @include responsive(large){
             display: none;
@@ -496,8 +509,12 @@
     }
 
     &__left{
-        flex-basis: 50%;
+        flex-basis: 40%;
         padding: $space-h4 0 $space-h4 $space-h3;
+
+        @include responsive(xxlarge){
+            flex-basis: 50%;
+        }
 
         @include responsive(large){
             padding: $space-h4;
@@ -539,8 +556,14 @@
         // padding-right: $space-h3;
         
         position: absolute;
+        top: 0; right: -5%; bottom: 0;
+
         z-index: 15;
-        top: 0; right: -20%; bottom: 0;
+
+        @include responsive(xxlarge){
+            position: absolute;
+            top: 0; right: -20%; bottom: 0;
+        }
 
         @include responsive(large){
             display: none;
