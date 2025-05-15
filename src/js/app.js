@@ -674,6 +674,37 @@ if(bodyRecords){
     const btnPrev = document.querySelector('[data-action="prev"]');
     const btnNext = document.querySelector('[data-action="next"]');
 
+    const highlightPath = document.getElementById("highlight-path");
+    const totalLength = highlightPath.getTotalLength();
+    highlightPath.style.strokeDasharray = totalLength;
+    highlightPath.style.strokeDashoffset = totalLength;
+
+    const pathProgressByPoint = {
+        "point-01": 0,
+        "point-02": -5,
+        "point-03": -14,
+        "point-04": -20,
+        "point-05": -32,
+        "point-06": -37,
+        "point-07": -40,
+        "point-08": -51,
+        "point-09": -62,
+        "point-10": -65,
+        "point-11": -68,
+        "point-12": -82,
+        "point-13": -92,
+        "point-14": -95,
+    };
+
+    function animatePathToPoint(percent) {
+        const offset = totalLength * (1 - percent / 100);
+        gsap.to(highlightPath, {
+            strokeDashoffset: offset,
+            duration: 1.5,
+            ease: "power2.out"
+        });
+    }
+
     function animateCounter(span, target, duration = 1) {
         const obj = { val: 0 };
 
@@ -687,12 +718,25 @@ if(bodyRecords){
         });
     }
 
+    let previousPointId = null;
+
     function updateUI(activeIndex){
         points.forEach((p, i) => {
             p.classList.toggle("map__point--active", i === activeIndex);
         });
 
+        const targetPoint = points[activeIndex];
         const targetId = points[activeIndex].getAttribute("data-id");
+
+        let progress = pathProgressByPoint[targetId] || 0;
+
+        if (targetId === "point-01" && previousPointId === "point-14") {
+            progress = -100;
+        }
+
+        animatePathToPoint(progress);
+
+        previousPointId = targetId; 
 
         contents.forEach(content => {
             const isTarget = content.getAttribute("data-id") === targetId;

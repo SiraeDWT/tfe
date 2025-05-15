@@ -78,7 +78,7 @@
 
 .map{
 
-    path{
+    &__path{
         stroke: $light-color;
     }
 
@@ -100,4 +100,9 @@
             fill: $secondary-color;
         }
     }
+}
+
+#highlight-path {
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
