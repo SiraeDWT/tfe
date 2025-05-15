@@ -14,10 +14,10 @@ const sprite = new SvgSprite({
   },
 })
 
-const iconsDir = './public/icons'
+const iconsDir = './public/svg'
 
 if (!fs.existsSync(iconsDir)) {
-  console.error('❌ Le dossier public/icons/ est introuvable.')
+  console.error('❌ Le dossier public/svg/ est introuvable.')
   process.exit(1)
 }
 
@@ -37,5 +37,5 @@ sprite.compile((err, result) => {
 
   const output = result.symbol.sprite.contents
   fs.writeFileSync(path.join(iconsDir, 'sprite.svg'), output)
-  console.log('✅ Le fichier sprite.svg généré dans public/icons/')
+  console.log('✅ Le fichier sprite.svg généré dans public/svg/')
 })
