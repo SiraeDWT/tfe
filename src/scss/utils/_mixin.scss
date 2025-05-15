@@ -38,6 +38,12 @@
         }
     }
 
+    @else if $breakpoint == xxlarge{
+        @media (max-width: $breakpoint-xxlarge){
+            @content;
+        }
+    }
+
     @else if meta.type-of($breakpoint) == number{
         @media (max-width: $breakpoint){
             @content;
