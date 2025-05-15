@@ -1838,49 +1838,6 @@ if(bodyRecords){
 // Page voitures
 let bodyVoitures = document.querySelector('.body__voitures');
 
-// if(bodyVoitures){
-//     const panels = document.querySelectorAll(".voitures__panel");
-
-//     panels.forEach(panel => {
-//         panel.addEventListener("click", () => {
-//             panels.forEach(p => p.classList.remove("voitures__panel--active"));
-//             panel.classList.add("voitures__panel--active");
-//         });
-//     });
-// }
-
-// if (bodyVoitures) {
-//     const panels = document.querySelectorAll(".voitures__panel");
-//     let activeIndex = 0;
-
-//     panels.forEach((panel, i) => {
-//         if (panel.classList.contains("voitures__panel--active")) {
-//             activeIndex = i;
-//         }
-//     });
-
-//     panels.forEach((panel, i) => {
-//         panel.addEventListener("click", () => {
-//             panels.forEach(p => p.classList.remove("voitures__panel--active"));
-//             panel.classList.add("voitures__panel--active");
-//             activeIndex = i;
-//         });
-//     });
-
-//     document.addEventListener("keydown", (e) => {
-//         if (e.key === "ArrowRight" && activeIndex < panels.length - 1) {
-//             activeIndex++;
-//         } else if (e.key === "ArrowLeft" && activeIndex > 0) {
-//             activeIndex--;
-//         } else {
-//             return; // on sort si ce n'est pas une touche valide
-//         }
-
-//         panels.forEach(p => p.classList.remove("voitures__panel--active"));
-//         panels[activeIndex].classList.add("voitures__panel--active");
-//     });
-// }
-
 if(bodyVoitures){
     let sliders = document.querySelectorAll(".voitures");
 
