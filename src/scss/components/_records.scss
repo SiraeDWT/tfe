@@ -13,7 +13,14 @@
 
     &__wrapper{
         display: flex;
-        gap: $space-h4;
+        gap: $space-h2;
+
+        padding: $space-h1;
+
+        @include responsive(xxlarge){
+            padding: $space-h3;
+            gap: $space-h4;
+        }
     }
 
     &__left{
