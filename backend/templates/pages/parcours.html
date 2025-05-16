@@ -51,11 +51,13 @@
                                         {% for img_path in details.images %}
                                             <div class="parcours__slide">
                                                 {% set filename = img_path.split('/')[-1] %}
+                                                {% set raw_alt = filename.rsplit('.', 1)[0].replace('-', ' ') %}
+                                                {% set alt_text = raw_alt[0].upper() + raw_alt[1:] %}
                                                 <img 
                                                     src="{{ url_for('static', filename=img_path) }}" 
                                                     srcset="{{ url_for('static', filename=img_path) }} 1x, {{ url_for('static', filename=img_path.replace('.', '@2x.')) }} 2x"
                                                     class="parcours__img" 
-                                                    alt="{{ filename }}">
+                                                    alt="{{ alt_text }}">
                                             </div>
                                         {% endfor %}
                                     </div>
