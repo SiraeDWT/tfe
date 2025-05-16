@@ -230,6 +230,8 @@
             left: 0px;
             z-index: 10;
             border-radius: 0 calc($base/2) calc($base/2) 0;
+            border: 2px solid $primary-color;
+            border-left: none;
 
             svg{
                 rotate: -180deg;
@@ -240,6 +242,8 @@
             z-index: 10;
             right: 0px;
             border-radius: calc($base/2) 0 0 calc($base/2);
+            border: 2px solid $primary-color;
+            border-right: none;
         }
     }
 }
