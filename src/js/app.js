@@ -669,7 +669,6 @@ let bodyRecords = document.querySelector('.body__records');
 
 if(bodyRecords){
     // Records map
-    const points = [...document.querySelectorAll(".map__point")];
     const contents = document.querySelectorAll(".records__content");
     const btnPrev = document.querySelector('[data-action="prev"]');
     const btnNext = document.querySelector('[data-action="next"]');
@@ -722,6 +721,7 @@ if(bodyRecords){
     let previousPointId = null;
 
     function updateUI(activeIndex){
+        const points = [...document.querySelectorAll(".map__point")];
         points.forEach((p, i) => {
             p.classList.toggle("map__point--active", i === activeIndex);
         });
@@ -786,12 +786,72 @@ if(bodyRecords){
         }
     }
 
-    function getActiveIndex(){
-        return points.findIndex(p => p.classList.contains("map__point--active"));
+    function getActiveIndex(points) {
+        return points.findIndex(p => p.classList.contains('map__point--active'));
     }
 
-    points.forEach((point, index) => {
-        point.addEventListener("click", () => updateUI(index));
+    btnNext.addEventListener("click", () => {
+        const points = [...document.querySelectorAll('.map__point')];
+        const current = getActiveIndex(points);
+        const nextIndex = (current + 1) % points.length;
+        updateUI(nextIndex);
+        updateNextPointHalo();
+    });
+
+    btnPrev.addEventListener("click", () => {
+        const points = [...document.querySelectorAll('.map__point')];
+        const current = getActiveIndex(points);
+        const prevIndex = current > 0 ? current - 1 : points.length - 1;
+        updateUI(prevIndex);
+        updateNextPointHalo();
+    });
+
+    [...document.querySelectorAll('.map__point')].forEach((point, index) => {
+        point.addEventListener("click", () => {
+            updateUI(index);
+            updateNextPointHalo();
+        });
+    });
+
+    const mapSvg = document.querySelector('.records__map');
+
+    function updateNextPointHalo() {
+        const points = [...document.querySelectorAll('.map__point')];
+        const activeIndex = points.findIndex(p => p.classList.contains('map__point--active'));
+        if (activeIndex === -1) return;
+
+        const nextIndex = (activeIndex + 1) % points.length;
+        const nextPoint = points[nextIndex];
+
+        mapSvg.querySelectorAll('.dynamic-halo').forEach(el => el.remove());
+
+        const cx = nextPoint.getAttribute('cx');
+        const cy = nextPoint.getAttribute('cy');
+        const r = nextPoint.getAttribute('r');
+
+        const halo = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        halo.setAttribute('cx', cx);
+        halo.setAttribute('cy', cy);
+        halo.setAttribute('r', r);
+        halo.setAttribute('fill', 'none');
+        halo.setAttribute('stroke', '#F8DE51');
+        halo.setAttribute('stroke-width', '4');
+        halo.setAttribute('opacity', '0.4');
+        halo.classList.add('dynamic-halo');
+
+        halo.style.animation = 'none';
+        void halo.offsetWidth;
+        halo.style.animation = 'halo-pulse 1.6s infinite';
+
+        nextPoint.after(halo);
+    }
+
+
+    [...document.querySelectorAll(".map__point")].forEach((point, index) => {
+        point.addEventListener("click", () => {
+            updateUI(index);
+            updateNextPointHalo();
+        });
     });
 
     btnNext.addEventListener("click", () => {
@@ -801,18 +861,27 @@ if(bodyRecords){
         } else{
             updateUI(0);
         }
+        updateNextPointHalo();
     });
 
     btnPrev.addEventListener("click", () => {
         const current = getActiveIndex();
         if (current > 0) updateUI(current - 1);
+        updateNextPointHalo();
     });
 
-    updateUI(getActiveIndex());
+    function initRecordsMap() {
+        const points = [...document.querySelectorAll('.map__point')];
+        if (getActiveIndex(points) === -1) {
+            points[0].classList.add('map__point--active');
+        }
+        updateUI(getActiveIndex(points));
+        updateNextPointHalo();
+    }
+
+    initRecordsMap();
 
 
-
-    
     // Records Charts
     const raw = document.getElementById("champions-data").textContent;
     const champions = JSON.parse(raw);

@@ -106,3 +106,15 @@
     stroke-linecap: round;
     stroke-linejoin: round;
 }
+
+@keyframes halo-pulse{
+    0%   { r: 15; opacity: 0.4; stroke-width: 24; }
+    70%  { r: 70; opacity: 0.15; stroke-width: 12; }
+    100% { r: 100; opacity: 0; stroke-width: 1; }
+}
+
+.dynamic-halo{
+    pointer-events: none;
+    animation: halo-pulse 1.6s infinite;
+    transition: cx 0.2s, cy 0.2s;
+}
