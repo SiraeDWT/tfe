@@ -566,38 +566,38 @@ if(bodyParcours){
         display: "none",
     });
     
-    tl.from(".intro-animation__parallax", {
-        opacity: 0,
-        ease: "cubic-bezier(.4, 0, .2, 1)",
-        y: "100%",
-        duration: 0.2,
-    });
+    // tl.from(".intro-animation__parallax", {
+    //     opacity: 0,
+    //     ease: "cubic-bezier(.4, 0, .2, 1)",
+    //     y: "100%",
+    //     duration: 0.2,
+    // });
     
-    tl.from(".intro-animation__logo", {
-        opacity: 0,
-        x: "-100%",
-        ease: "power2.in",
-        duration: 0.5,
-    }, "+=0.2");
+    // tl.from(".intro-animation__logo", {
+    //     opacity: 0,
+    //     x: "-100%",
+    //     ease: "power2.in",
+    //     duration: 0.5,
+    // }, "+=0.2");
     
-    tl.to(".intro-animation__logo", {
-        opacity: 0,
-        x: "100%",
-        ease: "power2.out",
-        display: "none",
-        duration: 0.5,
-    },);
+    // tl.to(".intro-animation__logo", {
+    //     opacity: 0,
+    //     x: "100%",
+    //     ease: "power2.out",
+    //     display: "none",
+    //     duration: 0.5,
+    // },);
     
-    tl.to(".intro-animation__parallax", {
-        opacity: 0,
-        ease: "cubic-bezier(.4, 0, .2, 1)",
-        display: "none",
-        duration: 0.2,
-    });
+    // tl.to(".intro-animation__parallax", {
+    //     opacity: 0,
+    //     ease: "cubic-bezier(.4, 0, .2, 1)",
+    //     display: "none",
+    //     duration: 0.2,
+    // });
 
     tl.to(".intro-animation__start", {
         display: "none"
-    }, "+=0");
+    }, "-=0.5");
 
     tl.call(() => {
         document.querySelectorAll(".parcours").forEach(el => {
@@ -674,6 +674,7 @@ if(bodyRecords){
     const btnPrev = document.querySelector('[data-action="prev"]');
     const btnNext = document.querySelector('[data-action="next"]');
 
+    // Highlight map
     const highlightPath = document.getElementById("highlight-path");
     const totalLength = highlightPath.getTotalLength();
     highlightPath.style.strokeDasharray = totalLength;
