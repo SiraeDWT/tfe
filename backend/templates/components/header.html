@@ -3,7 +3,7 @@
         <svg id="menu-icon" class="menu__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z"/></svg>
     </button>
     <nav class="menu">
-        <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='images/logo.webp') }}" srcset="{{ url_for('static', filename='images/logo@2x.webp') }} 2x"class="menu__logo" alt="Logo LH44"></a>
+        <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='images/logo.webp') }}" srcset="{{ url_for('static', filename='images/logo@2x.webp') }} 2x" class="menu__logo" alt="Logo LH44"></a>
         <ul class="menu__list">
             <li class="menu__el"><a href="{{ url_for('index') }}" class="menu__link {% if request.path == '/' %}menu__link--active{% endif %}">Accueil</a></li>
             <li class="menu__el"><a href="{{ url_for('parcours') }}" class="menu__link {% if request.path == '/parcours' %}menu__link--active{% endif %}">Parcours</a></li>
