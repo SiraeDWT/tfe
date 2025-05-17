@@ -2,6 +2,12 @@
 
 @media (-webkit-min-device-pixel-ratio: 2),
 (min-resolution: 192dpi) {
+    .home{
+        &__svg{
+            display: none;
+        }
+    }
+
     .citation{
         &::before{
             background-image: url('/static/images/swr-lh@2x.webp');
