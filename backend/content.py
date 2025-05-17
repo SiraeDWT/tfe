@@ -127,7 +127,7 @@ history = {
             "2021": {
                 "title": "Duel historique",
                 "story": [
-                    "Hamilton affronte son adversaire le plus redoutable&nbsp;: Max&nbsp;Verstappen. La saison est intense, dramatique, pleine d’incidents et de controverses. Leur rivalité pousse chacun à leurs limites, provoquant l’histérie de millions de fans à travers le&nbsp;monde.",
+                    "Hamilton affronte son adversaire le plus redoutable&nbsp;: Max&nbsp;Verstappen. La saison est intense, dramatique, pleine d’incidents et de controverses. Leur rivalité pousse chacun à leurs limites, provoquant l’hystérie de millions de fans à travers le&nbsp;monde.",
                     "Le titre se joue jusqu’au dernier virage du Grand&nbsp;Prix d’Abu&nbsp;Dhabi, où une décision controversée prive Hamilton d’un huitième titre historique. Lewis termine vice-champion mais gagne définitivement le cœur de nombreux fans grâce à son fair-play et son sang-froid dans&nbsp;l’adversité.",
                     "Cette saison est probablement la meilleure de tous les&nbsp;temps."
                 ],
@@ -165,8 +165,8 @@ history = {
             "2025": {
                 "title": "Transfert légendaire",
                 "story": [
-                    "Après avoir littéralement retourné le monde du sport automobile avec ce transfert totalement inattendu, Lewis&nbsp;Hamilton fait face à un tout nouveau défis&nbsp;: remporter son huitième titre et faire renouer Ferrari avec une victoire de champion&nbsp;du&nbsp;monde.",
-                    "Le dernière champion&nbsp;du&nbsp;monde avec une Ferrari remonte à 2007, l’année où il a commencé et où il a perdu son potentiel premier titre face à Kimi&nbsp;Raikkonen, alors en rouge à ce&nbsp;moment-là."
+                    "Après avoir littéralement retourné le monde du sport automobile avec ce transfert totalement inattendu, Lewis&nbsp;Hamilton fait face à un tout nouveau défi&nbsp;: remporter son huitième titre et faire renouer Ferrari avec une victoire de champion&nbsp;du&nbsp;monde.",
+                    "Le dernier champion&nbsp;du&nbsp;monde avec une Ferrari remonte à 2007, l’année où il a commencé et où il a perdu son potentiel premier titre face à Kimi&nbsp;Raikkonen, alors en rouge à ce&nbsp;moment-là."
                 ],
                 "images": [
                     "images/parcours/2025/hamilton-casque-ferrari.webp",
