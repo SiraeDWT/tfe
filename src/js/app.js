@@ -760,7 +760,7 @@ if(bodyRecords){
 
                 const counterSpan = content.querySelector(".records__title--bigger");
                 if (counterSpan) {
-                    const target = parseInt(counterSpan.textContent, 10);
+                    const target = parseInt(counterSpan.dataset.target, 10);
                     if (!isNaN(target)) {
                         counterSpan.textContent = "0";
                         animateCounter(counterSpan, target, 1);
