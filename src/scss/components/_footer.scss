@@ -8,6 +8,11 @@
     display: flex;
     align-items: center;
 
+    @include responsive(large){
+        padding: $space-h6 0;
+        height: auto;
+    }
+
     &__content{
         display: flex;
         justify-content: center;
@@ -15,6 +20,16 @@
         gap: $space-h3;
         padding: 0 $space-h5;
         width: 100%;
+
+        @include responsive(large){
+            flex-direction: column;
+            gap: $space-h6;
+        }
+
+        @include responsive(medium){
+            flex-direction: column;
+            gap: $space-h6;
+        }
     }
     
     &__list{
@@ -27,6 +42,10 @@
 
         display: flex;
         gap: calc($space-p/2);
+
+        @include responsive(medium){
+            flex-direction: column;
+        }
     }
     
     &__el a{
