@@ -449,6 +449,11 @@
         z-index: 20;
         pointer-events: none;
 
+        @include responsive(medium){
+            flex-direction: column;
+            gap: calc($space-text/2);
+        }
+
         &--visible{
             opacity: 1;
             transform: translate(-50%, -50%);
@@ -462,6 +467,10 @@
     &__number{
         font-size: scale-font($h1-font-size, $rapport);
         color: $primary-color;
+
+        @include responsive(medium){
+            font-size: $h1-font-size;
+        }
     }
 
     &__content{
@@ -478,6 +487,15 @@
         position: absolute;
         transform: translateX(-50%);
         top: 65%; left: 50%;
+
+        @include responsive(medium){
+            bottom: 15%;
+            top: auto;
+        }
+        
+        @include responsive(small){
+            width: 60%;
+        }
     }
 
     &__svg{
