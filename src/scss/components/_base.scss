@@ -56,7 +56,6 @@ body, html{
 
     font-family: $formula;
     font-weight: 400;
-    // font-style: italic;
     font-size: $p-font-size;
     
     position: relative;
@@ -92,7 +91,6 @@ body, html{
     }
 
     &:active{
-        // transform: translateX(2%);
         transform: scale(90%);
     }
 
