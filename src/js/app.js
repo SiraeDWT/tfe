@@ -620,7 +620,7 @@ if(bodyParcours){
                     opacity: 1,
                     x: 0,
                     duration: 0.8,
-                    ease: "power2.out",
+                    ease: "cubic-bezier(.4, 0, .2, 1)",
                     scrollTrigger: {
                         trigger: content,
                         start: "top 40%",
@@ -630,7 +630,7 @@ if(bodyParcours){
                 }
             );
         });
-        
+
         ScrollTrigger.refresh();
     });
 
