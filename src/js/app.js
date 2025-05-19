@@ -1957,17 +1957,36 @@ if(bodyVoitures){
 
     sliders.forEach((slider, sliderIndex) => {
         const panels = slider.querySelectorAll(".voitures__panel");
+        const dots = slider.querySelectorAll(".voitures__dot");
         let activeIndex = [...panels].findIndex(p => p.classList.contains("voitures__panel--active"));
 
+        function setActive(index) {
+            panels.forEach(p => p.classList.remove("voitures__panel--active"));
+            dots.forEach(d => d.classList.remove("is-active"));
+            panels[index].classList.add("voitures__panel--active");
+            dots[index].classList.add("is-active");
+            activeIndex = index;
+        }
+
         panels.forEach((panel, i) => {
-            panel.addEventListener("click", () => {
-                panels.forEach(p => p.classList.remove("voitures__panel--active"));
-                panel.classList.add("voitures__panel--active");
-                activeIndex = i;
+            panel.addEventListener("click", () => setActive(i));
+        });
+
+        dots.forEach((dot, i) => {
+            dot.addEventListener("click", (e) => {
+                e.stopPropagation();
+                setActive(i);
             });
         });
 
-        // Keyboard navigation only when in viewport
+        function onKeyPress(e) {
+            if (e.key === "ArrowRight" && activeIndex < panels.length - 1) {
+                setActive(activeIndex + 1);
+            } else if (e.key === "ArrowLeft" && activeIndex > 0) {
+                setActive(activeIndex - 1);
+            }
+        }
+
         const observer = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting) {
                 document.addEventListener("keydown", onKeyPress);
@@ -1978,17 +1997,6 @@ if(bodyVoitures){
 
         observer.observe(slider);
 
-        function onKeyPress(e) {
-            if (e.key === "ArrowRight" && activeIndex < panels.length - 1) {
-                activeIndex++;
-            } else if (e.key === "ArrowLeft" && activeIndex > 0) {
-                activeIndex--;
-            } else {
-                return;
-            }
-
-            panels.forEach(p => p.classList.remove("voitures__panel--active"));
-            panels[activeIndex].classList.add("voitures__panel--active");
-        }
+        setActive(activeIndex >= 0 ? activeIndex : 0);
     });
 }

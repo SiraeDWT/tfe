@@ -12,11 +12,12 @@
         <div class="voitures__panel voitures__mp4--first voitures__panel--active" data-index="0">
             <div class="voitures__content">
                 <h2 class="voitures__title voitures__title--mclaren">McLaren MP4-23</h2>
-                <p class="voitures__text">Rapide, agile, équilibrée. Elle incarne la performance brute. Monoplace légendaire d'avant l'ère hybride avec laquelle Hamilton a gagné son premier titre&nbsp;mondial.</p>
+                <p class="voitures__text">Rapide, agile, équilibrée. Elle incarne la performance brute. Monoplace légendaire d'avant l’ère hybride avec laquelle Hamilton a gagné son premier titre&nbsp;mondial.</p>
             </div>
         </div>
         <div class="voitures__panel voitures__mp4--second" data-index="1"></div>
         <div class="voitures__panel voitures__mp4--third" data-index="2"></div>
+        {% include "components/slide-indicator.html" %}
     </section>
 
     <section class="voitures voitures--mercedes" data-slider="1">
@@ -28,16 +29,18 @@
         </div>
         <div class="voitures__panel voitures__w05--second" data-index="1"></div>
         <div class="voitures__panel voitures__w05--third" data-index="2"></div>
+        {% include "components/slide-indicator.html" %}
     </section>
 
     <section class="voitures voitures--mercedes" data-slider="2">
         <div class="voitures__panel voitures__w11--first voitures__panel--active" data-index="0">
             <div class="voitures__content">
                 <h2 class="voitures__title voitures__title--mercedes">Mercedes&nbsp;W11</h2>
-                <p class="voitures__text">Une des monoplaces les plus rapides de l'histoire, elle est l'aboutissement de la domination Mercedes. Elle incarne le cauchemar des autres écuries. Hamilton a gagné son septième titre mondial avec cette légende.</p>
+                <p class="voitures__text">Une des monoplaces les plus rapides de l’histoire, elle est l’aboutissement de la domination Mercedes. Elle incarne le cauchemar des autres écuries. Hamilton a gagné son septième titre mondial avec cette légende.</p>
             </div>
         </div>
         <div class="voitures__panel voitures__w11--second" data-index="1"></div>
         <div class="voitures__panel voitures__w11--third" data-index="2"></div>
+        {% include "components/slide-indicator.html" %}
     </section>
 {% endblock %}
