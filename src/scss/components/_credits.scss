@@ -1,0 +1,52 @@
+@use "../utils/index" as *;
+
+.credits{  
+    background-color: $dark-color;
+    color: $light-color;
+    margin: $space-h3;
+
+    &__title{
+        
+        &--h1{
+            margin: $space-h5 0;
+            font-size: $h3-font-size;
+            color:$primary-color;
+        }
+
+        &--h2{
+            margin: $space-h6 0;
+            font-size: $h4-font-size;
+            font-weight: 700;
+        }
+
+        &--h3{
+            margin-bottom: $space-text;
+            font-size: $h5-font-size;
+            font-weight: 400;
+        }
+    }
+
+    &__list{
+        margin-bottom: $space-h6;
+        padding: 0;
+        list-style: square;
+    }
+
+    &__text{
+        margin-bottom: $space-text;
+
+        &--last{
+            margin-bottom: 0;
+        }
+    }
+
+    &__textuals{
+        margin-bottom: $space-h6;
+        width: 50%;
+    }
+
+    &__el{
+        margin-bottom: $p-font-size;
+        font-size: $p-font-size;
+    }
+}
