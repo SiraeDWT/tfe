@@ -276,12 +276,11 @@
         opacity: 1;
 
         @include responsive(xxlarge){
-            padding: 0 $space-h2;
+            padding: 0 $space-h3;
         }
 
         @include responsive(xlarge){
             font-size: $h5-font-size;
-            padding: 0 $space-h3;
         }
 
         @include responsive(large){
