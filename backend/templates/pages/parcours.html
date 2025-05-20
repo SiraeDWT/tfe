@@ -10,7 +10,7 @@
     <h1 class="parcours__main-title">Le parcours de Lewis Hamilton</h1>
 
     <div class="intro-animation__start">
-        <p>Tout commence lors de la saison 2007 de Formule 1&nbsp;...</p>
+        <p>Tout commence lors de la saison 2007 de&nbsp;Formule&nbsp;1&nbsp;...</p>
     </div>
     <div class="intro-animation__annonce">
         <p class="intro-animation__title">
@@ -19,10 +19,6 @@
             <span class="intro-animation__title--red">McLaren</span>
         </p>
     </div>
-    {# <div class="intro-animation__parallax">
-        <img src="{{ url_for('static', filename='images/lewis.webp') }}" srcset="{{ url_for('static', filename='images/lewis@2x.webp') }} 2x" class="intro-animation__img" alt="Lewis Hamilton qui célèbre une victoire">
-        <img src="{{ url_for('static', filename='images/lh44-red.webp') }}" srcset="{{ url_for('static', filename='images/lh44-red@2x.webp') }} 2x" class="intro-animation__logo" alt="Logo LH44">
-    </div> #}
 
     {% for ecurie, ecurie_data in data.items() %}
         {% for annee, details in ecurie_data.years.items() %}
