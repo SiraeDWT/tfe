@@ -6,6 +6,7 @@
         position: absolute;
         transform: translate(-50%, -50%);
         top: 50%; left: 50%;
+        text-align: center;
     }
 
     &__annonce{
@@ -21,11 +22,19 @@
         color: $light-color;
 
         font-family: 'PPFormulaNarrow';
-        font-size: 144px;
+        font-size: $h1-font-size;
 
         display: flex;
         flex-direction: column;
         align-items: center;
+
+        @include responsive(large){
+            font-size: $h2-font-size;
+        }
+
+        @include responsive(small){
+            font-size: $h3-font-size;
+        }
 
         &--red{
             color: $mclaren-primary-color;
@@ -34,7 +43,6 @@
         span{
             line-height: 120%;
             display: block;
-            // overflow-x: hidden;
         }
     }
 
@@ -86,6 +94,22 @@
         padding: $space-h3 $space-h3 0;
     }
 
+    @include responsive(large){
+        padding: $space-h3 $space-h5 0;
+    }
+
+    @include responsive(xmedium){
+        padding: $space-h3 $space-h6 0;
+    }
+
+    @include responsive(small){
+        padding: $space-h3 $space-p 0;
+    }
+
+    @include responsive(xsmall){
+        padding: $space-h3 $space-text 0;
+    }
+
     &::before{
         content: "";
         position: absolute;
@@ -116,6 +140,11 @@
         @include responsive(xxlarge){
             height: 100vh;
         }
+
+        @include responsive(1280px){
+            flex-direction: column;
+            height: auto;
+        }
     }
 
     &__title{
@@ -127,34 +156,77 @@
         font-size: $h2-font-size;
         font-family: 'PPFormulaNarrow';
 
+        @include responsive(large){
+            font-size: $h3-font-size;
+        }
+
+        @include responsive(xmedium){
+            font-size: $h4-font-size;
+        }
+
         &--mclaren{
             color: $mclaren-primary-color;
+
+            @include responsive(xlarge){
+                line-height: 120%;
+            }
         }
 
         &--mercedes{
             color: $mercedes-primary-color;
+
+            @include responsive(xlarge){
+                line-height: 120%;
+            }
         }
 
         &--ferrari{
             color: $ferrari-primary-color;
+
+            @include responsive(xlarge){
+                line-height: 120%;
+            }
         }
 
         &--ecurie{
             font-size: $h4-font-size;
             text-transform: capitalize;
             margin-bottom: -$space-text;
+
+            @include responsive(xlarge){
+                margin-bottom: 0;
+            }
+
+            @include responsive(xmedium){
+                font-size: $h5-font-size;
+            }
         }
 
         &--year{
             position: absolute;
             transform: translateY(-50%);
             bottom: $space-h4; right: 0;
+
+            @include responsive(1280px){
+                transform: translateY(0);
+                font-size: $h4-font-size;
+                position: static;
+                line-height: 150%;
+            }
+
+            @include responsive(xmedium){
+                font-size: $h5-font-size;
+            }
         }
     }
 
     &__textuals{
         margin: $space-h6 0;
         width: 75%; //65%
+
+        @include responsive(large){
+            width: 100%;
+        }
     }
 
     &__text{
@@ -171,6 +243,10 @@
         @include responsive(xxlarge){
             object-position: center;
         }
+
+        @include responsive(1280px){
+            object-position: top;
+        }
     }
 
     &__carousel{
@@ -182,8 +258,15 @@
         z-index: 5;
 
         @include responsive(xxlarge){
-            width: 500px; // 300px Mac // 400px
-            height: 600px;
+            width: 500px;
+        }
+
+        @include responsive(xlarge){
+            width: 400px;
+        }
+
+        @include responsive(1280px){
+            width: 100%;
         }
     }
 
