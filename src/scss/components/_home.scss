@@ -6,7 +6,9 @@
     width: 100%;
     height: 100vh;
 
-    padding: 0 $space-h3;
+    padding: $space-h3;
+
+    display: flex;
 
     border-bottom: 2px solid $primary-color;
 
@@ -79,24 +81,44 @@
         background-position: center;
         background-repeat: no-repeat;
 
+        @include responsive(xlarge){
+            left: -10%;
+        }
+
+        @include responsive(large){
+            display: none;
+        }
+    }
+
+    &__left{
+        // position: absolute;
+        // top: 50%; left: 0;
+
+        width: 100%;
+        height: 100%;
+
         @include responsive(large){
             display: none;
         }
     }
 
     &__content{
-        display: inline-flex;
-        flex-direction: column;
+        // display: inline-flex;
+        // flex-direction: column;
 
-        transform: translateY(-50%);
+        // transform: translateY(-50%);
 
-        position: absolute;
-        right: $space-h1;
-        top: 50%;
-        z-index: 50;
+        // position: absolute;
+        // right: $space-h1;
+        // top: 50%;
+        // z-index: 50;
 
         @include responsive(xxlarge){
             right: $space-h3;
+        }
+
+        @include responsive(xlarge){
+            right: $space-p;
         }
 
         @include responsive(large){
