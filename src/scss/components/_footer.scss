@@ -47,6 +47,10 @@
             flex-direction: column;
         }
     }
+
+    &__el{
+        text-align: center;
+    }
     
     &__el a{
         font-size: $p-font-size;
