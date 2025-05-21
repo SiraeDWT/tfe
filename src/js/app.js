@@ -665,7 +665,6 @@ if(bodyParcours){
 
         function goToSlide(index) {
             const total = slides.length;
-            console.log(total);
             const newIndex = (index + total) % total;
             gsap.to(slides, {
                 duration: 0.6,
