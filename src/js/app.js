@@ -684,17 +684,16 @@ if(bodyParcours){
 }
 
 
-
-// ----- Records page -----
+// Records page
 let bodyRecords = document.querySelector('.body__records');
 
 if(bodyRecords){
-    // Records map
-    const contents = document.querySelectorAll(".records__content");
+    const contents = Array.from(document.querySelectorAll(".records__content"));
     const btnPrev = document.querySelector('[data-action="prev"]');
     const btnNext = document.querySelector('[data-action="next"]');
-
-    // Highlight map
+    const points = Array.from(document.querySelectorAll('.map__point'));
+    const mapSvg = document.querySelector('.records__map');
+    
     const highlightPath = document.getElementById("highlight-path");
     const totalLength = highlightPath.getTotalLength();
     highlightPath.style.strokeDasharray = totalLength;
@@ -728,7 +727,6 @@ if(bodyRecords){
 
     function animateCounter(span, target, duration = 1) {
         const obj = { val: 0 };
-
         gsap.to(obj, {
             val: target,
             duration: duration,
@@ -739,16 +737,19 @@ if(bodyRecords){
         });
     }
 
+    function getActiveIndex() {
+        return points.findIndex(p => p.classList.contains('map__point--active'));
+    }
+
     let previousPointId = null;
 
     function updateUI(activeIndex){
-        const points = [...document.querySelectorAll(".map__point")];
         points.forEach((p, i) => {
             p.classList.toggle("map__point--active", i === activeIndex);
         });
 
         const targetPoint = points[activeIndex];
-        const targetId = points[activeIndex].getAttribute("data-id");
+        const targetId = targetPoint.getAttribute("data-id");
 
         let progress = pathProgressByPoint[targetId] || 0;
 
@@ -766,10 +767,8 @@ if(bodyRecords){
 
             if (isTarget) {
                 gsap.set(content, {opacity: 1});
-
                 const children = content.querySelectorAll(":scope > *");
                 gsap.set(children, {opacity: 0, x: "-20%"});
-
                 gsap.to(children, {
                     opacity: 1,
                     x: 0,
@@ -777,7 +776,6 @@ if(bodyRecords){
                     ease: "cubic-bezier(.4, 0, .2, 1)",
                     stagger: 0.4,
                 });
-
 
                 const counterSpan = content.querySelector(".records__title--bigger");
                 if (counterSpan) {
@@ -791,7 +789,6 @@ if(bodyRecords){
         });
 
         const spanNextText = btnNext.querySelector('.btn__text');
-
         if (activeIndex === 0) {
             btnPrev.style.display = "none";
             spanNextText.textContent = "Démarrer";
@@ -807,40 +804,9 @@ if(bodyRecords){
         }
     }
 
-    function getActiveIndex(points) {
-        return points.findIndex(p => p.classList.contains('map__point--active'));
-    }
-
-    btnNext.addEventListener("click", () => {
-        const points = [...document.querySelectorAll('.map__point')];
-        const current = getActiveIndex(points);
-        const nextIndex = (current + 1) % points.length;
-        updateUI(nextIndex);
-        updateNextPointHalo();
-    });
-
-    btnPrev.addEventListener("click", () => {
-        const points = [...document.querySelectorAll('.map__point')];
-        const current = getActiveIndex(points);
-        const prevIndex = current > 0 ? current - 1 : points.length - 1;
-        updateUI(prevIndex);
-        updateNextPointHalo();
-    });
-
-    [...document.querySelectorAll('.map__point')].forEach((point, index) => {
-        point.addEventListener("click", () => {
-            updateUI(index);
-            updateNextPointHalo();
-        });
-    });
-
-    const mapSvg = document.querySelector('.records__map');
-
     function updateNextPointHalo() {
-        const points = [...document.querySelectorAll('.map__point')];
-        const activeIndex = points.findIndex(p => p.classList.contains('map__point--active'));
+        const activeIndex = getActiveIndex();
         if (activeIndex === -1) return;
-
         const nextIndex = (activeIndex + 1) % points.length;
         const nextPoint = points[nextIndex];
 
@@ -867,42 +833,37 @@ if(bodyRecords){
         nextPoint.after(halo);
     }
 
+    btnNext.addEventListener("click", () => {
+        const current = getActiveIndex();
+        const nextIndex = (current + 1) % points.length;
+        updateUI(nextIndex);
+        updateNextPointHalo();
+    });
 
-    [...document.querySelectorAll(".map__point")].forEach((point, index) => {
+    btnPrev.addEventListener("click", () => {
+        const current = getActiveIndex();
+        const prevIndex = current > 0 ? current - 1 : points.length - 1;
+        updateUI(prevIndex);
+        updateNextPointHalo();
+    });
+
+    points.forEach((point, index) => {
         point.addEventListener("click", () => {
             updateUI(index);
             updateNextPointHalo();
         });
     });
 
-    btnNext.addEventListener("click", () => {
-        const current = getActiveIndex();
-        if(current < points.length - 1){
-            updateUI(current + 1);
-        } else{
-            updateUI(0);
-        }
-        updateNextPointHalo();
-    });
-
-    btnPrev.addEventListener("click", () => {
-        const current = getActiveIndex();
-        if (current > 0) updateUI(current - 1);
-        updateNextPointHalo();
-    });
-
     function initRecordsMap() {
-        const points = [...document.querySelectorAll('.map__point')];
-        if (getActiveIndex(points) === -1) {
+        if (getActiveIndex() === -1) {
             points[0].classList.add('map__point--active');
         }
-        updateUI(getActiveIndex(points));
+        updateUI(getActiveIndex());
         updateNextPointHalo();
     }
 
     initRecordsMap();
 
-    // Import ChartJS function to show charts (import { initRecordsCharts } from "./components/records.js";)
     initRecordsCharts();
 }
 
