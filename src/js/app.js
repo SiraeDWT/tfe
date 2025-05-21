@@ -832,11 +832,21 @@ if(bodyRecords){
         nextPoint.after(halo);
     }
 
+    function scrollToRecordsDataIfMobile() {
+        if (window.innerWidth < 1024) {
+            const el = document.getElementById('records-data');
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    }
+
     btnNext.addEventListener("click", () => {
         const current = getActiveIndex();
         const nextIndex = (current + 1) % points.length;
         updateUI(nextIndex);
         updateNextPointHalo();
+        scrollToRecordsDataIfMobile();
     });
 
     btnPrev.addEventListener("click", () => {
@@ -844,12 +854,14 @@ if(bodyRecords){
         const prevIndex = current > 0 ? current - 1 : points.length - 1;
         updateUI(prevIndex);
         updateNextPointHalo();
+        scrollToRecordsDataIfMobile();
     });
 
     points.forEach((point, index) => {
         point.addEventListener("click", () => {
             updateUI(index);
             updateNextPointHalo();
+            scrollToRecordsDataIfMobile();
         });
     });
 

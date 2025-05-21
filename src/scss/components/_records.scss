@@ -6,6 +6,10 @@
 
     overflow: hidden;
 
+    @include responsive(1280px){
+        height: auto;
+    }
+
     &__main-title{
         position: absolute;
         left: -100%;
@@ -21,11 +25,39 @@
             padding: $space-h3;
             gap: $space-h4;
         }
+
+        @include responsive(xlarge){
+            padding: $space-h3 $space-h5;
+        }
+
+        @include responsive(1280px){
+            flex-direction: column;
+        }
+
+        @include responsive(large){
+            padding: $space-h3 $space-h5 $space-h5;
+        }
+
+        @include responsive(xmedium){
+            padding: $space-h3 $space-h6 $space-h6;
+        }
+
+        @include responsive(small){
+            padding: $space-h3 $space-p;
+        }
+
+        @include responsive(xsmall){
+            padding: $space-h3 $space-text;
+        }
     }
 
     &__left{
         width: 45%;
         flex-basis: 50%;
+
+        @include responsive(1280px){
+            width: 100%;
+        }
     }
 
     &__buttons{
@@ -35,6 +67,18 @@
 
         &:has(.records__btn--begin){
             justify-content: end;
+        }
+
+        @include responsive(xmedium){
+            flex-direction: column;
+            gap: $space-p;
+        }
+    }
+
+    &__btn{
+        @include responsive(xmedium){
+            width: 100%;
+            justify-content: center;
         }
     }
 
@@ -46,14 +90,34 @@
         font-size: $h3-font-size;
         font-family: 'PPFormulaNarrow';
 
+        @include responsive(xlarge){
+            line-height: 120%;
+        }
+
+        @include responsive(large){
+            font-size: $h4-font-size;
+        }
+
+        @include responsive(medium){
+            font-size: $h5-font-size;
+        }
+
         &--bigger{
             font-size: $h2-font-size;
             color: $primary-color;
+
+            @include responsive(large){
+                font-size: $h3-font-size;
+            }
+
+            @include responsive(medium){
+                font-size: $h4-font-size;
+            }
         }
     }
 
     &__textuals{
-        margin: $space-h6 0;
+        margin: $space-p 0 $space-h6;
     }
 
     &__text{
