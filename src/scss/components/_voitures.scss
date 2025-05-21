@@ -187,6 +187,15 @@
 
         text-align: center;
         width: 100%;
+        width: 1900px;
+
+        @include responsive(xxlarge){
+            width: 1500px;
+        }
+
+        @include responsive(large){
+            width: 900px;
+        }
 
         @include responsive(medium){
             background-color: rgba($dark-color, 0.7);
@@ -196,6 +205,7 @@
             align-items: start;
 
             text-align: left;
+            width: 100%;
         }
     }
 
@@ -207,9 +217,9 @@
             width: 50%;
         }
 
-        @include responsive(xlarge){
-            width: 60%;
-        }
+        // @include responsive(xlarge){
+        //     width: 60%;
+        // }
 
         @include responsive(large){
             width: 70%;
