@@ -8,6 +8,11 @@
     position: relative;
 
     cursor: grab;
+    
+    @include responsive(medium){
+        flex-direction: column;
+        cursor: auto;
+    }
 
     &__main-title{
         position: absolute;
@@ -28,9 +33,30 @@
 
         position: relative;
 
+        @include responsive(xlarge){
+            width: 5%;
+        }
+
+        @include responsive(medium){
+            // display: flex;
+            // flex-direction: column;
+            // width: 100%;
+
+            display: none;
+        }
+
         &--active{
             width: 95%;
             pointer-events: none;
+
+            @include responsive(xlarge){
+                width: 90%;
+            }
+
+            @include responsive(medium){
+                width: 100%;
+                display: flex;
+            }
         }
     }
 
@@ -48,7 +74,7 @@
                 left: 0;
                 width: 100%;
                 height: 80%;
-                background: linear-gradient(to top, rgba(18,18,18,1), transparent);
+                background: linear-gradient(to top, rgba($dark-color,1), transparent);
                 pointer-events: none;
 
                 z-index: 20;
@@ -57,16 +83,24 @@
 
         &--second{
             background-image: url('/static/images/voitures/mclaren-mp4-23-cote.webp');
+
+            @include responsive(medium){
+                display: none;
+            }
         }
 
         &--third{
             background-image: url('/static/images/voitures/mclaren-mp4-23-front.webp');
+
+            @include responsive(medium){
+                display: none;
+            }
         }
     }
 
     &__w05{
         &--first{
-            background-image: url('/static/images/voitures/mercedes-w05-front.webp');
+            background-image: url('/static/images/voitures/mercedes-w05-face.webp');
 
             position: relative;
             overflow: hidden;
@@ -78,7 +112,7 @@
                 left: 0;
                 width: 100%;
                 height: 80%;
-                background: linear-gradient(to top, rgba(18,18,18,1), transparent);
+                background: linear-gradient(to top, rgba($dark-color,1), transparent);
                 pointer-events: none;
 
                 z-index: 20;
@@ -87,10 +121,18 @@
 
         &--second{
             background-image: url('/static/images/voitures/mercedes-w05-cote.webp');
+
+            @include responsive(medium){
+                display: none;
+            }
         }
 
         &--third{
-            background-image: url('/static/images/voitures/mercedes-w05-face.webp');
+            background-image: url('/static/images/voitures/mercedes-w05-front.webp');
+
+            @include responsive(medium){
+                display: none;
+            }
         }
     }
 
@@ -108,7 +150,7 @@
                 left: 0;
                 width: 100%;
                 height: 80%;
-                background: linear-gradient(to top, rgba(18,18,18,1), transparent);
+                background: linear-gradient(to top, rgba($dark-color,1), transparent);
                 pointer-events: none;
 
                 z-index: 20;
@@ -117,17 +159,25 @@
 
         &--second{
             background-image: url('/static/images/voitures/mercedes-w11-cote.webp');
+
+            @include responsive(medium){
+                display: none;
+            }
         }
 
         &--third{
             background-image: url('/static/images/voitures/mercedes-w11-high.webp');
+
+            @include responsive(medium){
+                display: none;
+            }
         }
     }
 
     &__content{
         position: absolute;
-        transform: translate(-50%, -50%);
-        bottom: 0; left: 50%;
+        transform: translateX(-50%);
+        bottom: $space-h3; left: 50%;
 
         display: flex;
         align-items: center;
@@ -136,16 +186,52 @@
         z-index: 25;
 
         text-align: center;
+        width: 100%;
+
+        @include responsive(medium){
+            background-color: rgba($dark-color, 0.7);
+            padding: $space-h6 $space-p;
+            bottom: 0;
+
+            align-items: start;
+
+            text-align: left;
+        }
     }
 
     &__text{
         color: $light-color;
-        width: 900px;
+        width: 40%;
+
+        @include responsive(xxlarge){
+            width: 50%;
+        }
+
+        @include responsive(xlarge){
+            width: 60%;
+        }
+
+        @include responsive(large){
+            width: 70%;
+        }
+
+        @include responsive(medium){
+            width: 100%;
+        }
     }
 
     &__title{
         font-family: $formulaNarrow;
         font-size: $h3-font-size;
+
+        @include responsive(medium){
+            font-size: $h4-font-size;
+            margin-bottom: $space-p;
+        }
+
+        @include responsive(small){
+            font-size: $h5-font-size;
+        }
 
         &--mclaren{
             color: $mclaren-primary-color;
@@ -160,11 +246,17 @@
     &__indicators{
         position: absolute;
         right: $space-h3;
-        bottom: 3rem;
+        bottom: $space-h6;
         z-index: 100;
         display: flex;
         gap: 1rem;
         transform: translateX(-50%);
+
+        @include responsive(medium){
+            // transform: translate(-50%,-50%);
+            // right: auto; left: 50%;
+            display: none;
+        }
     }
 
     &__dot{
