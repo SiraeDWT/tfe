@@ -586,35 +586,6 @@ if(bodyParcours){
     tl.to(".intro-animation__annonce", {
         display: "none",
     });
-    
-    // tl.from(".intro-animation__parallax", {
-    //     opacity: 0,
-    //     ease: "cubic-bezier(.4, 0, .2, 1)",
-    //     y: "100%",
-    //     duration: 0.2,
-    // });
-    
-    // tl.from(".intro-animation__logo", {
-    //     opacity: 0,
-    //     x: "-100%",
-    //     ease: "power2.in",
-    //     duration: 0.5,
-    // }, "+=0.2");
-    
-    // tl.to(".intro-animation__logo", {
-    //     opacity: 0,
-    //     x: "100%",
-    //     ease: "power2.out",
-    //     display: "none",
-    //     duration: 0.5,
-    // },);
-    
-    // tl.to(".intro-animation__parallax", {
-    //     opacity: 0,
-    //     ease: "cubic-bezier(.4, 0, .2, 1)",
-    //     display: "none",
-    //     duration: 0.2,
-    // });
 
     tl.to(".intro-animation__start", {
         display: "none"
