@@ -852,124 +852,158 @@ if(bodyRecords){
 
 // Page voitures
 let bodyVoitures = document.querySelector('.body__voitures');
-const mq = window.matchMedia('(min-width: 768px)');
 
-window.addEventListener('resize', function() {
-    if (mq.matches) {
-        if(bodyVoitures){
-            let sliders = document.querySelectorAll(".voitures");
+if (bodyVoitures) {
+    let sliders = document.querySelectorAll(".voitures");
+    let sliderInstances = [];
 
-            sliders.forEach((slider, sliderIndex) => {
-                const panels = slider.querySelectorAll(".voitures__panel");
-                const dots = slider.querySelectorAll(".voitures__dot");
-                let activeIndex = [...panels].findIndex(p => p.classList.contains("voitures__panel--active"));
+    // Fonction pour activer le slider sur un élément
+    function enableSlider(slider) {
+        const panels = slider.querySelectorAll(".voitures__panel");
+        const dots = slider.querySelectorAll(".voitures__dot");
+        let activeIndex = [...panels].findIndex(p => p.classList.contains("voitures__panel--active"));
 
-                function setActive(index) {
+        function setActive(index) {
+            panels.forEach(p => p.classList.remove("voitures__panel--active"));
+            dots.forEach(d => d.classList.remove("is-active"));
+            panels[index].classList.add("voitures__panel--active");
+            dots[index].classList.add("is-active");
+            activeIndex = index;
+        }
+
+        // Events refs pour clean up
+        const clickPanelHandlers = [];
+        const clickDotHandlers = [];
+
+        panels.forEach((panel, i) => {
+            const handler = () => setActive(i);
+            panel.addEventListener("click", handler);
+            clickPanelHandlers.push({ el: panel, fn: handler });
+        });
+
+        dots.forEach((dot, i) => {
+            const handler = (e) => { e.stopPropagation(); setActive(i); };
+            dot.addEventListener("click", handler);
+            clickDotHandlers.push({ el: dot, fn: handler });
+        });
+
+        function onKeyPress(e) {
+            if (e.key === "ArrowRight" && activeIndex < panels.length - 1) {
+                setActive(activeIndex + 1);
+            } else if (e.key === "ArrowLeft" && activeIndex > 0) {
+                setActive(activeIndex - 1);
+            }
+        }
+
+        function enableKeyboard() {
+            document.addEventListener("keydown", onKeyPress);
+        }
+        function disableKeyboard() {
+            document.removeEventListener("keydown", onKeyPress);
+        }
+        enableKeyboard();
+
+        setActive(activeIndex >= 0 ? activeIndex : 0);
+
+        // Touch events
+        let startX = 0, isDragging = false;
+        function onTouchStart(e) {
+            if (e.touches.length !== 1) return;
+            startX = e.touches[0].clientX;
+            isDragging = true;
+        }
+        function onTouchMove(e) { if (!isDragging) return; }
+        function onTouchEnd(e) {
+            if (!isDragging) return;
+            let endX = e.changedTouches[0].clientX;
+            let deltaX = endX - startX;
+            isDragging = false;
+            const minSwipe = 50;
+            if (Math.abs(deltaX) > minSwipe) {
+                if (deltaX < 0 && activeIndex < panels.length - 1) setActive(activeIndex + 1);
+                else if (deltaX > 0 && activeIndex > 0) setActive(activeIndex - 1);
+            }
+        }
+        slider.addEventListener('touchstart', onTouchStart, { passive: true });
+        slider.addEventListener('touchmove', onTouchMove, { passive: true });
+        slider.addEventListener('touchend', onTouchEnd);
+
+        // Mouse drag
+        let startDragX = 0, mouseDragging = false;
+        function onMouseDown(e) {
+            startDragX = e.clientX;
+            mouseDragging = true;
+            slider.style.userSelect = 'none';
+        }
+        function onMouseUp(e) {
+            if (!mouseDragging) return;
+            let endDragX = e.clientX;
+            let deltaX = endDragX - startDragX;
+            mouseDragging = false;
+            slider.style.userSelect = '';
+            const minSwipe = 50;
+            if (Math.abs(deltaX) > minSwipe) {
+                if (deltaX < 0 && activeIndex < panels.length - 1) setActive(activeIndex + 1);
+                else if (deltaX > 0 && activeIndex > 0) setActive(activeIndex - 1);
+            }
+        }
+        function onMouseLeave() {
+            mouseDragging = false;
+            slider.style.userSelect = '';
+        }
+        slider.addEventListener('mousedown', onMouseDown);
+        slider.addEventListener('mouseup', onMouseUp);
+        slider.addEventListener('mouseleave', onMouseLeave);
+
+        // Pour la désactivation propre
+        return () => {
+            // Remove all listeners
+            clickPanelHandlers.forEach(({ el, fn }) => el.removeEventListener("click", fn));
+            clickDotHandlers.forEach(({ el, fn }) => el.removeEventListener("click", fn));
+            disableKeyboard();
+            slider.removeEventListener('touchstart', onTouchStart);
+            slider.removeEventListener('touchmove', onTouchMove);
+            slider.removeEventListener('touchend', onTouchEnd);
+            slider.removeEventListener('mousedown', onMouseDown);
+            slider.removeEventListener('mouseup', onMouseUp);
+            slider.removeEventListener('mouseleave', onMouseLeave);
+        };
+    }
+
+    // Pour chaque slider, stocke le cleanup
+    sliders.forEach(slider => { sliderInstances.push({ slider, destroy: null }); });
+
+    function handleResize(e) {
+        const isDesktop = window.matchMedia('(min-width: 769px)').matches;
+
+        sliderInstances.forEach(instance => {
+            // Si déjà actif et on descend < 769px, on désactive
+            if (!isDesktop && instance.destroy) {
+                // ----- Correction demandée ici -----
+                // On remet le panel actif sur le premier avant de tout désactiver
+                const panels = instance.slider.querySelectorAll(".voitures__panel");
+                const dots = instance.slider.querySelectorAll(".voitures__dot");
+                const activeIndex = [...panels].findIndex(p => p.classList.contains("voitures__panel--active"));
+                if (activeIndex !== 0) {
                     panels.forEach(p => p.classList.remove("voitures__panel--active"));
                     dots.forEach(d => d.classList.remove("is-active"));
-                    panels[index].classList.add("voitures__panel--active");
-                    dots[index].classList.add("is-active");
-                    activeIndex = index;
+                    panels[0].classList.add("voitures__panel--active");
+                    dots[0].classList.add("is-active");
                 }
 
-                panels.forEach((panel, i) => {
-                    panel.addEventListener("click", () => setActive(i));
-                });
-
-                dots.forEach((dot, i) => {
-                    dot.addEventListener("click", (e) => {
-                        e.stopPropagation();
-                        setActive(i);
-                    });
-                });
-
-                function onKeyPress(e) {
-                    if (e.key === "ArrowRight" && activeIndex < panels.length - 1) {
-                        setActive(activeIndex + 1);
-                    } else if (e.key === "ArrowLeft" && activeIndex > 0) {
-                        setActive(activeIndex - 1);
-                    }
-                }
-
-                const observer = new IntersectionObserver((entries) => {
-                    if (entries[0].isIntersecting) {
-                        document.addEventListener("keydown", onKeyPress);
-                    } else {
-                        document.removeEventListener("keydown", onKeyPress);
-                    }
-                }, { threshold: 0.5 });
-
-                observer.observe(slider);
-
-                setActive(activeIndex >= 0 ? activeIndex : 0);
-
-
-                let startX = 0;
-                let isDragging = false;
-
-                slider.addEventListener('touchstart', (e) => {
-                    if (e.touches.length !== 1) return;
-                    startX = e.touches[0].clientX;
-                    isDragging = true;
-                }, { passive: true });
-
-                slider.addEventListener('touchmove', (e) => {
-                    if (!isDragging) return;
-                }, { passive: true });
-
-                slider.addEventListener('touchend', (e) => {
-                    if (!isDragging) return;
-                    let endX = e.changedTouches[0].clientX;
-                    let deltaX = endX - startX;
-                    isDragging = false;
-                    const minSwipe = 50;
-
-                    if (Math.abs(deltaX) > minSwipe) {
-                        if (deltaX < 0 && activeIndex < panels.length - 1) {
-                            setActive(activeIndex + 1);
-                        } else if (deltaX > 0 && activeIndex > 0) {
-                            setActive(activeIndex - 1);
-                        }
-                    }
-                });
-
-                let startDragX = 0;
-                let mouseDragging = false;
-
-                slider.addEventListener('mousedown', (e) => {
-                    startDragX = e.clientX;
-                    mouseDragging = true;
-                    slider.style.userSelect = 'none';
-                });
-
-                // slider.addEventListener('mousemove', (e) => {
-                //     // optional, add feedback
-                // });
-
-                slider.addEventListener('mouseup', (e) => {
-                    if (!mouseDragging) return;
-                    let endDragX = e.clientX;
-                    let deltaX = endDragX - startDragX;
-                    mouseDragging = false;
-                    slider.style.userSelect = '';
-                    const minSwipe = 50;
-
-                    if (Math.abs(deltaX) > minSwipe) {
-                        if (deltaX < 0 && activeIndex < panels.length - 1) {
-                            setActive(activeIndex + 1);
-                        } else if (deltaX > 0 && activeIndex > 0) {
-                            setActive(activeIndex - 1);
-                        }
-                    }
-                });
-
-                slider.addEventListener('mouseleave', () => {
-                    mouseDragging = false;
-                    slider.style.userSelect = '';
-                });
-            });
-        }
+                // Désactivation du slider
+                instance.destroy();
+                instance.destroy = null;
+            }
+            // Si désactivé et on remonte >= 769px, on active
+            if (isDesktop && !instance.destroy) {
+                instance.destroy = enableSlider(instance.slider);
+            }
+        });
     }
-});
 
+    // Initialisation + écoute des changements de media query
+    window.addEventListener('resize', handleResize);
+    handleResize();
+}
 
