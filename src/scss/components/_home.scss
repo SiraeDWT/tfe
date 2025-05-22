@@ -9,6 +9,7 @@
     padding: $space-h3;
 
     display: flex;
+    align-items: start;
 
     border-bottom: 2px solid $primary-color;
 
@@ -114,8 +115,11 @@
         background-position: center;
         background-repeat: no-repeat;
 
+        @include responsive(xxlarge){
+            left: -12%;
+        }
+
         @include responsive(xlarge){
-            left: -10%;
             display: none;
         }
 
@@ -203,7 +207,7 @@
         }
     }
 
-    &__text {
+    &__text{
         width: 60ch;
         margin-bottom: $space-text;
 
@@ -399,6 +403,18 @@
 
     &__content{
         margin: $space-h6 0 $space-p;
+
+        @include responsive(xlarge){
+            width: 80%;
+        }
+
+        @include responsive(1200px){
+            width: 90%;
+        }
+
+        @include responsive(large){
+            width: 100%;
+        }
     }
 
     &__text{
@@ -643,6 +659,18 @@
 
     &__textuals{
         margin: $space-h6 0 $space-p;
+
+        @include responsive(xlarge){
+            width: 80%;
+        }
+
+        @include responsive(1200px){
+            width: 90%;
+        }
+
+        @include responsive(large){
+            width: 100%;
+        }
     }
 
     &__text{
@@ -721,6 +749,10 @@
         overflow: hidden;
         mix-blend-mode: luminosity;
         opacity: 0.2;
+
+        @include responsive(xlarge){
+
+        }
 
         & video{
             position: absolute;
