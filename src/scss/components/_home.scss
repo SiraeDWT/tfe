@@ -50,6 +50,34 @@
 
         width: 50%;
 
+        &#lh-img-01{
+            @include responsive(xlarge){
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: 0;
+
+                opacity: 0.3;
+                width: 80%;
+            }
+
+            @include responsive(large){
+                display: none;
+            }
+        }
+
+        // @include responsive(xlarge){
+        //     left: 50%;
+        //     transform: translateX(-50%);
+        //     bottom: 0;
+
+        //     opacity: 0.3;
+        //     width: 80%;
+        // }
+
+        // @include responsive(large){
+        //     display: none;
+        // }
+
         &--mcl{
             //left: 12%;
             left: $space-h1;
@@ -65,19 +93,6 @@
             @include responsive(xlarge){
                 display: none;
             }
-        }
-
-        @include responsive(xlarge){
-            left: 50%;
-            transform: translateX(-50%);
-            bottom: 0;
-
-            opacity: 0.3;
-            width: 80%;
-        }
-
-        @include responsive(large){
-            display: none;
         }
     }
 
