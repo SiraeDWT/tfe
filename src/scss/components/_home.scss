@@ -58,7 +58,7 @@
 
         &#lh-img-01{
             @include responsive(xlarge){
-                left: 50%;
+                left: 0;
                 transform: translateX(-50%);
                 bottom: 0;
 
@@ -585,6 +585,11 @@
         position: absolute;
         transform: translateX(-50%);
         top: 65%; left: 50%;
+
+        @include responsive(large){
+            bottom: 25%;
+            top: auto;
+        }
 
         @include responsive(medium){
             bottom: 15%;
