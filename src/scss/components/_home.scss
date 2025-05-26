@@ -13,6 +13,11 @@
 
     border-bottom: 2px solid $primary-color;
 
+    @include responsive(1645px){
+        padding: $space-h3 $space-h6;
+        justify-content: center;
+    }
+
     @include responsive(xlarge){
         padding: $space-h3 auto;
         justify-content: center;
@@ -211,13 +216,22 @@
         width: 60ch;
         margin-bottom: $space-text;
 
-        &--last{
-            margin-bottom: 0;
+        @include responsive(xxlarge){
+            width: 100%;
+        }
+
+        @include responsive(xlarge){
+            width: 60ch;
         }
 
         @include responsive(large){
             width: 100%;
         }
+
+        &--last{
+            margin-bottom: 0;
+        }
+    
     }
 
     .pattern-bg{
