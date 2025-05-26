@@ -247,7 +247,8 @@ mm.add("(max-width: 1439px)", () => {
             scrollTrigger: {
                 trigger: ".score",
                 start: "top top",
-                end: `+=${(titles.length - 1) * 200 + 100}%`,
+                // end: `+=${(titles.length - 1) * 200 + 100}%`,
+                end: `+=${(titles.length - 1) * 100 + 50}%`,
                 scrub: true,
                 pin: true,
                 anticipatePin: 1,
@@ -453,11 +454,11 @@ mm.add("(min-width: 1440px)", () => {
             scrollTrigger: {
                 trigger: ".score",
                 start: "top top",
-                end: `+=${(titles.length - 1) * 200 + 100}%`,
+                // end: `+=${(titles.length - 1) * 200 + 100}%`,
+                end: `+=${(titles.length - 1) * 100 + 50}%`,
                 scrub: true,
                 pin: true,
                 anticipatePin: 1,
-                markers: false
             }
         });
 
