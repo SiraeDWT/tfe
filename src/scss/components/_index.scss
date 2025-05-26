@@ -1,3 +1,5 @@
+@use "../utils/index" as *;
+
 @forward 'retina';
 
 @forward 'base';
@@ -9,3 +11,27 @@
 @forward 'credits';
 @forward 'top';
 @forward 'footer';
+
+@media (max-height: 930px){
+    .parcours{
+        padding: $space-h3 $space-h4;
+
+        &__title{
+            &--mclaren, &--mercedes, &--ferrari{
+                font-size: $h3-font-size;
+                line-height: 120%;
+            }
+
+            &--year{
+                transform: translateY(0);
+                font-size: $h4-font-size;
+                position: static;
+                line-height: 150%;
+            }
+        }
+
+        &__carousel{
+            width: 400px;
+        }
+    }
+}
