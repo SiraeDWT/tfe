@@ -622,6 +622,10 @@
 
     overflow: hidden;
 
+    @include responsive(xxlarge){
+        height: 100%;
+    }
+
     @include responsive(large){
         height: 100%;
     }
@@ -642,6 +646,11 @@
 
         @include responsive(xxlarge){
             flex-basis: 50%;
+            padding: $space-h4 0 $space-h4 $space-h3;
+        }
+
+        @include responsive(1530px){
+            flex-basis: 60%;
             padding: $space-h4 0 $space-h4 $space-h3;
         }
 
@@ -707,7 +716,17 @@
 
         @include responsive(xxlarge){
             position: absolute;
-            top: 0; right: -20%; bottom: 0;
+            top: 0; right: 0; bottom: 0;
+        }
+
+        @include responsive(1700px){
+            position: absolute;
+            right: -10%;
+        }
+
+        @include responsive(1530px){
+            position: absolute;
+            right: -20%;
         }
 
         @include responsive(xlarge){
@@ -749,7 +768,7 @@
 
     &__img{
         width: auto;
-        height: 100vh;
+        height: 100%;
         object-fit: cover;
     }
 
