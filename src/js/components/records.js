@@ -180,90 +180,13 @@ export function initRecordsCharts(){
     // Summary (line chart multi-drivers, légende utile ici)
     {
         const raw = document.getElementById("summary-records-data").textContent;
-        const summaryData = JSON.parse(raw);
+        const kmData = JSON.parse(raw);
 
-        const categories = summaryData.map(row => row.label);
-        const drivers = ["Hamilton", "Schumacher", "Vettel", "Verstappen"];
-
-        const driverColors = {
-            "Hamilton": "#00F5D0",
-            "Schumacher": "#cf0e0e",
-            "Vettel": "#000B8D",
-            "Verstappen": "#1434A4"
-        };
-
-        const datasets = drivers.map(driver => ({
-            label: driver,
-            data: summaryData.map(row => row[driver] ?? 0),
-            borderColor: driverColors[driver],
-            backgroundColor: driverColors[driver],
-            tension: 0.2,
-            fill: false,
-            pointBackgroundColor: driverColors[driver],
-            pointBorderColor: driverColors[driver],
-            pointRadius: 3,
-            pointHoverRadius: 5,
-            borderWidth: 2
-        }));
+        const labels = kmData.map(d => d.name);
+        const data = kmData.map(d => d.km);
 
         const ctx = document.getElementById("chartSummary")?.getContext("2d");
-
-        if (ctx) {
-            new Chart(ctx, {
-                type: "line",
-                data: {
-                    labels: categories,
-                    datasets: datasets
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            position: "bottom",
-                            labels: {
-                                color: axisColor,
-                                font: {
-                                    size: 12,
-                                    family: "'PPFormula', sans-serif"
-                                }
-                            }
-                        },
-                        tooltip: {
-                            mode: "index",
-                            intersect: false
-                        }
-                    },
-                    interaction: {
-                        mode: "nearest",
-                        axis: "x",
-                        intersect: false
-                    },
-                    scales: {
-                        x: {
-                            ticks: {
-                                color: axisColor,
-                                font: {
-                                    size: 12,
-                                    family: "'PPFormula', sans-serif"
-                                }
-                            },
-                            grid: { color: subtleGrid, lineWidth: 0.5 }
-                        },
-                        y: {
-                            beginAtZero: true,
-                            ticks: {
-                                color: axisColor,
-                                font: {
-                                    size: 12,
-                                    family: "'PPFormula', sans-serif"
-                                }
-                            },
-                            grid: { color: subtleGrid, lineWidth: 0.5 }
-                        }
-                    }
-                }
-            });
-        }
+        if (ctx) createMinimalBarChart(ctx, labels, data, "Kilomètres parcourus");
     }
 }
 

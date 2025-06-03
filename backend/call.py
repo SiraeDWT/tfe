@@ -182,14 +182,9 @@ def get_top_team_loyalty(limit=5):
 
 def get_summary_records():
     return [
-        {"label": "Titres", "Hamilton": 7, "Schumacher": 7, "Vettel": 4, "Verstappen": 3},
-        {"label": "Victoires", "Hamilton": 105, "Schumacher": 91, "Vettel": 53, "Verstappen": 59},
-        {"label": "Pôles", "Hamilton": 106, "Schumacher": 68, "Vettel": 57, "Verstappen": 46},
-        {"label": "Podiums", "Hamilton": 202, "Schumacher": 155, "Vettel": 122, "Verstappen": 115},
-        {"label": "Courses menées", "Hamilton": 191, "Schumacher": 142, "Vettel": 101, "Verstappen": 121},
-        {"label": "Tours en tête", "Hamilton": 5487, "Schumacher": 5111, "Vettel": 3501, "Verstappen": 3250},
-        {"label": "Points", "Hamilton": 4903.5, "Schumacher": 1566, "Vettel": 3098, "Verstappen": 2873.5},
-        {"label": "Circuits gagnés", "Hamilton": 31, "Schumacher": 23, "Vettel": 21, "Verstappen": 25},
-        {"label": "Hat-tricks", "Hamilton": 63, "Schumacher": 22, "Vettel": 18, "Verstappen": 15},
-        {"label": "Fidélité à une équipe", "Hamilton": 12, "Schumacher": 11, "Verstappen": 9}
+        {"name": "Alonso", "km": 111392},
+        {"name": "Hamilton", "km": 103956},
+        {"name": "Räikkönen", "km": 96746},
+        {"name": "Schumacher", "km": 84927},
+        {"name": "Button", "km": 82962}
     ]
