@@ -616,9 +616,10 @@ if(bodyParcours){
                     ease: "cubic-bezier(.4, 0, .2, 1)",
                     scrollTrigger: {
                         trigger: content,
-                        start: "top 40%",
+                        start: "-30% 40%",
                         toggleActions: "play none none none",
-                        once: true
+                        once: true,
+                        markers: true,
                     }
                 }
             );
