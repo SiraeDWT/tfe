@@ -619,7 +619,6 @@ if(bodyParcours){
                         start: "-30% 40%",
                         toggleActions: "play none none none",
                         once: true,
-                        markers: true,
                     }
                 }
             );
