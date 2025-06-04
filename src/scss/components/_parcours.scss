@@ -114,6 +114,38 @@
         padding: $space-h3 $space-text 0;
     }
 
+    &--ferrari{
+        padding: $space-h1 $space-h1 0;
+
+        @include responsive(xxlarge){
+            padding: $space-h3 $space-h3 0;
+        }
+
+        @include responsive(1500px){
+            padding: $space-h3 $space-h4 0;
+        }
+
+        @include responsive(1280px){
+            padding: $space-h3 $space-h4;
+        }
+
+        @include responsive(large){
+            padding: $space-h3 $space-h5;
+        }
+
+        @include responsive(xmedium){
+            padding: $space-h3 $space-h6;
+        }
+
+        @include responsive(small){
+            padding: $space-h3 $space-p;
+        }
+
+        @include responsive(xsmall){
+            padding: $space-h3 $space-text;
+        }
+    }
+
     &::before{
         content: "";
         position: absolute;
