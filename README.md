@@ -128,7 +128,7 @@ Le workflow embarque par défaut :
 
 ---
 
-## Déploiement du projet
+## Déploiement du projet via Render
 
 ### ⚠️ Impérativement build le projet avant le déploiement
 ```
@@ -147,6 +147,9 @@ project/
 │   └── templates/           # HTML avec Jinja
 ├── package.json             # (facultatif, seulement si le serveur build le frontend)
 ├── README.md                # toujours bon à avoir
+├── render.yaml              # fichier render
+├── build.sh                 # fichier build
+├── deploy.sh                # fichier deploy
 
 ```
 
@@ -156,7 +159,7 @@ node_modules/              # sera régénéré par npm install
 src/                       # sources non nécessaires une fois buildé
 public/                    # contenu déjà copié dans static/ après build
 venv/                      # ton env local, à recréer sur le serveur
-generate-sprite*.js        # outils de dev uniquement
+generate-sprite.js         # outils de dev uniquement
 postcss.config.cjs         # config du builder
 tailwind.config.js         # config du builder
 vite.config.js             # config du builder
