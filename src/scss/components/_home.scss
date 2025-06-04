@@ -71,19 +71,6 @@
             }
         }
 
-        // @include responsive(xlarge){
-        //     left: 50%;
-        //     transform: translateX(-50%);
-        //     bottom: 0;
-
-        //     opacity: 0.3;
-        //     width: 80%;
-        // }
-
-        // @include responsive(large){
-        //     display: none;
-        // }
-
         &--mcl{
             //left: 12%;
             left: $space-h1;
@@ -484,9 +471,6 @@
     }
 
     &__right{
-        //position: sticky;
-        //top: 0;
-
         flex-basis: 50%;
 
         height: auto;

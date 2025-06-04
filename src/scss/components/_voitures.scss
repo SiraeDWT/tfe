@@ -38,10 +38,6 @@
         }
 
         @include responsive(medium){
-            // display: flex;
-            // flex-direction: column;
-            // width: 100%;
-
             display: none;
         }
 
@@ -217,10 +213,6 @@
             width: 50%;
         }
 
-        // @include responsive(xlarge){
-        //     width: 60%;
-        // }
-
         @include responsive(large){
             width: 70%;
         }
@@ -276,8 +268,6 @@
         transform: translateX(-50%);
 
         @include responsive(medium){
-            // transform: translate(-50%,-50%);
-            // right: auto; left: 50%;
             display: none;
         }
     }

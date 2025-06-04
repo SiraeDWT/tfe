@@ -16,7 +16,6 @@
 
     padding: 0 $space-h5;
 
-    // transform: translateY(-100%);
     transition: transform $transition-left;
 
     @include responsive(medium){
