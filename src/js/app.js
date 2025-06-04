@@ -124,6 +124,8 @@ if(transition){
     });
 }
 
+
+// ScrollSmoother GSAP
 if(document.getElementById('smooth-wrapper')) {
     gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
     let smoother = ScrollSmoother.create({
@@ -611,15 +613,18 @@ if(bodyParcours){
     });
 
 
+
     tl.call(() => {
-        document.querySelectorAll(".parcours").forEach(section => {
+        document.querySelectorAll(".parcours").forEach((section, i) => {
             const content = section.querySelector(".parcours__content");
             if (!content) return;
+
+            const fromX = i % 2 === 0 ? "-15%" : "15%";
 
             gsap.fromTo(content,
                 {
                     opacity: 0,
-                    x: "-15%"
+                    x: fromX
                 },
                 {
                     opacity: 1,
@@ -631,6 +636,16 @@ if(bodyParcours){
                         start: "-30% 40%",
                         toggleActions: "play none none none",
                         once: true,
+                        onEnter: () => {
+                            const texts = content.querySelectorAll('.parcours__text');
+                            gsap.from(texts, {
+                                opacity: 0,
+                                x: fromX,
+                                duration: 0.5,
+                                stagger: 0.2,
+                                ease: "cubic-bezier(.4, 0, .2, 1)"
+                            });
+                        }
                     }
                 }
             );
@@ -638,6 +653,68 @@ if(bodyParcours){
 
         ScrollTrigger.refresh();
     });
+
+    // tl.call(() => {
+    //     document.querySelectorAll(".parcours").forEach((section, i) => {
+    //         const content = section.querySelector(".parcours__content");
+    //         if (!content) return;
+
+    //         const fromX = i % 2 === 0 ? "-15%" : "15%";
+
+    //         gsap.fromTo(content,
+    //             {
+    //                 opacity: 0,
+    //                 x: fromX
+    //             },
+    //             {
+    //                 opacity: 1,
+    //                 x: 0,
+    //                 duration: 0.8,
+    //                 ease: "cubic-bezier(.4, 0, .2, 1)",
+    //                 scrollTrigger: {
+    //                     trigger: content,
+    //                     start: "-30% 40%",
+    //                     toggleActions: "play none none none",
+    //                     once: true,
+    //                 }
+    //             }
+    //         );
+    //     });
+
+    //     ScrollTrigger.refresh();
+    // });
+
+
+
+
+
+    // tl.call(() => {
+    //     document.querySelectorAll(".parcours").forEach(section => {
+    //         const content = section.querySelector(".parcours__content");
+    //         if (!content) return;
+
+    //         gsap.fromTo(content,
+    //             {
+    //                 opacity: 0,
+    //                 x: "-15%"
+    //             },
+    //             {
+    //                 opacity: 1,
+    //                 x: 0,
+    //                 duration: 0.8,
+    //                 ease: "cubic-bezier(.4, 0, .2, 1)",
+    //                 scrollTrigger: {
+    //                     trigger: content,
+    //                     start: "-30% 40%",
+    //                     toggleActions: "play none none none",
+    //                     once: true,
+    //                 }
+    //             }
+    //         );
+    //     });
+
+    //     ScrollTrigger.refresh();
+    // });
 
 
     // Parcours carousel img
