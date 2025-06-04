@@ -39,6 +39,8 @@
     </main>
 
     
-    {% include "components/footer.html" %} 
+    {% if request.endpoint != 'parcours' %}
+        {% include "components/footer.html" %}
+    {% endif %}
 </body>
 </html>

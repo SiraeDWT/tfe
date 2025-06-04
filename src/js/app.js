@@ -9,8 +9,9 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { TextPlugin } from "gsap/TextPlugin";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
 
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, TextPlugin);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, TextPlugin, ScrollSmoother);
 
 import { initRecordsCharts } from "./components/records.js";
 
@@ -120,6 +121,17 @@ if(transition){
         onComplete: () => {
             document.getElementById("transition").style.display = "none";
         }
+    });
+}
+
+if(document.getElementById('smooth-wrapper')) {
+    gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+    let smoother = ScrollSmoother.create({
+        wrapper: '#smooth-wrapper',
+        content: '#smooth-content',
+        smooth: 2,
+        effects: true,
+        normalizeScroll: true
     });
 }
 
