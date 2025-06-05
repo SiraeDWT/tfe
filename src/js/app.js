@@ -637,8 +637,10 @@ if(bodyParcours){
                         toggleActions: "play none none none",
                         once: true,
                         onEnter: () => {
+                            const h2 = content.querySelector('.parcours__title');
                             const texts = content.querySelectorAll('.parcours__text');
-                            gsap.from(texts, {
+                            const elements = [h2, ...texts];
+                            gsap.from(elements, {
                                 opacity: 0,
                                 x: fromX,
                                 duration: 0.5,
@@ -682,7 +684,7 @@ if(bodyParcours){
 }
 
 
-// Records page
+// ----- Records page -----
 let bodyRecords = document.querySelector('.body__records');
 
 if(bodyRecords){
